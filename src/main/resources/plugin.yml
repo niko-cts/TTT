@@ -1,0 +1,10 @@
+name: AUTTT
+version: 0.1
+author: Niko
+main: net.fununity.games.auttt.TTT
+depend:
+  - FunUnityAPI
+  - DatabaseHandler
+  - MinigameSystem
+  - TranslationHandler
+  - NPCSystem
