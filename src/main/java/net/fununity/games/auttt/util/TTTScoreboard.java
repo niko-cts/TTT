@@ -6,33 +6,39 @@ import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.common.util.SpecialChars;
-import net.fununity.main.api.minigames.stats.minigames.StatType;
 import net.fununity.main.api.player.APIPlayer;
 import net.fununity.mgs.Minigame;
 import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.mgs.gamestates.GameState;
 import net.fununity.mgs.language.Constants;
-import net.fununity.mgs.stats.PlayerStatsManager;
 import net.fununity.misc.translationhandler.translations.Language;
-import net.minecraft.server.v1_12_R1.EntityPlayer;
 import net.minecraft.server.v1_12_R1.PacketPlayOutPlayerInfo;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
+/**
+ * The scoreboard utility class for tab and side board.
+ * @author Niko
+ * @since 0.0.1
+ */
 public class TTTScoreboard {
 
     private TTTScoreboard() {
-        throw new UnsupportedOperationException("TTTScoreboard is a uitility class.");
+        throw new UnsupportedOperationException("TTTScoreboard is a utility class.");
     }
 
     private static final String OBJ_NAME = "ttt-scoreboard";
     private static final String LINE_COL = "§8» ";
 
+    /**
+     * Updates the ttt scoreboard for the given player.
+     * @param player TTTPlayer - the ttt player.
+     * @since 0.0.1
+     */
     public static void updateScoreboard(TTTPlayer player) {
         Scoreboard board = player.getApiPlayer().getPlayer().getScoreboard();
         GameLogic game = GameLogic.getInstance();
@@ -60,23 +66,23 @@ public class TTTScoreboard {
         obj.getScore(LINE_COL + "§a" + playerSize + "§7/§a" + game.getStartedPlayerAmount()).setScore(7);
 
         obj.getScore("§a  ").setScore(6);
-        obj.getScore("§7" + language.getTranslation(StatType.KILLS.getTranslationKey())
-                .replace(": §e" + StatType.KILLS.getPlaceHolder(), "")).setScore(5);
-        obj.getScore(LINE_COL + "§e" + PlayerStatsManager.getKills(player.getApiPlayer().getUniqueId()) + " §c§d").setScore(4);
 
 
         long foundTraitors = game.getTTTPlayerByRole(Role.TRAITOR).stream().filter(t -> !t.isAlive() && t.isFound()).count();
-        obj.getScore(" §f ").setScore(3);
-        obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_FOUND_TRAITORS)).setScore(2);
-        obj.getScore(LINE_COL + "§e" + foundTraitors + "§8").setScore(1);
+        obj.getScore(" §f ").setScore(5);
+        obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_FOUND_TRAITORS)).setScore(4);
+        obj.getScore(LINE_COL + "§e" + foundTraitors + "§d").setScore(3);
+
+        obj.getScore(" §d ").setScore(2);
+        obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_COINS)).setScore(1);
+        obj.getScore(LINE_COL + "§e" + player.getCoins() + "§8").setScore(0);
     }
 
 
     /**
      * Updates the tab list for the player.
-     * Will show all player their exact rank.
-     * Will be called in {@link APIPlayer}, when player permission and party have been loaded
-     * @param player Player - Player to update
+     * Will show the given player all current ttt player with there status.
+     * @param player TTTPlayer - Player to update
      */
     public static void updateTablist(TTTPlayer player) {
         APIPlayer apiPlayer = player.getApiPlayer();
@@ -94,11 +100,11 @@ public class TTTScoreboard {
             boolean partyTogether = apiPlayer.getPartyOwner() != null && apiPlayer.getPartyOwner().equals(online.getApiPlayer().getPartyOwner());
 
             // player to online board
-            Team onlineGetsPlayerTeam = getPlayerTeam(player, onlineBoard, partyTogether, online.getRole() == Role.TRAITOR || GameLogic.getInstance().gameManager.isSpectator(online.getApiPlayer().getPlayer()));
+            Team onlineGetsPlayerTeam = getPlayerTeam(player, onlineBoard, partyTogether, online.getRole() == Role.TRAITOR || GameManager.getInstance().isSpectator(online.getApiPlayer().getPlayer()));
             onlineGetsPlayerTeam.addEntry(apiPlayer.getPlayer().getName());
 
             // online to player board
-            Team playerGetsOnlineTeam = getPlayerTeam(online, playerBoard, partyTogether, player.getRole() == Role.TRAITOR || GameLogic.getInstance().gameManager.isSpectator(player.getApiPlayer().getPlayer()));
+            Team playerGetsOnlineTeam = getPlayerTeam(online, playerBoard, partyTogether, player.getRole() == Role.TRAITOR || GameManager.getInstance().isSpectator(player.getApiPlayer().getPlayer()));
             playerGetsOnlineTeam.addEntry(online.getApiPlayer().getPlayer().getName());
         }
 
@@ -110,29 +116,31 @@ public class TTTScoreboard {
     }
 
     /**
-     * Get the team of the player, with suffix and prefix.
-     * @param tttPlayer {@link TTTPlayer} - Player to get the team from
-     * @param board  Scoreboard - Board to add the team
-     * @param party  boolean - Player is in party
-     * @return Team - Created Team
+     * Creates a team with prefix and suffix for the ttt tablist.
+     * @param tttPlayer {@link TTTPlayer} - Player to create the team from
+     * @param board  Scoreboard - Board to create the team on
+     * @param party  boolean - Team gets the party suffix.
+     * @param trueVision boolean - gets the real prefix, according to the current ttt status.
+     * @return Team - the created scoreboard team.
+     * @since 0.0.1
      */
-    private static Team getPlayerTeam(TTTPlayer tttPlayer, Scoreboard board, boolean party, boolean vision) {
+    private static Team getPlayerTeam(TTTPlayer tttPlayer, Scoreboard board, boolean party, boolean trueVision) {
         String teamPriority;
         String prefix;
 
         if (tttPlayer.isFound() || // Player was found
                 (!tttPlayer.isAlive() && // player dead
                         (GameManager.getInstance().getCurrentGameState() == GameState.ENDING || // ending phase
-                                vision))) { // online is traitor
+                                trueVision))) { // online is traitor
             prefix = "§4§l" + SpecialChars.CHROSS + " " + tttPlayer.getRole().getColor();
             teamPriority = "ZZ" + tttPlayer.getRole().ordinal();
         } else if (tttPlayer.getRole() == Role.DETECTIVE ||  // Player is detective
                 GameManager.getInstance().getCurrentGameState() == GameState.ENDING || // ending phase
-                vision) {
+                trueVision) {
             prefix = tttPlayer.getRole().getColor() + "";
             teamPriority = tttPlayer.getRole().ordinal() + "";
         } else {
-            prefix = ChatColor.YELLOW + "";
+            prefix = Role.INNOCENT.getColor() + "";
             teamPriority = Role.INNOCENT.ordinal() + "";
         }
 
@@ -154,6 +162,11 @@ public class TTTScoreboard {
         return team;
     }
 
+    /**
+     * Player dies in game and should be added on the tab list.
+     * @param tttPlayer {@link TTTPlayer} - the player who died.
+     * @since 0.0.1
+     */
     public static void playerDied(TTTPlayer tttPlayer) {
         PacketPlayOutPlayerInfo packet = new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, ((CraftPlayer) tttPlayer.getApiPlayer().getPlayer()).getHandle());
 

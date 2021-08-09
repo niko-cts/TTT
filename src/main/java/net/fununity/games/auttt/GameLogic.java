@@ -1,11 +1,15 @@
 package net.fununity.games.auttt;
 
+import net.fununity.games.auttt.gui.JokerShopGUI;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.player.PlayerCorpse;
 import net.fununity.games.auttt.player.TTTPlayer;
+import net.fununity.games.auttt.util.CoinsUtil;
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.common.util.RandomUtil;
+import net.fununity.main.api.item.ItemBuilder;
+import net.fununity.main.api.minigames.stats.minigames.StatType;
 import net.fununity.main.api.player.BalanceHandler;
 import net.fununity.main.api.server.BroadcastHandler;
 import net.fununity.main.api.server.ServerSetting;
@@ -14,12 +18,12 @@ import net.fununity.mgs.gamespecifc.Arena;
 import net.fununity.mgs.gamestates.Game;
 import net.fununity.mgs.gamestates.GameState;
 import net.fununity.mgs.listener.RunningListener;
+import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -43,9 +47,16 @@ public class GameLogic extends Game {
     public void startMinigame() {
         FunUnityAPI.getInstance().getServerSettings().disable(ServerSetting.FOOD_LEVEL_CHANGE);
 
+        ItemBuilder shop = new ItemBuilder(Material.PAPER).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE);
+        ItemBuilder analyzer = new ItemBuilder(Material.STICK).setName(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE);
+        for (Player player : getPlayers()) {
+            Language lang = FunUnityAPI.getInstance().getPlayerHandler().getPlayer(player).getLanguage();
+            player.getInventory().setItem(7, shop.translate(lang));
+            player.getInventory().setItem(8, analyzer.translate(lang));
+        }
+
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
             if (gameManager.getCurrentGameState() != GameState.INGAME) return;
-
 
             // ROLES SORTING
             int maximumTraitor = (int) Math.min(TTT.getInstance().getMaxTraitorAmount(), Math.round(TTT.getInstance().getTraitorAmount() * getPlayers().size()));
@@ -62,7 +73,10 @@ public class GameLogic extends Game {
                 tttPlayers.add(new TTTPlayer(FunUnityAPI.getInstance().getPlayerHandler().getPlayer(player), Role.INNOCENT));
             }
 
+            JokerShopGUI.payback();
+
             for (TTTPlayer tttPlayer : tttPlayers) {
+                CoinsUtil.startCoins(tttPlayer);
                 tttPlayer.getApiPlayer().getTitleSender().sendTitle(TranslationKeys.ROLE_CALLOUT_TITLE, "${color}",
                         tttPlayer.getRole().getColor() + "", 20 * 5);
                 tttPlayer.getApiPlayer().getTitleSender().sendSubtitle(TranslationKeys.ROLE_CALLOUT_SUBTITLE,
@@ -114,19 +128,20 @@ public class GameLogic extends Game {
             if (innoAlive == 0) {
                 if (tttPlayer.getRole() == Role.TRAITOR)
                     winner.add(tttPlayer.getApiPlayer().getPlayer());
-            } else if(tttPlayer.getRole() != Role.TRAITOR)
+            } else if (tttPlayer.getRole() != Role.TRAITOR)
                 winner.add(tttPlayer.getApiPlayer().getPlayer());
 
             TTTScoreboard.updateScoreboard(tttPlayer);
             TTTScoreboard.updateTablist(tttPlayer);
         }
 
+        CoinsUtil.win(innoAlive == 0 ? Role.TRAITOR : Role.INNOCENT, Role.DETECTIVE);
+
         BroadcastHandler.broadcastMessage(TranslationKeys.ROLE_WON, "${role}", innoAlive == 0 ? Role.TRAITOR.getColoredName() : Role.INNOCENT.getColoredName());
 
         if (Minigame.getInstance().getRewardTokens() != 0)
             for (Player player : winner)
                 BalanceHandler.getInstance().giveMoney(player.getUniqueId(), Minigame.getInstance().getRewardTokens(), false);
-
 
         return winner;
     }
@@ -141,9 +156,17 @@ public class GameLogic extends Game {
         tttPlayer.setAlive(false);
 
         for (TTTPlayer traitor : getTTTPlayerByRole(Role.TRAITOR)) {
-            traitor.getApiPlayer().sendMessage(TranslationKeys.PLAYER_DIED, "${name}", tttPlayer.getRole().getColor() + tttPlayer.getApiPlayer().getPlayer().getName());
+            traitor.getApiPlayer().sendMessage(TranslationKeys.TTT_GAME_PLAYER_DIED, "${name}", tttPlayer.getRole().getColor() + tttPlayer.getApiPlayer().getPlayer().getName());
             traitor.getApiPlayer().playSound(Sound.BLOCK_ANVIL_HIT);
         }
+
+        UUID damager = RunningListener.getLastDamager(player.getUniqueId());
+        if (damager != null) {
+            TTTPlayer damagerTTT = getTTTPlayer(damager);
+            if (damagerTTT != null)
+                CoinsUtil.kill(tttPlayer, damagerTTT);
+        }
+
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
             TTTScoreboard.playerDied(tttPlayer);
             getTTTPlayerByRole(Role.TRAITOR).forEach(TTTScoreboard::updateScoreboard);
@@ -151,16 +174,12 @@ public class GameLogic extends Game {
             TTTScoreboard.updateTablist(tttPlayer);
         }, 2L);
 
-        ItemStack[] inventory = player.getInventory().getContents().clone();
+        new PlayerCorpse(tttPlayer, event);
+
         player.getInventory().clear();
 
-        UUID killerUUID = RunningListener.getLastDamager(player.getUniqueId());
-        Player killer = killerUUID != null ? Bukkit.getPlayer(killerUUID) : null;
-
-        new PlayerCorpse(tttPlayer, inventory, killer != null ? killer.getInventory().getItemInMainHand().clone() : new ItemStack(Material.AIR));
-
         // win check:
-        checkForGameEnd();
+        Bukkit.getScheduler().runTaskLater(TTT.getInstance(), this::checkForGameEnd, 2L);
         return false;
     }
 
@@ -185,21 +204,31 @@ public class GameLogic extends Game {
         long traitorsAlive = tttPlayers.stream().filter(t -> t.getRole() == Role.TRAITOR && isIngame(t.getApiPlayer().getPlayer())).count();
         long innoAlive = tttPlayers.stream().filter(t -> t.getRole() != Role.TRAITOR && isIngame(t.getApiPlayer().getPlayer())).count();
 
-        for (TTTPlayer tttPlayer : getTTTPlayers())
-            TTTScoreboard.updateScoreboard(tttPlayer);
-
         if (traitorsAlive == 0 || innoAlive == 0)
             systemStopGame();
     }
 
     @Override
     public void useExtraLobbyItem(Player player) {
-        // todo: open joker gui
+        JokerShopGUI.open(FunUnityAPI.getInstance().getPlayerHandler().getPlayer(player));
     }
 
     @Override
     public void gameWorldLoaded(Arena arena) {
         // nothing to do here
+    }
+
+    @Override
+    public int calculatePoints(Map<StatType, Double> playerStats) {
+        return super.calculatePoints(playerStats);
+    }
+
+    public Queue<UUID> getTraitorJoker() {
+        return traitorJoker;
+    }
+
+    public Queue<UUID> getDetectiveJoker() {
+        return detectiveJoker;
     }
 
     public List<TTTPlayer> getTTTPlayerByRole(Role... roles) {

@@ -2,9 +2,14 @@ package net.fununity.games.auttt.listener;
 
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.TTT;
+import net.fununity.games.auttt.gui.ShopGUI;
 import net.fununity.games.auttt.player.PlayerCorpse;
+import net.fununity.games.auttt.rooms.RoomsManager;
+import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.item.ItemBuilder;
+import net.fununity.mgs.gamestates.GameManager;
+import net.fununity.mgs.gamestates.GameState;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -102,12 +107,21 @@ public class PlayerInteractListener implements Listener {
 
     @EventHandler
     public void onPlayerRightClicks(PlayerInteractEvent event) {
-        if (event.getAction() != Action.RIGHT_CLICK_BLOCK || !GameLogic.getInstance().isIngame(event.getPlayer())) return;
+        if(GameManager.getInstance().isSpectator(event.getPlayer()) || GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return;
+        if (event.getAction() == Action.RIGHT_CLICK_AIR) {
+           if (event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PAPER) {
+               ShopGUI.open(GameLogic.getInstance().getTTTPlayer(event.getPlayer().getUniqueId()));
+               return;
+           }
+        }
+        if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
         Block block = event.getClickedBlock();
         if (block.getType() == Material.CHEST) {
             event.setCancelled(true);
             block.setType(Material.AIR);
             giveRandomItem(event.getPlayer());
+        } else if (block.getType() == Material.STONE_BUTTON) {
+            RoomsManager.getInstance().checkForActivation(block.getLocation());
         }
     }
 

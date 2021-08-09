@@ -1,10 +1,16 @@
 package net.fununity.games.auttt;
 
+import net.fununity.games.auttt.commands.TraitorCommand;
 import net.fununity.games.auttt.language.EnglishMessage;
+import net.fununity.games.auttt.listener.PlayerDamagesPlayerListener;
+import net.fununity.games.auttt.listener.PlayerDropListener;
 import net.fununity.games.auttt.listener.PlayerInteractListener;
+import net.fununity.games.auttt.listener.PlayerQuitListener;
+import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.main.api.minigames.stats.minigames.Minigames;
 import net.fununity.main.api.util.RegisterUtil;
 import net.fununity.mgs.Minigame;
+import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TTT extends JavaPlugin {
@@ -26,9 +32,9 @@ public class TTT extends JavaPlugin {
 
         new EnglishMessage();
 
-
         RegisterUtil registerUtil = new RegisterUtil(this);
-        registerUtil.addListener(new PlayerInteractListener());
+        registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener());
+        registerUtil.addCommands(new TraitorCommand());
         registerUtil.register();
 
         Minigame ttt = new Minigame("TTT", Minigames.TTT, GameLogic.class);
@@ -37,6 +43,7 @@ public class TTT extends JavaPlugin {
         ttt.setScoreboard(false);
         ttt.setTablist(false);
         ttt.setProtectionTime(30);
+        ttt.setExtraLobbyItem(new ItemBuilder(Material.PAPER).craft());
     }
 
     public double getTraitorAmount() {
