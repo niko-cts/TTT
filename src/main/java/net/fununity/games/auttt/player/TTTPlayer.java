@@ -1,18 +1,19 @@
 package net.fununity.games.auttt.player;
 
 import net.fununity.games.auttt.Role;
-import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.games.auttt.shop.ShopItem;
+import net.fununity.games.auttt.shop.ShopItems;
+import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.player.APIPlayer;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TTTPlayer {
 
     private final APIPlayer player;
     private final Role role;
-    private final List<ShopItem> shopItems;
+    private final Map<ShopItem, ShopItems> shopItems;
     private int coins;
     private boolean alive;
     private boolean found;
@@ -20,7 +21,7 @@ public class TTTPlayer {
     public TTTPlayer(APIPlayer player, Role role) {
         this.player = player;
         this.role = role;
-        this.shopItems = new ArrayList<>();
+        this.shopItems = new HashMap<>();
         this.coins = 0;
         this.alive = true;
         this.found = false;
@@ -34,7 +35,7 @@ public class TTTPlayer {
         return role;
     }
 
-    public List<ShopItem> getShopItems() {
+    public Map<ShopItem, ShopItems> getShopItems() {
         return shopItems;
     }
 

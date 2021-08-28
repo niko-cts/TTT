@@ -42,9 +42,12 @@ public class CorpseInventory {
         this.items[10] = UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer());
 
         if (RandomUtil.getRandom().nextBoolean()) { // death
+            long min = ChronoUnit.MINUTES.between(this.playerCorpse.death, OffsetDateTime.now());
             ItemBuilder item;
-            if (ChronoUnit.MINUTES.between(this.playerCorpse.death, OffsetDateTime.now()) >= 3)
+            if (min >= 5)
                 item = new ItemBuilder(Material.WEB).setName(TranslationKeys.TTT_GUI_CORPSE_TIME_LONG);
+            else if(min >= 2)
+                item = new ItemBuilder(Material.REDSTONE_BLOCK).setName(TranslationKeys.TTT_GUI_CORPSE_TIME_CLOSE);
             else
                 item = new ItemBuilder(Material.REDSTONE).setName(TranslationKeys.TTT_GUI_CORPSE_TIME_CLOSE);
             insertItem(item, RandomUtil.getRandomInt(5));

@@ -20,7 +20,7 @@ public class TranslationKeys {
     public static final String TTT_GAME_PLAYER_FOUND = "ttt.game.player.found";
     public static final String TTT_GAME_PLAYER_KILLED = "ttt.game.player.killed";
     public static final String TTT_GAME_PLAYER_RECEIVED_COINS = "ttt.game.player.receivedcoins";
-
+    public static final String TTT_GAME_PLAYER_CORPSE_NOTFOUND = "ttt.game.player.corpse.notfound";
 
     public static final String TTT_GAME_ITEM_SHOP_NAME = "ttt.game.item.shop.name";
     public static final String TTT_GAME_ITEM_SHOP_LORE = "ttt.game.item.shop.lore";

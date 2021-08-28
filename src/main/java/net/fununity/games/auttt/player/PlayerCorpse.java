@@ -8,6 +8,7 @@ import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.common.util.SpecialChars;
 import net.fununity.main.api.hologram.APIHologram;
+import net.fununity.main.api.hologram.HologramText;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.main.api.item.UsefulItems;
 import net.fununity.main.api.player.APIPlayer;
@@ -36,12 +37,10 @@ public class PlayerCorpse {
     private final NPC npc;
     private final CorpseInventory corpseInventory;
     private TTTPlayer foundBy;
-    private int foundProcess;
 
     public PlayerCorpse(TTTPlayer tttPlayer, PlayerDeathEvent event) {
         this.tttPlayer = tttPlayer;
         this.death = OffsetDateTime.now();
-        this.foundProcess = 0;
 
         this.corpseInventory = new CorpseInventory(this, event);
 
@@ -50,23 +49,14 @@ public class PlayerCorpse {
         this.npc.click(this::clickedOn);
 
         this.hologramLocation = this.npc.getLocation().clone().add(0, 1.8D, 0);
-        updateHologram(ChatColor.DARK_GRAY + SpecialChars.LINE.repeat(FOUND_PROCESS_STEPS));
+        updateHologram(TranslationKeys.TTT_GAME_PLAYER_CORPSE_NOTFOUND, true);
     }
 
     public void clickedOn(PlayerInteractAtNPCEvent event) {
         APIPlayer apiPlayer = event.getPlayer();
         if (foundBy != null || event.getAction() != PacketPlayInUseEntity.EnumEntityUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
                 GameLogic.getInstance().gameManager.isSpectator(apiPlayer.getPlayer())) return;
-        TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
-        if (foundProcess < FOUND_PROCESS_STEPS && tttPlayer.getRole() != Role.DETECTIVE) {
-            if (!apiPlayer.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.STICK))
-                return;
-            foundProcess++;
-            updateHologram(ChatColor.DARK_GREEN + SpecialChars.LINE.repeat(foundProcess) + ChatColor.DARK_GRAY + SpecialChars.LINE.repeat(FOUND_PROCESS_STEPS - foundProcess));
-            return;
-        }
-
-        found(tttPlayer);
+        found(GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId()));
     }
 
     public void found(TTTPlayer foundBy) {
@@ -74,7 +64,7 @@ public class PlayerCorpse {
         this.tttPlayer.setFound(true);
         CoinsUtil.foundBody(foundBy, this.tttPlayer);
 
-        updateHologram(this.tttPlayer.getColoredName());
+        updateHologram(this.tttPlayer.getColoredName(), false);
         this.npc.equip(EnumItemSlot.HEAD, new ItemBuilder(UsefulItems.PLAYER_HEAD).setSkullOwner(this.tttPlayer.getApiPlayer().getDatabasePlayer().getPlayerTextures()).craft());
         this.npc.click((event) -> this.corpseInventory.openGUI(event.getPlayer()));
 
@@ -88,12 +78,16 @@ public class PlayerCorpse {
         }
     }
 
-    private void updateHologram(String line) {
-        APIHologram hologram = new APIHologram(this.hologramLocation, Collections.singletonList(line));
-        FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(on -> {
-            on.hideHolograms(this.hologramLocation);
-            on.showHologram(hologram);
-        });
+    private void updateHologram(String key, boolean translate) {
+        on.hideHolograms(this.hologramLocation);
+        if (translate) {
+            HologramText hologramText = new HologramText();
+            hologramText.addLine(key);
+            FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(on -> on.showHologram(hologramText, this.hologramLocation));
+        } else {
+            APIHologram hologram = new APIHologram(this.hologramLocation, Collections.singletonList(key));
+            FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(on -> on.showHologram(hologram));
+        }
     }
 }
 
