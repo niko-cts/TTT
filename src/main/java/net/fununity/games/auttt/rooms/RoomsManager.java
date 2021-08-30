@@ -26,12 +26,12 @@ public class RoomsManager {
     private RoomsManager(Arena arena) {
         Map<String, List<Location>> locations = arena.getTeamLocations();
         if (locations.containsKey("tester_activate"))
-            this.tester = new Tester(locations.get("tester_room"), locations.get("tester_blocks"), locations.get("tester_activate").get(0));
+            this.tester = new Tester(locations.get("tester_room"), locations.get("tester_reactionblocks"), locations.get("tester_activate").get(0));
         else
             this.tester = null;
 
-        if (locations.containsKey("generator_activate"))
-            this.generator = new Generator(locations.get("generator_activate").get(0));
+        if (locations.containsKey("generator_button"))
+            this.generator = new Generator(locations.get("generator_button").get(0));
         else
             this.generator = null;
     }
@@ -45,4 +45,7 @@ public class RoomsManager {
         }
     }
 
+    public Generator getGenerator() {
+        return generator;
+    }
 }

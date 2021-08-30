@@ -4,14 +4,12 @@ import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
+import net.fununity.games.auttt.shop.traitor.TraitorItems;
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.player.APIPlayer;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
@@ -76,6 +74,9 @@ public class TTTPlayer {
         return getRole().getColor() + getApiPlayer().getPlayer().getName();
     }
 
+
+    // SHOP ITEMS
+
     public List<ShopItem> getShopItemsOfType(ShopItems shopItem) {
         return shopItems.stream().filter(s -> s.getShopItem() == shopItem).collect(Collectors.toList());
     }
@@ -92,5 +93,9 @@ public class TTTPlayer {
 
     public int getShopItemBuyAmounts(ShopItems shopItem) {
         return shopItemBuys.getOrDefault(shopItem, 0);
+    }
+
+    public boolean hasShopItem(ShopItems... shopItems) {
+        return this.shopItems.stream().anyMatch(s -> Arrays.asList(shopItems).contains(s.getShopItem()));
     }
 }

@@ -73,6 +73,12 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.SCOREBOARD_FOUND_TRAITORS, "&6Found Traitor");
         add(TranslationKeys.SCOREBOARD_COINS, "&6Shop coins");
 
+        // GENERATOR
+        add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_DISABLE_BROADCAST, "&cThe Generator was disabled!");
+        add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_DISABLE_NOTHAVE, "&cYou need the Saboteur item shop first"); // ACTIONBAR
+        add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_ENABLE_BROADCAST, "&aThe Generator was reactivated!au");
+        add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_ENABLE_TRYAGAIN, ""); // ACTIONBAR
+
         insertIntoLanguage();
     }
 }

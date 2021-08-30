@@ -10,6 +10,7 @@ import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.main.api.minigames.stats.minigames.Minigames;
 import net.fununity.main.api.util.RegisterUtil;
 import net.fununity.mgs.Minigame;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -43,7 +44,7 @@ public class TTT extends JavaPlugin {
         ttt.setScoreboard(false);
         ttt.setTablist(false);
         ttt.setProtectionTime(30);
-        ttt.setExtraLobbyItem(new ItemBuilder(Material.PAPER).craft());
+        ttt.setExtraLobbyItem(new ItemBuilder(Material.PAPER).setName(ChatColor.GOLD + "JokerGUI").craft());
     }
 
     public double getTraitorAmount() {

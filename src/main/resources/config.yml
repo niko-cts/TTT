@@ -1,5 +1,8 @@
 # Author: Niko
 
+# Special Location names for e.g. rooms are listed below:
+# tester_activate (activation button), tester_room (checking room locations), tester_reactionblocks (reaction blocks)
+# generator_button (activation/disable button for generator)
 
 traitor:
   # Amount of traitors in the round.

@@ -4,6 +4,7 @@ import net.fununity.games.auttt.gui.JokerShopGUI;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.player.PlayerCorpse;
 import net.fununity.games.auttt.player.TTTPlayer;
+import net.fununity.games.auttt.rooms.RoomsManager;
 import net.fununity.games.auttt.util.CoinsUtil;
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
@@ -28,6 +29,12 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * The base game logic class needed for the MinigameSystem.
+ * @see Game
+ * @author Niko
+ * @since 0.0.1
+ */
 public class GameLogic extends Game {
 
     private static GameLogic instance;
@@ -36,6 +43,10 @@ public class GameLogic extends Game {
     private final Queue<UUID> detectiveJoker;
     private final List<TTTPlayer> tttPlayers;
 
+    /**
+     * Instantiates the class and initializes every list.
+     * @since 0.0.1
+     */
     public GameLogic() {
         instance = this;
         this.traitorJoker = new LinkedList<>();
@@ -43,6 +54,11 @@ public class GameLogic extends Game {
         this.tttPlayers = new ArrayList<>();
     }
 
+    /**
+     * Will be called, when the minigame starts.
+     * Gives all players their items and starts the timer for the role selection.
+     * @since 0.0.1
+     */
     @Override
     public void startMinigame() {
         FunUnityAPI.getInstance().getServerSettings().disable(ServerSetting.FOOD_LEVEL_CHANGE);
@@ -62,10 +78,10 @@ public class GameLogic extends Game {
             int maximumTraitor = (int) Math.min(TTT.getInstance().getMaxTraitorAmount(), Math.round(TTT.getInstance().getTraitorAmount() * getPlayers().size()));
             List<Player> players = getPlayers();
 
-            addPlayersToList(maximumTraitor, traitorJoker, players, Role.TRAITOR);
+            addPlayerRole(maximumTraitor, traitorJoker, players, Role.TRAITOR);
 
             int maximumDetectives = TTT.getInstance().getMinAmountForDetective() >= getPlayers().size() ? (int) Math.round(TTT.getInstance().getDetectiveAmount() * getPlayers().size()) : 0;
-            addPlayersToList(maximumDetectives, detectiveJoker, players, Role.DETECTIVE);
+            addPlayerRole(maximumDetectives, detectiveJoker, players, Role.DETECTIVE);
 
             while (!players.isEmpty()) {
                 Player player = players.get(RandomUtil.getRandomInt(players.size()));
@@ -90,9 +106,18 @@ public class GameLogic extends Game {
                 TTTScoreboard.updateTablist(tttPlayer);
             }
         }, 20L * Minigame.getInstance().getProtectionTime());
+        RoomsManager.loadManager(getArena());
     }
 
-    private void addPlayersToList(int amount, Queue<UUID> preferred, List<Player> alternatives, Role role) {
+    /**
+     * Give an amount of players the given role.
+     * @param amount int - amount to add to the list.
+     * @param preferred Queue<UUID> - Prioritized uuids
+     * @param alternatives List<Player> - Alternative Players to add randomly
+     * @param role Role - Role to give the player.
+     * @since 0.0.1
+     */
+    private void addPlayerRole(int amount, Queue<UUID> preferred, List<Player> alternatives, Role role) {
         while (amount > 0) {
             if (alternatives.isEmpty() && preferred.isEmpty()) {
                 TTT.getInstance().getLogger().warning("There are no more players available to fit in the role!");
@@ -111,11 +136,21 @@ public class GameLogic extends Game {
         }
     }
 
+    /**
+     * Will be called every second from the mgs.
+     * @param i - seconds left
+     * @since 0.0.1
+     */
     @Override
     public void minigameCountdown(int i) {
         // nothing to do here
     }
 
+    /**
+     * Will be called, when the minigame ends.
+     * @return List<Player> - All players who won the game
+     * @since 0.0.1
+     */
     @Override
     public List<Player> endMinigame() {
         long innoAlive = tttPlayers.stream().filter(t -> t.getRole() != Role.TRAITOR && isIngame(t.getApiPlayer().getPlayer())).count();
@@ -146,7 +181,13 @@ public class GameLogic extends Game {
         return winner;
     }
 
-
+    /**
+     * Will be called, when a player dies in minigame.
+     * @param player Player - the player who dies.
+     * @param event PlayerDeathEvent - the triggerd event.
+     * @return boolean - player should respawn. (Always on false)
+     * @since 0.0.1
+     */
     @Override
     public boolean playerDiesInMinigame(Player player, PlayerDeathEvent event) {
         event.setDroppedExp(0);
@@ -183,6 +224,12 @@ public class GameLogic extends Game {
         return false;
     }
 
+    /**
+     * Will be called, when a player leaves the game.
+     * Removes the player from the list and checks for game ending.
+     * @param player Player - the player who left.
+     * @since 0.0.1
+     */
     @Override
     public void playerLeaves(Player player) {
         tttPlayers.remove(getTTTPlayer(player.getUniqueId()));
@@ -208,41 +255,79 @@ public class GameLogic extends Game {
             systemStopGame();
     }
 
+    /**
+     * Will be called, when the extra lobby item was used by a player.
+     * WIll open the {@link JokerShopGUI}.
+     * @param player Player - player who clicked.
+     * @since 0.0.1
+     */
     @Override
     public void useExtraLobbyItem(Player player) {
         JokerShopGUI.open(FunUnityAPI.getInstance().getPlayerHandler().getPlayer(player));
     }
 
+    /**
+     * Will be called, when the game world was loaded.
+     * @param arena Arena - arena that was selected.
+     * @since 0.0.1
+     */
     @Override
     public void gameWorldLoaded(Arena arena) {
         // nothing to do here
     }
 
-    @Override
-    public int calculatePoints(Map<StatType, Double> playerStats) {
-        return super.calculatePoints(playerStats);
-    }
-
+    /**
+     * Returns the traitorJoker queue
+     * @return Queue<UUID> - Prioritized Joker list.
+     * @since 0.0.1
+     */
     public Queue<UUID> getTraitorJoker() {
         return traitorJoker;
     }
 
+    /**
+     * Returns the detective joker queue
+     * @return Queue<UUID> - Prioritized Joker list.
+     * @since 0.0.1
+     */
     public Queue<UUID> getDetectiveJoker() {
         return detectiveJoker;
     }
 
+    /**
+     * Returns a list with all players of the given roles.
+     * @param roles Role[] - The whitelisted roles
+     * @return List<TTTPlayer> - All players who have the given roles
+     * @since 0.0.1
+     */
     public List<TTTPlayer> getTTTPlayerByRole(Role... roles) {
         return getTTTPlayers().stream().filter(t -> Arrays.asList(roles).contains(t.getRole())).collect(Collectors.toList());
     }
 
+    /**
+     * Returns the TTTPlayer by their uuid
+     * @param uuid UUID - The uuid of the Player.
+     * @return {@link TTTPlayer} - Instance of the TTTPlayer
+     * @since 0.0.1
+     */
     public TTTPlayer getTTTPlayer(UUID uuid) {
         return tttPlayers.stream().filter(t -> t.getApiPlayer().getUniqueId().equals(uuid)).findFirst().orElse(null);
     }
 
+    /**
+     * Returns all TTTPlayers
+     * @return List<TTTPlayer> - Copied list of all ttt player
+     * @since 0.0.1
+     */
     public List<TTTPlayer> getTTTPlayers() {
         return new ArrayList<>(tttPlayers);
     }
 
+    /**
+     * Returns the instance of this class.
+     * @return {@link GameLogic} - the instance of this class.
+     * @since 0.0.1
+     */
     public static GameLogic getInstance() {
         return instance;
     }

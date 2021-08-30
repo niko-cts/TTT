@@ -73,4 +73,10 @@ public class TranslationKeys {
     public static final String SCOREBOARD_FOUND_TRAITORS = "ttt.scoreboard.foundtraitors";
     public static final String SCOREBOARD_COINS = "ttt.scoreboard.coins";
 
+    public static final String TTT_GAME_ROOM_GENERATOR_DISABLE_BROADCAST = "ttt.game.room.generator.disable.broadcast";
+    public static final String TTT_GAME_ROOM_GENERATOR_DISABLE_NOTHAVE = "ttt.game.room.generator.disable.nothave";
+    public static final String TTT_GAME_ROOM_GENERATOR_ENABLE_BROADCAST = "ttt.game.room.generator.enable.broadcast";
+    public static final String TTT_GAME_ROOM_GENERATOR_ENABLE_TRYAGAIN = "ttt.game.room.generator.enable.tryagain";
+
+
 }

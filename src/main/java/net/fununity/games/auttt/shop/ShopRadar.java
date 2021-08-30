@@ -20,7 +20,7 @@ public class ShopRadar extends ShopItem {
         Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), () -> Bukkit.getOnlinePlayers().stream().min(Comparator.comparingDouble(o -> o.getLocation().distance(getPlayer().getLocation()))).ifPresent(o -> getPlayer().setCompassTarget(o.getLocation())), 0L, 20 * 3L);
     }
 
-    public Player getPlayer() {
+    private Player getPlayer() {
         return tttPlayer.getApiPlayer().getPlayer();
     }
 }
