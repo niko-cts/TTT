@@ -1,5 +1,6 @@
 package net.fununity.games.auttt.gui;
 
+import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.games.auttt.shop.ShopItems;
@@ -11,6 +12,7 @@ import net.fununity.main.api.item.UsefulItems;
 import net.fununity.main.api.player.APIPlayer;
 import net.fununity.main.api.util.Utils;
 import net.fununity.misc.translationhandler.translations.Language;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -50,9 +52,14 @@ public class ShopGUI {
             menu.setItem(i, UsefulItems.BACKGROUND_BLACK);
         menu.setItem(menu.getInventory().getSize() - 5, new ItemBuilder(Material.GOLD_INGOT)
                 .setAmount(Math.max(Math.min(tttPlayer.getCoins(), 64), 1))
-                .setName(lang.getTranslation(TranslationKeys.TTT_GUI_SHOP_COINS_NAME, "${amount}", tttPlayer.getCoins()+""))
+                .setName(lang.getTranslation(TranslationKeys.TTT_GUI_SHOP_COINS_NAME, "${amount}", tttPlayer.getCoins() + ""))
                 .setLore(lang.getTranslation(TranslationKeys.TTT_GUI_SHOP_COINS_LORE).split(";"))
-                .craft());
+                .craft(), new ClickAction(true) {
+            @Override
+            public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
+                Bukkit.getScheduler().runTaskLater(TTT.getInstance(), ()->Bukkit.dispatchCommand(apiPlayer.getPlayer(), "coinsinfo"), 1L);
+            }
+        });
         menu.open(apiPlayer);
     }
 

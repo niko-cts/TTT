@@ -22,6 +22,7 @@ public class RoomsManager {
 
     private final Tester tester;
     private final Generator generator;
+    private final List<Vent> vents;
 
     private RoomsManager(Arena arena) {
         Map<String, List<Location>> locations = arena.getTeamLocations();
@@ -34,6 +35,10 @@ public class RoomsManager {
             this.generator = new Generator(locations.get("generator_button").get(0));
         else
             this.generator = null;
+
+        for(int i=0;i<5;i++) {
+            if(locations.containsKey("vent_" + i) )
+        }
     }
 
     public void checkForActivation(Player player, Location location) {

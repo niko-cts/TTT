@@ -11,6 +11,11 @@ public class TranslationKeys {
     public static final String TTT_COMMAND_TRAITORCHAT_DESCRIPTION = "ttt.command.traitorchat.description";
     public static final String TTT_COMMAND_TRAITORCHAT_NOTALLOWED = "ttt.command.traitorchat.notallowed";
 
+    public static final String TTT_COMMAND_COINSINFO_USAGE = "ttt.command.coinsinfo.usage";
+    public static final String TTT_COMMAND_COINSINFO_DESCRIPTION = "ttt.command.coinsinfo.description";
+    public static final String TTT_COMMAND_COINSINFO_BOOK = "ttt.command.coinsinfo.book";
+
+
     public static final String ROLE_CALLOUT_TITLE = "ttt.role.callout.title";
     public static final String ROLE_CALLOUT_SUBTITLE = "ttt.role.callout.subtitle";
     public static final String ROLE_CALLOUT_TEXT = "ttt.role.callout.text";

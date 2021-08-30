@@ -12,6 +12,10 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_COMMAND_TRAITORCHAT_DESCRIPTION, "&7Send a message to all traitor.");
         add(TranslationKeys.TTT_COMMAND_TRAITORCHAT_NOTALLOWED, "&cYou can not execute this command.");
 
+        add(TranslationKeys.TTT_COMMAND_COINSINFO_USAGE, "/coinsinfo");
+        add(TranslationKeys.TTT_COMMAND_COINSINFO_DESCRIPTION, "&7Opens a book with information about the coins system.");
+        add(TranslationKeys.TTT_COMMAND_COINSINFO_BOOK, "ToDo: Add Coins info content");
+
         add(TranslationKeys.ROLE_CALLOUT_TITLE, "${color}Deine Rolle");
         add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&8Du bist ${color}${role}");
         add(TranslationKeys.ROLE_CALLOUT_TEXT, "&7Du bist ${color}${role}&7! Bla");
