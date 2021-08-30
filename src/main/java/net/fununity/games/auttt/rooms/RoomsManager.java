@@ -3,6 +3,7 @@ package net.fununity.games.auttt.rooms;
 import net.fununity.main.api.util.LocationUtil;
 import net.fununity.mgs.gamespecifc.Arena;
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.Map;
@@ -35,11 +36,12 @@ public class RoomsManager {
             this.generator = null;
     }
 
-    public void checkForActivation(Location location) {
+    public void checkForActivation(Player player, Location location) {
         if (tester != null && LocationUtil.equalsLocationBlock(location, tester.getActivationBlock())) {
             if (generator == null || generator.isEnabled())
                 tester.startTester();
-            return;
+        } else if(generator != null && LocationUtil.equalsLocationBlock(location, generator.getActivationBlock())) {
+            generator.buttonPressed(player);
         }
     }
 

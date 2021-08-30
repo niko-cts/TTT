@@ -121,7 +121,7 @@ public class PlayerInteractListener implements Listener {
             block.setType(Material.AIR);
             giveRandomItem(event.getPlayer());
         } else if (block.getType() == Material.STONE_BUTTON) {
-            RoomsManager.getInstance().checkForActivation(block.getLocation());
+            RoomsManager.getInstance().checkForActivation(event.getPlayer(), block.getLocation());
         }
     }
 
