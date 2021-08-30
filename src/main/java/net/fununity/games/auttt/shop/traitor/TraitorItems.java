@@ -1,42 +1,51 @@
 package net.fununity.games.auttt.shop.traitor;
 
+import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.shop.ShopAdrenalin;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 import net.fununity.games.auttt.shop.ShopRadar;
 import net.fununity.games.auttt.shop.innocents.ShopIronSword;
 import net.fununity.games.auttt.shop.innocents.ShopArrows;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 public enum TraitorItems implements ShopItems {
-    ARROWS(1, 0, 5, 5, ShopArrows.class),
-    TRAP_TICKET(1, 0, 10, 10, ShopTrapTicket.class),
-    RADAR(2, 0, 1, 1, ShopRadar.class),
-    NOM_NOM_DEVICE(3, 0, 1, 1, ShopNomNomDevice.class),
-    AXE(3, 2, 5, 5, ShopAxe.class),
-    IRON_SWORD(3, 251, 1, 1, ShopIronSword.class),
-    ADRENALIN(3, 1, 5, 5, ShopAdrenalin.class),
-    FIREBALL(4, 1, 5, 5, ShopFireball.class),
-    TRAP_REPAIR(4, 1, 1, 1, ShopTrapRepair.class),
-    BOOM_BODY(4, 1, 5, 5, ShopBoomBody.class),
-    JIHAD(4, 1, 1, 1, ShopJihad.class),
-    TESTER_FAKER(5, 1, 2, 2, ShopTesterFaker.class),
-    IDENT_THIEF(5, 1, 5, 5, ShopIdentThief.class),
-    GENERATOR(5, 1, 5, 5, ShopGenerator.class),
-    INVISIBILITY(6, 1, 5, 5, ShopInvisibility.class),
-    ROBOT(7, 1, 2, 2, ShopRobot.class);
+    ARROWS(1, 0, 5, 5, ShopArrows.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION),
+    TRAP_TICKET(1, 0, 10, 10, ShopTrapTicket.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION),
+    RADAR(2, 0, 1, 1, ShopRadar.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION),
+    NOM_NOM_DEVICE(3, 0, 1, 1, ShopNomNomDevice.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION),
+    AXE(3, 2, 5, 5, ShopAxe.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION),
+    IRON_SWORD(3, 251, 1, 1, ShopIronSword.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION),
+    ADRENALIN(3, 1, 5, 5, ShopAdrenalin.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION),
+    FIREBALL(4, 1, 5, 5, ShopFireball.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION),
+    TRAP_REPAIR(4, 1, 1, 1, ShopTrapRepair.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION),
+    BOOM_BODY(4, 1, 5, 5, ShopBoomBody.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION),
+    JIHAD(4, 1, 1, 1, ShopJihad.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION),
+    TESTER_FAKER(5, 1, 2, 2, ShopTesterFaker.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION),
+    IDENT_THIEF(5, 1, 5, 5, ShopIdentThief.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION),
+    GENERATOR(5, 1, 5, 5, ShopGenerator.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION),
+    INVISIBILITY(6, 1, 5, 5, ShopInvisibility.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION),
+    ROBOT(7, 1, 2, 2, ShopRobot.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION);
 
     private final int coinsCost;
     private final int maximumUses;
     private final int maximumBuys;
     private final int maximumAtOnce;
     private final Class<? extends ShopItem> shopClass;
+    private final ItemStack item;
+    private final String nameKey;
+    private final String descriptionKey;
 
-    TraitorItems(int coinsCost, int maximumUses, int maximumBuys, int maximumAtOnce, Class<? extends ShopItem> shopClass) {
+    TraitorItems(int coinsCost, int maximumUses, int maximumBuys, int maximumAtOnce, Class<? extends ShopItem> shopClass, ItemStack item, String nameKey, String descriptionKey) {
         this.coinsCost = coinsCost;
         this.maximumUses = maximumUses;
         this.maximumBuys = maximumBuys;
         this.maximumAtOnce = maximumAtOnce;
         this.shopClass = shopClass;
+        this.item = item;
+        this.nameKey = nameKey;
+        this.descriptionKey = descriptionKey;
     }
 
     /**
@@ -90,4 +99,35 @@ public enum TraitorItems implements ShopItems {
     @Override
     public Class<? extends ShopItem> getShopClass() {
         return this.shopClass;
-    }}
+    }
+
+    /**
+     * Returns the item displayed (and given) for the shopItem.
+     * @return ItemStack - displayed item.
+     * @since 1.1
+     */
+    @Override
+    public ItemStack getItem() {
+        return item;
+    }
+
+    /**
+     * Get the translation name key for the shop item.
+     * @return String - the name key of the shop.
+     * @since 1.1
+     */
+    @Override
+    public String getNameKey() {
+        return nameKey;
+    }
+
+    /**
+     * Get the translation description (lore) key for the shop item.
+     * @return String - the description key of the shop.
+     * @since 1.1
+     */
+    @Override
+    public String getDescriptionKey() {
+        return descriptionKey;
+    }
+}

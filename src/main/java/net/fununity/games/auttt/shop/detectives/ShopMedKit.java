@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerItemConsumeEvent;
 
 public class ShopMedKit extends ShopItem {
 
-    private static final ItemBuilder ITEM = new ItemBuilder(Material.GOLDEN_CARROT).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_MEDKIT_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_MEDKIT_LORE);
+    private static final ItemBuilder ITEM = new ItemBuilder(Material.GOLDEN_CARROT).setName(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_NAME).setLore(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION);
 
     public ShopMedKit(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);

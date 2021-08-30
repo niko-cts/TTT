@@ -25,7 +25,9 @@ public class ShopGUI {
         CustomInventory menu = new CustomInventory(lang.getTranslation(TranslationKeys.TTT_GUI_SHOP_TITLE), Utils.getPerfectInventorySize(shopItems.length) + 9);
 
         for (ShopItems shopItem : shopItems) {
-            menu.addItem(new ItemBuilder(Material.PAPER).setName(shopItem.name()).setLore(shopItem.getCoinsCost() + "").craft(), new ClickAction() {
+            menu.addItem(new ItemBuilder(shopItem.getItem())
+                    .setName(lang.getTranslation(shopItem.getNameKey()))
+                    .setLore(lang.getTranslation(shopItem.getDescriptionKey(), "${cost}", shopItem.getCoinsCost() + "")).craft(), new ClickAction() {
                 @Override
                 public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
                     if (tttPlayer.getCoins() < shopItem.getCoinsCost()) {

@@ -18,7 +18,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class ShopDetector extends ShopItem {
 
-    private static final ItemBuilder ITEM = new ItemBuilder(Material.INK_SACK, (short) 3).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_DETECTOR_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_DETECTOR_LORE);
+    private static final ItemBuilder ITEM = new ItemBuilder(Material.INK_SACK, (short) 3).setName(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME).setLore(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION);
     private BukkitTask bukkitTask;
     private int seconds;
 

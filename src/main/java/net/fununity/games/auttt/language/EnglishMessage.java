@@ -32,21 +32,69 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE, "&7If you found a unidentified corpse;&7you can analyze it with this item.");
 
         // SHOP ITEM
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_ADRENALIN_NAME, "&eAdrenalin");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_ADRENALIN_LORE, "&7Adrenalin gibt potion;&7mit adrenalin");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_MEDKIT_NAME, "&2Med-kit");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_MEDKIT_LORE, "&7sdf");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_HEALSTATION_NAME, "&2Healstation");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_HEALSTATION_LORE, "&7asd");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_FIREBALL_NAME, "&eGrenade-Launcher");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_FIREBALL_LORE, "&7asd");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_NAME, "&cBad Axe");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_LORE, "&7asd");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_COOLDOWN, "&cCooldown of 2 seconds!");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_DETECTOR_NAME, "&cTraitor &eDetector");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_DETECTOR_LORE, "&7jop");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_RADAR_NAME, "&ePlayer radar");
-        add(TranslationKeys.TTT_GAME_ITEM_SHOP_RADAR_LORE, "&7Shows the nearest player");
+        // TRAITOR
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_COOLDOWN, "&cYou axe is on cooldown!");
+
+        // INNOCENT
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION, "");
+
+        // DETECTIVE
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_NAME, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_DESCRIPTION, "");
+
 
         add(TranslationKeys.TTT_GUI_CORPSE_TIME_CLOSE, "&7This corpse has fresh blood");
         add(TranslationKeys.TTT_GUI_CORPSE_TIME_LONG, "&7This corpse was killed &ea while ago");
@@ -82,6 +130,10 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_DISABLE_NOTHAVE, "&cYou need the Saboteur item shop first"); // ACTIONBAR
         add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_ENABLE_BROADCAST, "&aThe Generator was reactivated!au");
         add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_ENABLE_TRYAGAIN, ""); // ACTIONBAR
+
+        // VENT
+        add(TranslationKeys.TTT_GAME_ROOM_VENT_TIMEREACHED, "&cYou can no longer be in a vent.");
+        add(TranslationKeys.TTT_GAME_ROOM_VENT_ENTERED, "&7In Vent - &eScroll&7 to move - &6Shift&7 to leave");
 
         insertIntoLanguage();
     }

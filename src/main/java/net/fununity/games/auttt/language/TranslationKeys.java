@@ -33,21 +33,68 @@ public class TranslationKeys {
     public static final String TTT_GAME_ITEM_ANALYZER_LORE = "ttt.game.item.analyzer.lore";
 
     // SHOP ITEMS
-    public static final String TTT_GAME_ITEM_SHOP_ADRENALIN_NAME = "ttt.game.item.shop.adrenalin.name";
-    public static final String TTT_GAME_ITEM_SHOP_ADRENALIN_LORE = "ttt.game.item.shop.adrenalin.lore";
-    public static final String TTT_GAME_ITEM_SHOP_MEDKIT_NAME = "ttt.game.item.shop.medkit.name";
-    public static final String TTT_GAME_ITEM_SHOP_MEDKIT_LORE = "ttt.game.item.shop.medkit.lore";
-    public static final String TTT_GAME_ITEM_SHOP_HEALSTATION_NAME = "ttt.game.item.healstation.name";
-    public static final String TTT_GAME_ITEM_SHOP_HEALSTATION_LORE = "ttt.game.item.healstation.lore";
-    public static final String TTT_GAME_ITEM_SHOP_FIREBALL_NAME = "ttt.game.item.fireball.name";
-    public static final String TTT_GAME_ITEM_SHOP_FIREBALL_LORE = "ttt.game.item.fireball.lore";
-    public static final String TTT_GAME_ITEM_SHOP_AXE_NAME = "ttt.game.item.shop.axe.name";
-    public static final String TTT_GAME_ITEM_SHOP_AXE_LORE = "ttt.game.item.shop.axe.lore";
-    public static final String TTT_GAME_ITEM_SHOP_AXE_COOLDOWN = "ttt.game.item.shop.axe.cooldown";
-    public static final String TTT_GAME_ITEM_SHOP_DETECTOR_NAME = "ttt.game.item.shop.detector.name";
-    public static final String TTT_GAME_ITEM_SHOP_DETECTOR_LORE = "ttt.game.item.shop.detector.lore";
-    public static final String TTT_GAME_ITEM_SHOP_RADAR_NAME = "ttt.game.item.shop.radar.name";
-    public static final String TTT_GAME_ITEM_SHOP_RADAR_LORE = "ttt.game.item.shop.radar.lore";
+    // TRAITOR
+    public static final String TTT_GAME_SHOP_ITEM_ARROWS_NAME = "ttt.game.shop.item.arrows.name";
+    public static final String TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION = "ttt.game.shop.item.arrows.description";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME = "ttt.game.shop.item.trapticket.name";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION = "ttt.game.shop.item.trapticket.description";
+    public static final String TTT_GAME_SHOP_ITEM_RADAR_NAME = "ttt.game.shop.item.radar.name";
+    public static final String TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION = "ttt.game.shop.item.radar.description";
+    public static final String TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME = "ttt.game.shop.item.nomnomdevice.name";
+    public static final String TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION = "ttt.game.shop.item.nomnomdevice.description";
+    public static final String TTT_GAME_SHOP_ITEM_AXE_NAME = "ttt.game.shop.item.axe.name";
+    public static final String TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION = "ttt.game.shop.item.axe.description";
+    public static final String TTT_GAME_ITEM_SHOP_AXE_COOLDOWN = "ttt.game.shop.item.axe.cooldown";
+    public static final String TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME = "ttt.game.shop.item.ironsword.name";
+    public static final String TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION = "ttt.game.shop.item.ironsword.description";
+    public static final String TTT_GAME_SHOP_ITEM_ADRENALIN_NAME = "ttt.game.shop.item.adrenalin.name";
+    public static final String TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION = "ttt.game.shop.item.adrenalin.description";
+    public static final String TTT_GAME_SHOP_ITEM_FIREBALL_NAME = "ttt.game.shop.item.fireball.name";
+    public static final String TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION = "ttt.game.shop.item.fireball.description";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME = "ttt.game.shop.item.traprepair.name";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION = "ttt.game.shop.item.traprepair.description";
+    public static final String TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME = "ttt.game.shop.item.boombody.name";
+    public static final String TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION = "ttt.game.shop.item.boombody.description";
+    public static final String TTT_GAME_SHOP_ITEM_JIHAD_NAME = "ttt.game.shop.item.jihad.name";
+    public static final String TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION = "ttt.game.shop.item.jihad.description";
+    public static final String TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME = "ttt.game.shop.item.testerfaker.name";
+    public static final String TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION = "ttt.game.shop.item.testerfaker.description";
+    public static final String TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME = "ttt.game.shop.item.identthief.name";
+    public static final String TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION = "ttt.game.shop.item.identthief.description";
+    public static final String TTT_GAME_SHOP_ITEM_GENERATOR_NAME = "ttt.game.shop.item.generator.name";
+    public static final String TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION = "ttt.game.shop.item.generator.description";
+    public static final String TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME = "ttt.game.shop.item.invisibility.name";
+    public static final String TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION = "ttt.game.shop.item.invisibility.description";
+    public static final String TTT_GAME_SHOP_ITEM_ROBOT_NAME = "ttt.game.shop.item.robot.name";
+    public static final String TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION = "ttt.game.shop.item.robot.description";
+
+    // DETECTIVE
+    public static final String TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME = "ttt.game.shop.item.nightvision.name";
+    public static final String TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION = "ttt.game.shop.item.nightvision.description";
+    public static final String TTT_GAME_SHOP_ITEM_SUPER_IDENT_NAME = "ttt.game.shop.item.superident.name";
+    public static final String TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION = "ttt.game.shop.item.superident.description";
+    public static final String TTT_GAME_SHOP_ITEM_HOOK_NAME = "ttt.game.shop.item.hook.name";
+    public static final String TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION = "ttt.game.shop.item.hook.description";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME = "ttt.game.shop.item.trapblock.name";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION = "ttt.game.shop.item.trapblock.description";
+    public static final String TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME = "ttt.game.shop.item.movesensor.name";
+    public static final String TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION = "ttt.game.shop.item.movesensor.description";
+    public static final String TTT_GAME_SHOP_ITEM_DETECTOR_NAME = "ttt.game.shop.item.detector.name";
+    public static final String TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION = "ttt.game.shop.item.detector.description";
+    public static final String TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME = "ttt.game.shop.item.ventgift.name";
+    public static final String TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION = "ttt.game.shop.item.ventgift.description";
+    public static final String TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME = "ttt.game.shop.item.healstation.name";
+    public static final String TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION = "ttt.game.shop.item.healstation.description";
+    public static final String TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME = "ttt.game.shop.item.oneshotbow.name";
+    public static final String TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION = "ttt.game.shop.item.oneshotbow.description";
+    public static final String TTT_GAME_SHOP_ITEM_MED_KIT_NAME = "ttt.game.shop.item.medkit.name";
+    public static final String TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION = "ttt.game.shop.item.medkit.description";
+    public static final String TTT_GAME_SHOP_ITEM_YOUTH_NAME = "ttt.game.shop.item.youth.name";
+    public static final String TTT_GAME_SHOP_ITEM_YOUTH_DESCRIPTION = "ttt.game.shop.item.youth.description";
+
+    // INNOCENT
+    public static final String TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME = "ttt.game.shop.item.antiboombody.name";
+    public static final String TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION = "ttt.game.shop.item.antiboombody.description";
 
     public static final String TTT_GUI_CORPSE_TIME_LONG = "ttt.gui.corpse.time.long";
     public static final String TTT_GUI_CORPSE_TIME_CLOSE = "ttt.gui.corpse.time.close";
@@ -82,6 +129,9 @@ public class TranslationKeys {
     public static final String TTT_GAME_ROOM_GENERATOR_DISABLE_NOTHAVE = "ttt.game.room.generator.disable.nothave";
     public static final String TTT_GAME_ROOM_GENERATOR_ENABLE_BROADCAST = "ttt.game.room.generator.enable.broadcast";
     public static final String TTT_GAME_ROOM_GENERATOR_ENABLE_TRYAGAIN = "ttt.game.room.generator.enable.tryagain";
+
+    public static final String TTT_GAME_ROOM_VENT_TIMEREACHED = "ttt.game.room.vent.timereached";
+    public static final String TTT_GAME_ROOM_VENT_ENTERED = "ttt.game.room.vent.entered";
 
 
 }

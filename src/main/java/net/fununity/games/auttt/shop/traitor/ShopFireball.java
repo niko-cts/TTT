@@ -16,7 +16,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 
 public class ShopFireball extends ShopItem {
 
-    private static final ItemBuilder ITEM = new ItemBuilder(Material.IRON_HOE).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_FIREBALL_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_FIREBALL_LORE);
+    private static final ItemBuilder ITEM = new ItemBuilder(Material.IRON_HOE).setName(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME).setLore(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION);
 
     public ShopFireball(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);

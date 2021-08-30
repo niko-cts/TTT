@@ -17,8 +17,8 @@ import org.bukkit.potion.PotionEffectType;
 public class ShopAxe extends ShopItem {
 
     private static final ItemBuilder ITEM = new ItemBuilder(Material.GOLD_AXE)
-            .setName(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_NAME)
-            .setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_LORE)
+            .setName(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME)
+            .setLore(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION)
             .setDurability((short) 2);
 
     private long lastHit;
