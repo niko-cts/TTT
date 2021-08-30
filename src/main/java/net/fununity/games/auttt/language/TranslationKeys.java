@@ -27,6 +27,22 @@ public class TranslationKeys {
     public static final String TTT_GAME_ITEM_ANALYZER_NAME = "ttt.game.item.analyzer.name";
     public static final String TTT_GAME_ITEM_ANALYZER_LORE = "ttt.game.item.analyzer.lore";
 
+    // SHOP ITEMS
+    public static final String TTT_GAME_ITEM_SHOP_ADRENALIN_NAME = "ttt.game.item.shop.adrenalin.name";
+    public static final String TTT_GAME_ITEM_SHOP_ADRENALIN_LORE = "ttt.game.item.shop.adrenalin.lore";
+    public static final String TTT_GAME_ITEM_SHOP_MEDKIT_NAME = "ttt.game.item.shop.medkit.name";
+    public static final String TTT_GAME_ITEM_SHOP_MEDKIT_LORE = "ttt.game.item.shop.medkit.lore";
+    public static final String TTT_GAME_ITEM_SHOP_HEALSTATION_NAME = "ttt.game.item.healstation.name";
+    public static final String TTT_GAME_ITEM_SHOP_HEALSTATION_LORE = "ttt.game.item.healstation.lore";
+    public static final String TTT_GAME_ITEM_SHOP_FIREBALL_NAME = "ttt.game.item.fireball.name";
+    public static final String TTT_GAME_ITEM_SHOP_FIREBALL_LORE = "ttt.game.item.fireball.lore";
+    public static final String TTT_GAME_ITEM_SHOP_AXE_NAME = "ttt.game.item.shop.axe.name";
+    public static final String TTT_GAME_ITEM_SHOP_AXE_LORE = "ttt.game.item.shop.axe.lore";
+    public static final String TTT_GAME_ITEM_SHOP_AXE_COOLDOWN = "ttt.game.item.shop.axe.cooldown";
+    public static final String TTT_GAME_ITEM_SHOP_DETECTOR_NAME = "ttt.game.item.shop.detector.name";
+    public static final String TTT_GAME_ITEM_SHOP_DETECTOR_LORE = "ttt.game.item.shop.detector.lore";
+    public static final String TTT_GAME_ITEM_SHOP_RADAR_NAME = "ttt.game.item.shop.radar.name";
+    public static final String TTT_GAME_ITEM_SHOP_RADAR_LORE = "ttt.game.item.shop.radar.lore";
 
     public static final String TTT_GUI_CORPSE_TIME_LONG = "ttt.gui.corpse.time.long";
     public static final String TTT_GUI_CORPSE_TIME_CLOSE = "ttt.gui.corpse.time.close";
@@ -44,6 +60,14 @@ public class TranslationKeys {
     public static final String TTT_GUI_JOKERSHOP_GAME_STARTED = "ttt.gui.jokershop.game.started";
     public static final String TTT_GUI_JOKERSHOP_CONFIRM_SEND = "ttt.gui.jokershop.confirm.send";
     public static final String TTT_GUI_JOKERSHOP_PAYBACK_INFO = "ttt.gui.jokershop.payback.info";
+
+    public static final String TTT_GUI_SHOP_TITLE = "ttt.gui.shop.title";
+    public static final String TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS = "ttt.gui.shop.error.notenoughcoins";
+    public static final String TTT_GUI_SHOP_ERROR_MAXIMUCURRENTAMOUNT = "ttt.gui.shop.error.maximucurrentamount";
+    public static final String TTT_GUI_SHOP_ERROR_MAXIMUBUYSAMOUNT = "ttt.gui.shop.error.maximubuysamount";
+    public static final String TTT_GUI_SHOP_COINS_NAME = "ttt.gui.shop.coins.name";
+    public static final String TTT_GUI_SHOP_COINS_LORE = "ttt.gui.shop.coins.lore";
+    public static final String TTT_GUI_SHOP_BUYED = "ttt.gui.shop.buyed";
 
     public static final String SCOREBOARD_YOUR_ROLE = "ttt.scoreboard.yourrole";
     public static final String SCOREBOARD_FOUND_TRAITORS = "ttt.scoreboard.foundtraitors";

@@ -27,6 +27,23 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME, "&eCorpse Analyzer");
         add(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE, "&7If you found a unidentified corpse;&7you can analyze it with this item.");
 
+        // SHOP ITEM
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_ADRENALIN_NAME, "&eAdrenalin");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_ADRENALIN_LORE, "&7Adrenalin gibt potion;&7mit adrenalin");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_MEDKIT_NAME, "&2Med-kit");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_MEDKIT_LORE, "&7sdf");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_HEALSTATION_NAME, "&2Healstation");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_HEALSTATION_LORE, "&7asd");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_FIREBALL_NAME, "&eGrenade-Launcher");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_FIREBALL_LORE, "&7asd");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_NAME, "&cBad Axe");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_LORE, "&7asd");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_COOLDOWN, "&cCooldown of 2 seconds!");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_DETECTOR_NAME, "&cTraitor &eDetector");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_DETECTOR_LORE, "&7jop");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_RADAR_NAME, "&ePlayer radar");
+        add(TranslationKeys.TTT_GAME_ITEM_SHOP_RADAR_LORE, "&7Shows the nearest player");
+
         add(TranslationKeys.TTT_GUI_CORPSE_TIME_CLOSE, "&7This corpse has fresh blood");
         add(TranslationKeys.TTT_GUI_CORPSE_TIME_LONG, "&7This corpse was killed &ea while ago");
         add(TranslationKeys.TTT_GUI_CORPSE_KILLWEAPON, "&eSplinter of the kill weapon");
@@ -44,6 +61,13 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_SEND, "&aYou successfully purchased the joker!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_PAYBACK_INFO, "&7You joker card was not used. You have received your money back.");
 
+        add(TranslationKeys.TTT_GUI_SHOP_TITLE, "&eItemshop");
+        add(TranslationKeys.TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS, "&cYou don't have enough shop coins"); // ACTIONBAR
+        add(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUCURRENTAMOUNT, "&cYou can't have more of this shop item"); // ACTIONBAR
+        add(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUBUYSAMOUNT, "&cYou've reached the maximum buyable amount"); // ACTIONBAR
+        add(TranslationKeys.TTT_GUI_SHOP_COINS_NAME, "&eYou have &6${amount} coins");
+        add(TranslationKeys.TTT_GUI_SHOP_COINS_LORE, "&7Click to get info;&7how you receive coins.");
+        add(TranslationKeys.TTT_GUI_SHOP_BUYED, "&aYou have successfully bought &e${name}&a!");
 
         add(TranslationKeys.SCOREBOARD_YOUR_ROLE, "&6Your role");
         add(TranslationKeys.SCOREBOARD_FOUND_TRAITORS, "&6Found Traitor");

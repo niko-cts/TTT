@@ -39,7 +39,7 @@ public class CorpseInventory {
         this.analyzed = new HashMap<>();
         this.analyzeTask = new HashMap<>();
         this.items = new ItemBuilder[7 * 3];
-        this.items[10] = UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer());
+        this.items[10] = UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer()).craft();
 
         if (RandomUtil.getRandom().nextBoolean()) { // death
             long min = ChronoUnit.MINUTES.between(this.playerCorpse.death, OffsetDateTime.now());
@@ -104,17 +104,13 @@ public class CorpseInventory {
         for (int i = 0, j = 10; i < items.length; i++, j += ((j+1) % 8 == 0 ? 3 : 1)) {
 
             if (items[i] instanceof ItemBuilder)
-                menu.setItem(j, ((ItemBuilder) items[i]).translate(lang), new ClickAction() {
-                    @Override
-                    public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
-                        // todo traitor remove
-                    }
-                });
+                menu.setItem(j, ((ItemBuilder) items[i]).translate(lang));
             else if(items[i] instanceof ItemStack) {
                 int finalI = i;
                 menu.setItem(j, (ItemStack) items[finalI], new ClickAction() {
                     @Override
                     public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int slot) {
+                        if (itemStack.getType() == Material.SKULL_ITEM) return;
                         apiPlayer.getPlayer().closeInventory();
                         if (GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return;
                         apiPlayer.getPlayer().getInventory().addItem(itemStack);

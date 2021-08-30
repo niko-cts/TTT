@@ -30,7 +30,7 @@ public class RoomsManager {
             this.tester = null;
 
         if (locations.containsKey("generator_activate"))
-            this.generator = new Generator();
+            this.generator = new Generator(locations.get("generator_activate").get(0));
         else
             this.generator = null;
     }

@@ -4,20 +4,22 @@ import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 import net.fununity.games.auttt.shop.ShopRadar;
 import net.fununity.games.auttt.shop.ShopAdrenalin;
+import net.fununity.games.auttt.shop.innocents.ShopNightVision;
 
 public enum DetectiveItems implements ShopItems {
+    NIGHTVISION(2, 0, 1, 1, ShopNightVision.class),
     SUPER_IDENT(2, 0, 1, 1, ShopSuperIdent.class),
     RADAR(2, 0, 1, 1, ShopRadar.class),
-    HOOK(ShopHook.class),
-    ADRENALIN(ShopAdrenalin.class),
-    TRAP_BLOCK(ShopTrapBlock.class),
-    MOVE_SENSOR(ShopMoveSensor.class),
-    DETECTOR(ShopDetector.class),
-    VENT_GIFT(ShopVentGift.class),
-    HEAL_STATION(ShopHealStation.class),
-    ONE_SHOT_BOW(ShopOneShotBow.class),
-    MED_KIT(ShopMedKit.class),
-    YOUTH(ShopYouth.class);
+    HOOK(3, 5, 5, 1, ShopHook.class),
+    ADRENALIN(3, 1, 5, 5, ShopAdrenalin.class),
+    TRAP_BLOCK(3, 1, 1, 1, ShopTrapBlock.class),
+    MOVE_SENSOR(3, 1, 3, 3, ShopMoveSensor.class),
+    DETECTOR(4, 1, 5, 5, ShopDetector.class),
+    VENT_GIFT(4, 1, 5, 5, ShopVentGift.class),
+    HEAL_STATION(4, 1, 5, 5, ShopHealStation.class),
+    ONE_SHOT_BOW(5, 1, 5, 5, ShopOneShotBow.class),
+    MED_KIT(5, 1, 5, 5, ShopMedKit.class),
+    YOUTH(5, 0, 2, 2, ShopYouth.class);
 
     private final int coinsCost;
     private final int maximumUses;

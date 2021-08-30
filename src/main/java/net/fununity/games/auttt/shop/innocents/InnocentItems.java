@@ -1,15 +1,13 @@
 package net.fununity.games.auttt.shop.innocents;
 
-import net.fununity.games.auttt.shop.ShopItem;
-import net.fununity.games.auttt.shop.ShopItems;
-import net.fununity.games.auttt.shop.ShopRadar;
+import net.fununity.games.auttt.shop.*;
 
 public enum InnocentItems implements ShopItems {
-    NIGHTVISION(ShopNightVision.class),
-    ARROWS(ShopArrows.class),
-    RADAR(ShopRadar.class),
-    ANTI_BOOM_BODY(ShopAntiBoomBody.class),
-    IRON_SWORD(ShopIronSword.class);
+    NIGHTVISION(1, 0, 1, 1, ShopNightVision.class),
+    ARROWS(1, 0, 5, 5, ShopArrows.class),
+    RADAR(2, 0, 1, 1, ShopRadar.class),
+    ANTI_BOOM_BODY(3, 1, 5, 5, ShopAntiBoomBody.class),
+    IRON_SWORD(3, 0, 1, 1, ShopIronSword.class);
 
     private final int coinsCost;
     private final int maximumUses;

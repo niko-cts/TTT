@@ -61,14 +61,14 @@ public class TTTScoreboard {
         obj.getScore(language.getTranslation(Constants.SCOREBOARD_PLAYER)).setScore(8);
 
         int playerSize = player.getRole() == Role.TRAITOR || game.gameManager.isSpectator(player.getApiPlayer().getPlayer()) ?
-                game.getPlayers().size() : (int) (game.getPlayers().size() + game.getTTTPlayers().stream().filter(t -> !t.isAlive() && !t.isFound()).count());
+                game.getPlayers().size() : (int) (game.getPlayers().size() + game.getTTTPlayers().stream().filter(t -> t.isDead() && !t.isFound()).count());
 
         obj.getScore(LINE_COL + "§a" + playerSize + "§7/§a" + game.getStartedPlayerAmount()).setScore(7);
 
         obj.getScore("§a  ").setScore(6);
 
 
-        long foundTraitors = game.getTTTPlayerByRole(Role.TRAITOR).stream().filter(t -> !t.isAlive() && t.isFound()).count();
+        long foundTraitors = game.getTTTPlayerByRole(Role.TRAITOR).stream().filter(t -> t.isDead() && t.isFound()).count();
         obj.getScore(" §f ").setScore(5);
         obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_FOUND_TRAITORS)).setScore(4);
         obj.getScore(LINE_COL + "§e" + foundTraitors + "§d").setScore(3);
@@ -129,7 +129,7 @@ public class TTTScoreboard {
         String prefix;
 
         if (tttPlayer.isFound() || // Player was found
-                (!tttPlayer.isAlive() && // player dead
+                (tttPlayer.isDead() && // player dead
                         (GameManager.getInstance().getCurrentGameState() == GameState.ENDING || // ending phase
                                 trueVision))) { // online is traitor
             prefix = "§4§l" + SpecialChars.CHROSS + " " + tttPlayer.getRole().getColor();

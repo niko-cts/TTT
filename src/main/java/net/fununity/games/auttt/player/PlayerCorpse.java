@@ -6,7 +6,6 @@ import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.util.CoinsUtil;
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
-import net.fununity.main.api.common.util.SpecialChars;
 import net.fununity.main.api.hologram.APIHologram;
 import net.fununity.main.api.hologram.HologramText;
 import net.fununity.main.api.item.ItemBuilder;
@@ -16,9 +15,7 @@ import net.fununity.npc.NPC;
 import net.fununity.npc.events.PlayerInteractAtNPCEvent;
 import net.minecraft.server.v1_12_R1.EnumItemSlot;
 import net.minecraft.server.v1_12_R1.PacketPlayInUseEntity;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
@@ -79,7 +76,7 @@ public class PlayerCorpse {
     }
 
     private void updateHologram(String key, boolean translate) {
-        on.hideHolograms(this.hologramLocation);
+        FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(on ->on.hideHolograms(this.hologramLocation));
         if (translate) {
             HologramText hologramText = new HologramText();
             hologramText.addLine(key);

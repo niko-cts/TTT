@@ -1,9 +1,11 @@
 package net.fununity.games.auttt.shop.detectives;
 
-import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.TTT;
+import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.games.auttt.shop.ShopItem;
+import net.fununity.games.auttt.shop.ShopItems;
+import net.fununity.main.api.item.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -19,11 +21,14 @@ public class ShopHealStation extends ShopItem {
 
     private int minutesLeft;
     private BukkitTask task;
+    private static final ItemBuilder ITEM = new ItemBuilder(Material.NETHER_STAR).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_HEALSTATION_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_HEALSTATION_LORE);
 
-    public ShopHealStation(TTTPlayer player) {
-        super(DetectiveItems.HEAL_STATION, player);
+    public ShopHealStation(ShopItems shopItem, TTTPlayer tttPlayer) {
+        super(shopItem, tttPlayer);
+        giveItemToUse(ITEM.translate(tttPlayer.getApiPlayer().getLanguage()));
         this.minutesLeft = 6;
     }
+
 
     @EventHandler
     public void onClick(PlayerInteractEvent event) {

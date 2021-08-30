@@ -1,13 +1,12 @@
 package net.fununity.games.auttt.shop.innocents;
 
-import net.fununity.games.auttt.Role;
+import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.games.auttt.shop.ShopItem;
-
-import java.util.List;
+import net.fununity.games.auttt.shop.ShopItems;
 
 public class ShopNightVision extends ShopItem {
 
-    public ShopNightVision(int maximumUses) {
-        super(maximumUses);
+    public ShopNightVision(ShopItems shopItem, TTTPlayer tttPlayer) {
+        super(shopItem, tttPlayer);
     }
 }

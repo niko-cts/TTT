@@ -109,10 +109,10 @@ public class PlayerInteractListener implements Listener {
     public void onPlayerRightClicks(PlayerInteractEvent event) {
         if(GameManager.getInstance().isSpectator(event.getPlayer()) || GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return;
         if (event.getAction() == Action.RIGHT_CLICK_AIR) {
-           if (event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PAPER) {
-               ShopGUI.open(GameLogic.getInstance().getTTTPlayer(event.getPlayer().getUniqueId()));
-               return;
-           }
+            if (event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PAPER) {
+                ShopGUI.open(GameLogic.getInstance().getTTTPlayer(event.getPlayer().getUniqueId()));
+                return;
+            }
         }
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
         Block block = event.getClickedBlock();
