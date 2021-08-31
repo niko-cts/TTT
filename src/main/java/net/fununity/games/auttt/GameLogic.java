@@ -1,16 +1,14 @@
 package net.fununity.games.auttt;
 
+import net.fununity.games.auttt.corpse.PlayerCorpse;
 import net.fununity.games.auttt.gui.JokerShopGUI;
 import net.fununity.games.auttt.language.TranslationKeys;
-import net.fununity.games.auttt.player.PlayerCorpse;
-import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.games.auttt.rooms.RoomsManager;
 import net.fununity.games.auttt.util.CoinsUtil;
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.item.ItemBuilder;
-import net.fununity.main.api.minigames.stats.minigames.StatType;
 import net.fununity.main.api.player.BalanceHandler;
 import net.fununity.main.api.server.BroadcastHandler;
 import net.fununity.main.api.server.ServerSetting;

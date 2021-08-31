@@ -1,7 +1,8 @@
-package net.fununity.games.auttt.player;
+package net.fununity.games.auttt.corpse;
 
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.util.CoinsUtil;
 import net.fununity.games.auttt.util.TTTScoreboard;

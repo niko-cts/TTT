@@ -3,7 +3,7 @@ package net.fununity.games.auttt.rooms;
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTT;
-import net.fununity.games.auttt.player.TTTPlayer;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.main.api.util.LocationUtil;
 import net.fununity.mgs.gamestates.GameManager;
 import org.bukkit.Bukkit;

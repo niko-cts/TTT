@@ -1,8 +1,8 @@
 package net.fununity.games.auttt.shop.traitor;
 
 import net.fununity.games.auttt.TTT;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
-import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 import net.fununity.main.api.item.ItemBuilder;

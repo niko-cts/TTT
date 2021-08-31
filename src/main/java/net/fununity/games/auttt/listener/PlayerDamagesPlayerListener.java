@@ -2,7 +2,7 @@ package net.fununity.games.auttt.listener;
 
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
-import net.fununity.games.auttt.player.TTTPlayer;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.mgs.gamestates.GameState;
 import org.bukkit.entity.Player;

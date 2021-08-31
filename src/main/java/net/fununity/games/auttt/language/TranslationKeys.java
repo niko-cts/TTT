@@ -44,7 +44,7 @@ public class TranslationKeys {
     public static final String TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION = "ttt.game.shop.item.nomnomdevice.description";
     public static final String TTT_GAME_SHOP_ITEM_AXE_NAME = "ttt.game.shop.item.axe.name";
     public static final String TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION = "ttt.game.shop.item.axe.description";
-    public static final String TTT_GAME_ITEM_SHOP_AXE_COOLDOWN = "ttt.game.shop.item.axe.cooldown";
+    public static final String TTT_GAME_SHOP_ITEM_AXE_COOLDOWN = "ttt.game.shop.item.axe.cooldown";
     public static final String TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME = "ttt.game.shop.item.ironsword.name";
     public static final String TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION = "ttt.game.shop.item.ironsword.description";
     public static final String TTT_GAME_SHOP_ITEM_ADRENALIN_NAME = "ttt.game.shop.item.adrenalin.name";

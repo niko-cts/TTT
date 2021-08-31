@@ -3,9 +3,7 @@ package net.fununity.games.auttt.listener;
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.gui.ShopGUI;
-import net.fununity.games.auttt.player.PlayerCorpse;
 import net.fununity.games.auttt.rooms.RoomsManager;
-import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.mgs.gamestates.GameManager;
@@ -14,7 +12,6 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
-import org.bukkit.block.Skull;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -23,11 +20,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.MetadataValue;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -109,10 +107,10 @@ public class PlayerInteractListener implements Listener {
     public void onPlayerRightClicks(PlayerInteractEvent event) {
         if(GameManager.getInstance().isSpectator(event.getPlayer()) || GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return;
         if (event.getAction() == Action.RIGHT_CLICK_AIR) {
-            if (event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PAPER) {
+            if (!GameLogic.getInstance().getTTTPlayers().isEmpty() && event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PAPER) {
                 ShopGUI.open(GameLogic.getInstance().getTTTPlayer(event.getPlayer().getUniqueId()));
-                return;
             }
+            return;
         }
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
         Block block = event.getClickedBlock();

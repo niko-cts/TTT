@@ -1,7 +1,7 @@
 package net.fununity.games.auttt.shop.traitor;
 
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
-import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 import net.fununity.main.api.FunUnityAPI;
@@ -35,7 +35,7 @@ public class ShopAxe extends ShopItem {
         Player damager = (Player) event.getDamager();
         if (damager.getInventory().getItemInMainHand().getType() != Material.GOLD_AXE) return;
         if (System.currentTimeMillis() - lastHit <= 2000) {
-            FunUnityAPI.getInstance().getActionbarManager().addActionbar(damager.getUniqueId(), new ActionbarMessage(TranslationKeys.TTT_GAME_ITEM_SHOP_AXE_COOLDOWN));
+            FunUnityAPI.getInstance().getActionbarManager().addActionbar(damager.getUniqueId(), new ActionbarMessage(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_COOLDOWN));
             event.setCancelled(true);
             return;
         }

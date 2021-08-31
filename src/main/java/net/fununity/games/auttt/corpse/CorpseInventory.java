@@ -1,7 +1,8 @@
-package net.fununity.games.auttt.player;
+package net.fununity.games.auttt.corpse;
 
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.TTT;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.inventory.ClickAction;

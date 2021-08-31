@@ -2,8 +2,8 @@ package net.fununity.games.auttt.util;
 
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
-import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.main.api.actionbar.ActionbarMessage;
 import net.fununity.main.api.minigames.stats.minigames.StatType;
 import net.fununity.mgs.stats.PlayerStatsManager;

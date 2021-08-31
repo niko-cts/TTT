@@ -2,8 +2,8 @@ package net.fununity.games.auttt.commands;
 
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
-import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.main.api.command.handler.APICommand;
 import net.fununity.main.api.common.util.SpecialChars;
 import net.fununity.main.api.messages.MessagePrefix;

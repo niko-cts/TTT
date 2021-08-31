@@ -1,10 +1,7 @@
-package net.fununity.games.auttt.player;
+package net.fununity.games.auttt;
 
-import net.fununity.games.auttt.Role;
-import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
-import net.fununity.games.auttt.shop.traitor.TraitorItems;
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.player.APIPlayer;
 
@@ -47,6 +44,7 @@ public class TTTPlayer {
 
     public void setCoins(int coins) {
         this.coins = coins;
+        TTTScoreboard.updateScoreboard(this);
     }
 
     public int getCoins() {
@@ -83,10 +81,10 @@ public class TTTPlayer {
 
     public void buysShopItem(ShopItems shopItem) {
         try {
-            shopItems.add((ShopItem) shopItem.getShopClass().getConstructors()[0].newInstance(shopItems, this));
+            shopItems.add(shopItem.getShopClass().getConstructor(ShopItems.class, TTTPlayer.class).newInstance(shopItem, this));
             setCoins(getCoins() - shopItem.getCoinsCost());
             shopItemBuys.put(shopItem, shopItemBuys.getOrDefault(shopItem, 0) + 1);
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             TTT.getInstance().getLogger().log(Level.WARNING, "There was an error instantiating the shop item ' {0} ': {1}", new String[]{shopItem.name(), e.getMessage()});
         }
     }

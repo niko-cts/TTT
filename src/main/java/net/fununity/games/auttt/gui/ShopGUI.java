@@ -1,8 +1,8 @@
 package net.fununity.games.auttt.gui;
 
 import net.fununity.games.auttt.TTT;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
-import net.fununity.games.auttt.player.TTTPlayer;
 import net.fununity.games.auttt.shop.ShopItems;
 import net.fununity.main.api.actionbar.ActionbarMessage;
 import net.fununity.main.api.inventory.ClickAction;

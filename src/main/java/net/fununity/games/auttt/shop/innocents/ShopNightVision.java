@@ -1,6 +1,6 @@
 package net.fununity.games.auttt.shop.innocents;
 
-import net.fununity.games.auttt.player.TTTPlayer;
+import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.rooms.Generator;
 import net.fununity.games.auttt.rooms.RoomsManager;
 import net.fununity.games.auttt.shop.ShopItem;
