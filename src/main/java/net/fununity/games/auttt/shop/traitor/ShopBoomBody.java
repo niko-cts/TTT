@@ -12,6 +12,7 @@ import net.fununity.main.api.hologram.HologramText;
 import net.fununity.main.api.player.APIPlayer;
 import net.fununity.npc.NPC;
 import net.fununity.npc.events.PlayerInteractAtNPCEvent;
+import net.minecraft.server.v1_12_R1.PacketPlayInUseEntity;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -24,6 +25,7 @@ public class ShopBoomBody extends ShopItem {
     private static final double DAMAGE_RADIUS = 4;
     private static final double DAMAGE_AMOUNT = 5;
     private NPC npc;
+    private Location hologramLocation;
 
     public ShopBoomBody(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);
@@ -35,13 +37,14 @@ public class ShopBoomBody extends ShopItem {
         if (!didPlayerUse(event)) return;
         use(true);
 
-        HologramText hologramText = new HologramText();
-        hologramText.addLine(TranslationKeys.TTT_GAME_PLAYER_CORPSE_NOTFOUND);
-        FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(on -> on.showHologram(hologramText, event.getPlayer().getLocation().clone().add(0, 1.8D, 0)));
-
         npc = new NPC("", tttPlayer.getApiPlayer().getPlayer().getLocation(), "ttt_undefined", false);
         npc.setLookAtPlayer(false);
         npc.click(this::clickedOn);
+
+        this.hologramLocation = npc.getLocation().clone().add(0, 1.8D, 0);
+        HologramText hologramText = new HologramText();
+        hologramText.addLine(TranslationKeys.TTT_GAME_PLAYER_CORPSE_NOTFOUND);
+        FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(on -> on.showHologram(hologramText, hologramLocation));
     }
 
     public void clickedOn(PlayerInteractAtNPCEvent event) {
@@ -57,13 +60,14 @@ public class ShopBoomBody extends ShopItem {
         }
 
         Location location = npc.getLocation().clone();
-        location.getWorld().spawnParticle(Particle.EXPLOSION_LARGE, location, 1);
+        location.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, location, 1);
         location.getWorld().playSound(location, Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
-        for (TTTPlayer player : GameLogic.getInstance().getTTTPlayerByRole(Role.TRAITOR, Role.DETECTIVE)) {
-            if (player.getApiPlayer().getPlayer().getLocation().distance(location) < DAMAGE_RADIUS) {
+        for (TTTPlayer player : GameLogic.getInstance().getTTTPlayerByRole(Role.INNOCENT, Role.DETECTIVE)) {
+            if (player.getApiPlayer().getPlayer().getLocation().distance(location) <= DAMAGE_RADIUS) {
                 player.getApiPlayer().getPlayer().damage(DAMAGE_AMOUNT);
             }
         }
         npc.destroy();
+        FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(o -> o.hideHolograms(hologramLocation));
     }
 }

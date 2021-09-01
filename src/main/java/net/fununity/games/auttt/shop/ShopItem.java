@@ -87,6 +87,15 @@ public abstract class ShopItem implements Listener {
     }
 
     /**
+     * How much a shop item was used.
+     * @return int - amount of uses.
+     * @since 1.1
+     */
+    public int getUsed() {
+        return used;
+    }
+
+    /**
      * Sets and gives the player the item to use this ShopItem.
      * @param itemSack ItemStack - the item to give.
      * @since 1.1
@@ -115,7 +124,7 @@ public abstract class ShopItem implements Listener {
         if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) return false;
         if (GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return false;
         if (event.getHand() != EquipmentSlot.HAND || !event.getPlayer().getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId())) return false;
-        return event.getPlayer().getInventory().getItemInMainHand().getType() == itemUse.getType();
+        return event.getPlayer().getInventory().getItemInMainHand().equals(itemUse);
     }
 
     /**

@@ -25,6 +25,7 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_PLAYER_FOUND, "${name} &7was found by ${found}");
         add(TranslationKeys.TTT_GAME_PLAYER_KILLED, "&7You killed ${name} &7who was ${role} &7(${coins} coins received)");
         add(TranslationKeys.TTT_GAME_PLAYER_RECEIVED_COINS, "&7You found &e${amount} coins &7in this corpse!");
+        add(TranslationKeys.TTT_GAME_PLAYER_CORPSE_NOTFOUND, "&7Unidentified");
 
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME, "&bShop");
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE, "&7Opens the shop,;&7where you can buy useful items.");

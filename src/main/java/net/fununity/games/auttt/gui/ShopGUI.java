@@ -45,7 +45,7 @@ public class ShopGUI {
 
                     tttPlayer.buysShopItem(shopItem);
                     setCloseInventory(true);
-                    apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_BUYED), "${name}", shopItem.name());
+                    apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_BUYED), "${name}", lang.getTranslation(shopItem.getNameKey()));
                 }
             });
         }

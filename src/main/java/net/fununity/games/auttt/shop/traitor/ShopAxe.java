@@ -6,7 +6,6 @@ import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.actionbar.ActionbarMessage;
-import net.fununity.main.api.item.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,17 +15,12 @@ import org.bukkit.potion.PotionEffectType;
 
 public class ShopAxe extends ShopItem {
 
-    private static final ItemBuilder ITEM = new ItemBuilder(Material.GOLD_AXE)
-            .setName(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME)
-            .setLore(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION)
-            .setDurability((short) 2);
-
     private long lastHit;
 
     public ShopAxe(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);
         this.lastHit = 0;
-        giveItemToUse(ITEM.translate(tttPlayer.getApiPlayer().getLanguage()));
+        giveItemToUse();
     }
 
     @EventHandler
@@ -39,9 +33,13 @@ public class ShopAxe extends ShopItem {
             event.setCancelled(true);
             return;
         }
+        use(false);
+        damager.getInventory().getItemInMainHand().setDurability((short) (getUsed() * 15 + getUsed()));
+
         this.lastHit = System.currentTimeMillis();
         damager.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20*3, 1));
         event.setDamage(10);
     }
+
 
 }

@@ -11,7 +11,7 @@ public class GeneralShopListener implements Listener {
     public void onProjectileHit(ProjectileHitEvent event) {
         if (!event.getEntity().hasMetadata("ttt-oneshot")) return;
         if (event.getHitEntity() != null && event.getHitEntity() instanceof Player)
-            ((Player) event.getHitEntity()).damage(30, tttPlayer.getApiPlayer().getPlayer())
+            ((Player) event.getHitEntity()).damage(30);
     }
 
 }
