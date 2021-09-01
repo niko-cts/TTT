@@ -5,6 +5,7 @@ import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.actionbar.ActionbarMessage;
 import net.fununity.main.api.messages.MessagePrefix;
+import net.fununity.main.api.player.APIPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -26,6 +27,7 @@ public class Vent implements Listener {
     private final Map<UUID, Integer> inVent;
     private final Map<UUID, Integer> secondsUUID;
     private final Map<UUID, BukkitTask> taskUUID;
+    private final Map<Integer, Set<UUID>> detectiveWatcher;
 
     public Vent(List<Location> vent, List<Location> ventOut) {
         this.vent = new HashMap<>();
@@ -35,6 +37,7 @@ public class Vent implements Listener {
         this.inVent = new HashMap<>();
         this.secondsUUID = new HashMap<>();
         this.taskUUID = new HashMap<>();
+        this.detectiveWatcher = new HashMap<>();
     }
 
     public void jumpIn(Player player, Location location) {
@@ -73,8 +76,27 @@ public class Vent implements Listener {
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20 * 3, 0, false, false));
         player.teleport(vent.get(getByUUIDIndex(player.getUniqueId())));
 
+        // Watcher
+        Integer index = inVent.get(player.getUniqueId());
+        for (UUID uuid : detectiveWatcher.getOrDefault(index, new HashSet<>())) {
+            APIPlayer dete = FunUnityAPI.getInstance().getPlayerHandler().getPlayer(uuid);
+            if (dete != null)
+               dete.sendMessage(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "${name}", player.getName());
+        }
+
         inVent.remove(player.getUniqueId());
         taskUUID.remove(player.getUniqueId());
+    }
+
+
+    public void markLocation(APIPlayer apiPlayer, Location location) {
+        Location ventLoc = vent.keySet().stream().min(Comparator.comparingDouble(o -> o.distance(location))).orElse(null);
+        if (ventLoc == null) return;
+        int index = new ArrayList<>(vent.keySet()).indexOf(ventLoc);
+        Set<UUID> watcher = this.detectiveWatcher.getOrDefault(index, new HashSet<>());
+        watcher.add(apiPlayer.getUniqueId());
+        this.detectiveWatcher.put(index, watcher);
+        apiPlayer.sendMessage(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED);
     }
 
     @EventHandler
@@ -88,6 +110,8 @@ public class Vent implements Listener {
             slot = slot == 0 ? vent.size() - 1 : slot - 1;
         event.getPlayer().teleport(getByUUIDIndex(event.getPlayer().getUniqueId()));
     }
+
+
 
     private Location getByUUIDIndex(UUID uuid) {
         return new ArrayList<>(vent.keySet()).get(inVent.get(uuid));
@@ -110,4 +134,5 @@ public class Vent implements Listener {
         if (inVent.containsKey(event.getPlayer().getUniqueId()))
             event.setCancelled(true);
     }
+
 }

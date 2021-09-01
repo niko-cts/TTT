@@ -4,6 +4,8 @@ import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
+import net.fununity.games.auttt.shop.ShopItem;
+import net.fununity.games.auttt.shop.traitor.TraitorItems;
 import net.fununity.games.auttt.util.CoinsUtil;
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
@@ -17,12 +19,14 @@ import net.fununity.npc.events.PlayerInteractAtNPCEvent;
 import net.minecraft.server.v1_12_R1.EnumItemSlot;
 import net.minecraft.server.v1_12_R1.PacketPlayInUseEntity;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class PlayerCorpse {
 
@@ -54,6 +58,19 @@ public class PlayerCorpse {
         APIPlayer apiPlayer = event.getPlayer();
         if (foundBy != null || event.getAction() != PacketPlayInUseEntity.EnumEntityUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
                 GameLogic.getInstance().gameManager.isSpectator(apiPlayer.getPlayer())) return;
+
+        // NomNomDevice
+        TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
+        if (tttPlayer == null) return;
+        List<ShopItem> nomNomDevices = tttPlayer.getShopItemsOfType(TraitorItems.NOM_NOM_DEVICE);
+        if(!nomNomDevices.isEmpty() && apiPlayer.getPlayer().getPlayer().getInventory().getItemInMainHand()
+                .equals(nomNomDevices.get(0).getShopItem().getTranslatedItem(apiPlayer.getLanguage()))) {
+            nomNomDevices.get(0).use(true);
+            npc.destroy();
+            apiPlayer.playSound(Sound.ENTITY_PLAYER_BURP);
+            return;
+        }
+
         found(GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId()));
     }
 

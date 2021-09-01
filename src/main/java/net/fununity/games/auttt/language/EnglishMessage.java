@@ -33,66 +33,69 @@ public class EnglishMessage extends MessageList {
 
         // SHOP ITEM
         // TRAITOR
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, "§ePfeilvorrat");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION, "§7");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, "§eFallen-Stop");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, "&ePfeilvorrat");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION, "&7");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, "&eFallen-Stop");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, "§eRadar");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, "&eRadar");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, "§eNom-Nom Device");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, "&eNom-Nom Device");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, "§eStreitaxt");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, "&eStreitaxt");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_COOLDOWN, "&cYou axe is on cooldown!");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "§eEisenschwert");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "&eEisenschwert");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "§eAdrenalin");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "&eAdrenalin");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "§eInferno");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "&eInferno");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, "§eReperatur-Kit Typ F");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, "&eReperatur-Kit Typ F");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, "§eBoom Body");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, "&eBoom Body");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, "§eSprengweste");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, "&eSprengweste");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, "§eInnocent-Pass");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, "&eInnocent-Pass");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, "§eIdentitätsdieb");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, "&eIdentitätsdieb");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, "§eSaboteur");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, "&eSaboteur");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "§eTarnknappe");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eTarnknappe");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_NAME, "§eElliot KM-01");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_NAME, "&eElliot KM-01");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION, "");
 
         // INNOCENT
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "§eBoomBody-Stop");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "&eBoomBody-Stop");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION, "");
-
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_WARN, "&cWarning this is a boom body!");
+        
         // DETECTIVE
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, "§eNachtsichtgerät");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, "&eNachtsichtgerät");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_NAME, "§eSuper-Identifizierer");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_NAME, "&eSuper-Identifizierer");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "§eEnterhaken");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "&eEnterhaken");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "§eFallenfrei");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "&eFallenfrei");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "§eBewegungsmelder");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "&eBewegungsmelder");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "§eDetektor");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eMove sensor! &6${name} &7came out of the vent!");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED, "&aYour move sensor was set.");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "&eDetektor");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "§eGiftige Luft");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "&eGiftige Luft");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "§eSamariter");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "&eSamariter");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "§eOne-Shot-Bogen");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "&eOne-Shot-Bogen");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_NAME, "Medi-Kit");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_NAME, "§eJugend");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_NAME, "&eJugend");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_DESCRIPTION, "");
 
 

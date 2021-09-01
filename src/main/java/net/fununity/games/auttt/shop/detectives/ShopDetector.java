@@ -18,14 +18,13 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class ShopDetector extends ShopItem {
 
-    private static final ItemBuilder ITEM = new ItemBuilder(Material.INK_SACK, (short) 3).setName(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME).setLore(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION);
     private BukkitTask bukkitTask;
     private int seconds;
 
     public ShopDetector(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);
         this.seconds = 10;
-        giveItemToUse(ITEM.translate(tttPlayer.getApiPlayer().getLanguage()));
+        giveItemToUse();
     }
 
     @EventHandler

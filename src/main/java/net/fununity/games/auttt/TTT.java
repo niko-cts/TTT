@@ -7,6 +7,7 @@ import net.fununity.games.auttt.listener.PlayerDamagesPlayerListener;
 import net.fununity.games.auttt.listener.PlayerDropListener;
 import net.fununity.games.auttt.listener.PlayerInteractListener;
 import net.fununity.games.auttt.listener.PlayerQuitListener;
+import net.fununity.games.auttt.shop.GeneralShopListener;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.main.api.minigames.stats.minigames.Minigames;
 import net.fununity.main.api.util.RegisterUtil;
@@ -35,7 +36,7 @@ public class TTT extends JavaPlugin {
         new EnglishMessage();
 
         RegisterUtil registerUtil = new RegisterUtil(this);
-        registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener());
+        registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener(), new GeneralShopListener());
         registerUtil.addCommands(new TraitorCommand(), new CoinsInfoCommand());
         registerUtil.register();
 

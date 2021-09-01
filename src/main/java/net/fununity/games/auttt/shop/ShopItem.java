@@ -4,6 +4,7 @@ import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.mgs.gamestates.GameState;
+import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;
@@ -87,12 +88,21 @@ public abstract class ShopItem implements Listener {
 
     /**
      * Sets and gives the player the item to use this ShopItem.
-     * @param itemUse ItemStack - the item to give and set.
+     * @param itemSack ItemStack - the item to give.
      * @since 1.1
      */
-    public void giveItemToUse(ItemStack itemUse) {
-        this.itemUse = itemUse;
+    public void giveItemToUse(ItemStack itemSack) {
+        this.itemUse = itemSack;
         tttPlayer.getApiPlayer().getPlayer().getInventory().addItem(itemUse);
+    }
+
+    /**
+     * Sets and gives the player the item to use this ShopItem.
+     * @see ShopItems#getTranslatedItem(Language)
+     * @since 1.1
+     */
+    public void giveItemToUse() {
+        giveItemToUse(shopItem.getTranslatedItem(tttPlayer.getApiPlayer().getLanguage()));
     }
 
     /**

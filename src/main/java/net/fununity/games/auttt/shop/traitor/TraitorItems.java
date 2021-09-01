@@ -7,6 +7,8 @@ import net.fununity.games.auttt.shop.ShopItems;
 import net.fununity.games.auttt.shop.ShopRadar;
 import net.fununity.games.auttt.shop.innocents.ShopIronSword;
 import net.fununity.games.auttt.shop.innocents.ShopArrows;
+import net.fununity.main.api.item.ItemBuilder;
+import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -129,5 +131,16 @@ public enum TraitorItems implements ShopItems {
     @Override
     public String getDescriptionKey() {
         return descriptionKey;
+    }
+
+    /**
+     * Returns the translated item for players inventory.
+     * @param language Language - the language to translate in.
+     * @return ItemStack - translated item.
+     * @since 1.1
+     */
+    @Override
+    public ItemStack getTranslatedItem(Language language) {
+        return new ItemBuilder(getItem()).setName(language.getTranslation(getNameKey())).setLore(language.getTranslation(getDescriptionKey())).craft();
     }
 }

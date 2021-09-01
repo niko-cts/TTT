@@ -4,8 +4,16 @@ import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 
+/**
+ * Move sensor of the vent.
+ * @see net.fununity.games.auttt.rooms.Vent
+ * @author Niko
+ * @since 1.1
+ */
 public class ShopMoveSensor extends ShopItem {
+
     public ShopMoveSensor(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);
+        giveItemToUse();
     }
 }

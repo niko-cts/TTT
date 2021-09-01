@@ -1,5 +1,6 @@
 package net.fununity.games.auttt.shop;
 
+import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -72,4 +73,14 @@ public interface ShopItems {
      * @since 1.1
      */
     String getDescriptionKey();
+
+
+    /**
+     * Returns the translated item for players inventory.
+     * @param language Language - the language to translate in.
+     * @return ItemStack - translated item.
+     * @since 1.1
+     */
+    ItemStack getTranslatedItem(Language language);
+
 }

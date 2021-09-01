@@ -21,11 +21,10 @@ public class ShopHealStation extends ShopItem {
 
     private int minutesLeft;
     private BukkitTask task;
-    private static final ItemBuilder ITEM = new ItemBuilder(Material.NETHER_STAR).setName(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME).setLore(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION);
 
     public ShopHealStation(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);
-        giveItemToUse(ITEM.translate(tttPlayer.getApiPlayer().getLanguage()));
+        giveItemToUse();
         this.minutesLeft = 6;
     }
 

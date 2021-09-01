@@ -79,6 +79,8 @@ public class TranslationKeys {
     public static final String TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION = "ttt.game.shop.item.trapblock.description";
     public static final String TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME = "ttt.game.shop.item.movesensor.name";
     public static final String TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION = "ttt.game.shop.item.movesensor.description";
+    public static final String TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL = "ttt.game.shop.item.movesensor.signal";
+    public static final String TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED = "ttt.game.shop.item.movesensor.marked";
     public static final String TTT_GAME_SHOP_ITEM_DETECTOR_NAME = "ttt.game.shop.item.detector.name";
     public static final String TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION = "ttt.game.shop.item.detector.description";
     public static final String TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME = "ttt.game.shop.item.ventgift.name";
@@ -95,6 +97,7 @@ public class TranslationKeys {
     // INNOCENT
     public static final String TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME = "ttt.game.shop.item.antiboombody.name";
     public static final String TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION = "ttt.game.shop.item.antiboombody.description";
+    public static final String TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_WARN = "ttt.game.shop.item.antiboombody.warn";
 
     public static final String TTT_GUI_CORPSE_TIME_LONG = "ttt.gui.corpse.time.long";
     public static final String TTT_GUI_CORPSE_TIME_CLOSE = "ttt.gui.corpse.time.close";

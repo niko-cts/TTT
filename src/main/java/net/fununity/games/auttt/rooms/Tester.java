@@ -4,6 +4,7 @@ import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.TTTPlayer;
+import net.fununity.games.auttt.shop.traitor.TraitorItems;
 import net.fununity.main.api.util.LocationUtil;
 import net.fununity.mgs.gamestates.GameManager;
 import org.bukkit.Bukkit;
@@ -43,7 +44,7 @@ public class Tester {
             }
 
             for (Location reactionBlock : reactionBlocks)
-                reactionBlock.getBlock().setData(tttPlayer.getRole() == Role.TRAITOR ? (byte) 14 : (byte) 13);
+                reactionBlock.getBlock().setData(tttPlayer.getRole() == Role.TRAITOR && !tttPlayer.hasShopItem(TraitorItems.TESTER_FAKER) ? (byte) 14 : (byte) 13);
             Bukkit.getScheduler().runTaskLater(TTT.getInstance(), this::endTester, 20 * 2L);
         }, 20 * 2);
     }
