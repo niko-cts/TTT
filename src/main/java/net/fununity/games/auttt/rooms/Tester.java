@@ -26,8 +26,10 @@ public class Tester {
     }
 
     public void startTester() {
+        System.out.println("Tester activated");
         for (Location reactionBlock : reactionBlocks)
             reactionBlock.getBlock().setData((byte) 4);
+
 
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
 
@@ -45,13 +47,14 @@ public class Tester {
 
             for (Location reactionBlock : reactionBlocks)
                 reactionBlock.getBlock().setData(tttPlayer.getRole() == Role.TRAITOR && !tttPlayer.hasShopItem(TraitorItems.TESTER_FAKER) ? (byte) 14 : (byte) 13);
-            Bukkit.getScheduler().runTaskLater(TTT.getInstance(), this::endTester, 20 * 2L);
+            Bukkit.getScheduler().runTaskLater(TTT.getInstance(), this::endTester, 20 * 3L);
         }, 20 * 2);
     }
 
     private void endTester() {
         for (Location reactionBlock : reactionBlocks)
             reactionBlock.getBlock().setData((byte) 7);
+
     }
 
     public Location getActivationBlock() {

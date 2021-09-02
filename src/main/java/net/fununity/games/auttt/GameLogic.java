@@ -60,6 +60,7 @@ public class GameLogic extends Game {
     @Override
     public void startMinigame() {
         FunUnityAPI.getInstance().getServerSettings().disable(ServerSetting.FOOD_LEVEL_CHANGE);
+        FunUnityAPI.getInstance().getActionbarManager().start();
 
         ItemBuilder shop = new ItemBuilder(Material.PAPER).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE);
         ItemBuilder analyzer = new ItemBuilder(Material.STICK).setName(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE);

@@ -3,11 +3,11 @@ package net.fununity.games.auttt.rooms;
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTTPlayer;
+import net.fununity.games.auttt.rooms.vent.Vent;
 import net.fununity.games.auttt.shop.detectives.DetectiveItems;
 import net.fununity.main.api.util.LocationUtil;
 import net.fununity.mgs.gamespecifc.Arena;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
@@ -52,9 +52,17 @@ public class RoomsManager {
         if (tester != null && LocationUtil.equalsLocationBlock(location, tester.getActivationBlock())) {
             if (generator == null || generator.isEnabled())
                 tester.startTester();
-        } else if(generator != null && LocationUtil.equalsLocationBlock(location, generator.getActivationBlock())) {
+        } else if (generator != null && LocationUtil.equalsLocationBlock(location, generator.getActivationBlock())) {
             generator.buttonPressed(player);
-        } else if (vent != null && location.getBlock().getType() == Material.IRON_TRAPDOOR) {
+        }
+    }
+
+    public Generator getGenerator() {
+        return generator;
+    }
+
+    public void checkForVent(Player player, Location location) {
+        if (vent != null) {
             TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(player.getUniqueId());
             if (tttPlayer.getRole() == Role.TRAITOR)
                 vent.jumpIn(player, location);
@@ -65,9 +73,5 @@ public class RoomsManager {
             } else
                 player.playSound(location, Sound.BLOCK_IRON_DOOR_CLOSE, 1, 1);
         }
-    }
-
-    public Generator getGenerator() {
-        return generator;
     }
 }

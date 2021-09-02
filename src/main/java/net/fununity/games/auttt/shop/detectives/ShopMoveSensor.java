@@ -1,12 +1,13 @@
 package net.fununity.games.auttt.shop.detectives;
 
 import net.fununity.games.auttt.TTTPlayer;
+import net.fununity.games.auttt.rooms.vent.Vent;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 
 /**
  * Move sensor of the vent.
- * @see net.fununity.games.auttt.rooms.Vent
+ * @see Vent
  * @author Niko
  * @since 1.1
  */

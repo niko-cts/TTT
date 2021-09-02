@@ -51,7 +51,7 @@ public abstract class ShopItem implements Listener {
      */
     public void use(boolean reduceItem) {
         if (getMaximumUses() == 0) return;
-        if (reduceItem)
+        if (reduceItem && itemUse != null)
             removeItemStack();
         used++;
         if (this.used == getMaximumUses()) {

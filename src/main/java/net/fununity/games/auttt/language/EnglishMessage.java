@@ -133,7 +133,7 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_DISABLE_BROADCAST, "&cThe Generator was disabled!");
         add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_DISABLE_NOTHAVE, "&cYou need the Saboteur item shop first"); // ACTIONBAR
         add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_ENABLE_BROADCAST, "&aThe Generator was reactivated!au");
-        add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_ENABLE_TRYAGAIN, ""); // ACTIONBAR
+        add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_ENABLE_TRYAGAIN, "&7Try again..."); // ACTIONBAR
 
         // VENT
         add(TranslationKeys.TTT_GAME_ROOM_VENT_TIMEREACHED, "&cYou can no longer be in a vent.");

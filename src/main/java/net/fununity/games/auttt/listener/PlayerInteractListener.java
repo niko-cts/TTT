@@ -19,6 +19,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -106,6 +107,8 @@ public class PlayerInteractListener implements Listener {
     @EventHandler
     public void onPlayerRightClicks(PlayerInteractEvent event) {
         if(GameManager.getInstance().isSpectator(event.getPlayer()) || GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return;
+        if (event.getHand() != EquipmentSlot.HAND) return;
+
         if (event.getAction() == Action.RIGHT_CLICK_AIR) {
             if (!GameLogic.getInstance().getTTTPlayers().isEmpty() && event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PAPER) {
                 ShopGUI.open(GameLogic.getInstance().getTTTPlayer(event.getPlayer().getUniqueId()));
@@ -118,8 +121,14 @@ public class PlayerInteractListener implements Listener {
             event.setCancelled(true);
             block.setType(Material.AIR);
             giveRandomItem(event.getPlayer());
-        } else if (block.getType() == Material.STONE_BUTTON) {
+        }
+
+        if (GameLogic.getInstance().getTTTPlayers().isEmpty()) return;
+
+        if (block.getType() == Material.STONE_BUTTON) {
             RoomsManager.getInstance().checkForActivation(event.getPlayer(), block.getLocation());
+        } else if(block.getType() == Material.IRON_TRAPDOOR) {
+            RoomsManager.getInstance().checkForVent(event.getPlayer(), block.getLocation());
         }
     }
 
