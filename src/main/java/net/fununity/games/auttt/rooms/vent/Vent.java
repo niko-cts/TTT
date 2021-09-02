@@ -49,10 +49,10 @@ public class Vent implements Listener {
             ventPlayerData.jumpIn(location);
             return;
         }
-        this.currentlyInVent.add(player.getUniqueId());
 
         VentPlayerData ventPlayerData = new VentPlayerData(this, FunUnityAPI.getInstance().getPlayerHandler().getPlayer(player));
         this.playerData.put(player.getUniqueId(), ventPlayerData);
+        this.currentlyInVent.add(player.getUniqueId());
         ventPlayerData.jumpIn(location);
     }
 
@@ -82,7 +82,7 @@ public class Vent implements Listener {
 
     @EventHandler
     public void onScroll(PlayerItemHeldEvent event) {
-        if (!playerData.containsKey(event.getPlayer().getUniqueId())) return;
+        if (!currentlyInVent.contains(event.getPlayer().getUniqueId())) return;
 
         VentPlayerData ventPlayerData = this.playerData.get(event.getPlayer().getUniqueId());
 
