@@ -4,6 +4,7 @@ import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
+import net.fununity.games.auttt.shop.detectives.DetectiveItems;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.inventory.ClickAction;
 import net.fununity.main.api.inventory.CustomInventory;
@@ -161,10 +162,11 @@ public class CorpseInventory {
                 .setLore(lang.getTranslation(analyzed.containsKey(apiPlayer.getUniqueId()) ? TranslationKeys.TTT_GUI_CORPSE_ANALYZING : TranslationKeys.TTT_GUI_CORPSE_ANALYZABLE).split(";")).craft(), new ClickAction() {
             @Override
             public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
-                if (analyzed.containsKey(apiPlayer.getUniqueId())) return;
+                if (analyzed.containsKey(apiPlayer.getUniqueId()) || GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return;
                 startTimer(apiPlayer.getUniqueId());
                 apiPlayer.getPlayer().closeInventory();
-                analyzed.put(apiPlayer.getUniqueId(), 31);
+                analyzed.put(apiPlayer.getUniqueId(),
+                        GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId()).hasShopItem(DetectiveItems.SUPER_IDENT) ? 11 : 31);
                 openGUI(apiPlayer);
             }
         });

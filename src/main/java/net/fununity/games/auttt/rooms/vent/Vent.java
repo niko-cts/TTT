@@ -5,15 +5,15 @@ import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.messages.MessagePrefix;
 import net.fununity.main.api.player.APIPlayer;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerToggleSneakEvent;
+import org.bukkit.event.player.*;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.*;
 
@@ -22,6 +22,7 @@ public class Vent implements Listener {
     protected final Map<Location, Location> ventLocations;
     private final Map<UUID, VentPlayerData> playerData;
     private final Set<UUID> currentlyInVent;
+    protected boolean gift;
 
     private final Map<Integer, Set<UUID>> detectiveWatcher;
 
@@ -30,6 +31,7 @@ public class Vent implements Listener {
         for (Location location : vent)
             this.ventLocations.put(location, ventOut.stream().min(Comparator.comparingDouble(o -> o.distance(location))).get());
 
+        this.gift = false;
         this.playerData = new HashMap<>();
         this.currentlyInVent = new HashSet<>();
         this.detectiveWatcher = new HashMap<>();
@@ -80,6 +82,27 @@ public class Vent implements Listener {
         apiPlayer.sendMessage(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED);
     }
 
+    public void gift() {
+        if (this.gift) return;
+
+        for (UUID uuid : this.currentlyInVent) {
+            Player player = Bukkit.getPlayer(uuid);
+            if (player != null)
+                player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, Integer.MAX_VALUE, 0, false, false));
+        }
+
+        this.gift = true;
+        Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
+            this.gift = false;
+            for (UUID uuid : this.currentlyInVent) {
+                Player player = Bukkit.getPlayer(uuid);
+                if (player != null)
+                    player.removePotionEffect(PotionEffectType.POISON);
+            }
+        }, 20 * 60);
+    }
+
+
     @EventHandler
     public void onScroll(PlayerItemHeldEvent event) {
         if (!currentlyInVent.contains(event.getPlayer().getUniqueId())) return;
@@ -118,6 +141,13 @@ public class Vent implements Listener {
     public void onClick(InventoryClickEvent event) {
         if (currentlyInVent.contains(event.getWhoClicked().getUniqueId()))
             event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onQuit(PlayerQuitEvent event) {
+        if (currentlyInVent.contains(event.getPlayer().getUniqueId())) {
+            jumpOut(event.getPlayer());
+        }
     }
 
 }

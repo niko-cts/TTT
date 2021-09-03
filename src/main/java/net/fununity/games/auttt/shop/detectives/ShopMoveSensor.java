@@ -7,7 +7,7 @@ import net.fununity.games.auttt.shop.ShopItems;
 
 /**
  * Move sensor of the vent.
- * @see Vent
+ * All other logic are located here {@link Vent}
  * @author Niko
  * @since 1.1
  */

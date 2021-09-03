@@ -74,4 +74,8 @@ public class RoomsManager {
                 player.playSound(location, Sound.BLOCK_IRON_DOOR_CLOSE, 1, 1);
         }
     }
+
+    public Vent getVent() {
+        return vent;
+    }
 }
