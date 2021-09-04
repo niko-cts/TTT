@@ -1,10 +1,12 @@
 package net.fununity.games.auttt.corpse;
 
 import net.fununity.games.auttt.GameLogic;
+import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.shop.detectives.DetectiveItems;
+import net.fununity.games.auttt.util.DetectiveFilesUtil;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.inventory.ClickAction;
 import net.fununity.main.api.inventory.CustomInventory;
@@ -164,14 +166,21 @@ public class CorpseInventory {
             public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
                 if (analyzed.containsKey(apiPlayer.getUniqueId()) || GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return;
                 startTimer(apiPlayer.getUniqueId());
+                TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
+                if (tttPlayer.getRole() == Role.DETECTIVE)
+                   startFilesTimer(apiPlayer.getUniqueId());
                 apiPlayer.getPlayer().closeInventory();
                 analyzed.put(apiPlayer.getUniqueId(),
-                        GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId()).hasShopItem(DetectiveItems.SUPER_IDENT) ? 11 : 31);
+                        tttPlayer.hasShopItem(DetectiveItems.SUPER_IDENT) ? 11 : 31);
                 openGUI(apiPlayer);
             }
         });
 
         menu.open(apiPlayer);
+    }
+
+    private void startFilesTimer(UUID uuid) {
+        Bukkit.getScheduler().runTaskLater(TTT.getInstance(), ()->DetectiveFilesUtil.analyzed(uuid, playerCorpse.tttPlayer), 20 * 40);
     }
 
     private void startTimer(UUID uuid) {
@@ -184,5 +193,6 @@ public class CorpseInventory {
             }
         }, 0, 20);
         this.analyzeTask.put(uuid, bukkitTask);
+
     }
 }

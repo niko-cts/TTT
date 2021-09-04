@@ -4,6 +4,8 @@ import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.gui.ShopGUI;
 import net.fununity.games.auttt.rooms.RoomsManager;
+import net.fununity.games.auttt.util.DetectiveFilesUtil;
+import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.mgs.gamestates.GameManager;
@@ -110,9 +112,12 @@ public class PlayerInteractListener implements Listener {
         if (event.getHand() != EquipmentSlot.HAND) return;
 
         if (event.getAction() == Action.RIGHT_CLICK_AIR) {
-            if (!GameLogic.getInstance().getTTTPlayers().isEmpty() && event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PAPER) {
+            if(GameLogic.getInstance().getTTTPlayers().isEmpty()) return;
+            Material type = event.getPlayer().getInventory().getItemInMainHand().getType();
+            if (type == Material.PAPER) {
                 ShopGUI.open(GameLogic.getInstance().getTTTPlayer(event.getPlayer().getUniqueId()));
-            }
+            } else if(type == Material.KNOWLEDGE_BOOK)
+                DetectiveFilesUtil.openFiles(FunUnityAPI.getInstance().getPlayerHandler().getPlayer(event.getPlayer()));
             return;
         }
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;

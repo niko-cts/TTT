@@ -27,6 +27,9 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_PLAYER_RECEIVED_COINS, "&7You found &e${amount} coins &7in this corpse!");
         add(TranslationKeys.TTT_GAME_PLAYER_CORPSE_NOTFOUND, "&7Unidentified");
 
+        add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_START, "These are your files. Analyzed corpses will be listed here with there roles. If you analyze a corpse it will take up to 40 seconds till it gets listed.");
+        add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE, "&0Player: ${name}\n&0Role: ${role}");
+
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME, "&bShop");
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE, "&7Opens the shop,;&7where you can buy useful items.");
         add(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME, "&eCorpse Analyzer");

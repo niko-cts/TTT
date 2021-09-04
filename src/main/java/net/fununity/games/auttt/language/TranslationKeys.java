@@ -27,6 +27,10 @@ public class TranslationKeys {
     public static final String TTT_GAME_PLAYER_RECEIVED_COINS = "ttt.game.player.receivedcoins";
     public static final String TTT_GAME_PLAYER_CORPSE_NOTFOUND = "ttt.game.player.corpse.notfound";
 
+    public static final String TTT_GAME_PLAYER_DETECTIVE_FILES_START = "ttt.game.player.detective.files.start";
+    public static final String TTT_GAME_PLAYER_DETECTIVE_FILES_CASE = "ttt.game.player.detective.files.case";
+
+
     public static final String TTT_GAME_ITEM_SHOP_NAME = "ttt.game.item.shop.name";
     public static final String TTT_GAME_ITEM_SHOP_LORE = "ttt.game.item.shop.lore";
     public static final String TTT_GAME_ITEM_ANALYZER_NAME = "ttt.game.item.analyzer.name";
