@@ -61,7 +61,8 @@ public class TTTScoreboard {
         obj.getScore(language.getTranslation(Constants.SCOREBOARD_PLAYER)).setScore(8);
 
         int playerSize = player.getRole() == Role.TRAITOR || game.gameManager.isSpectator(player.getApiPlayer().getPlayer()) ?
-                game.getPlayers().size() : (int) (game.getPlayers().size() + game.getTTTPlayers().stream().filter(t -> t.isDead() && !t.isFound()).count());
+                game.getPlayers().size() : (int) (game.getPlayers().stream().filter(p -> !game.gameManager.isSpectator(p)).count() +
+                game.getTTTPlayers().stream().filter(t -> t.isDead() && !t.isFound()).count());
 
         obj.getScore(LINE_COL + "§a" + playerSize + "§7/§a" + game.getStartedPlayerAmount()).setScore(7);
 

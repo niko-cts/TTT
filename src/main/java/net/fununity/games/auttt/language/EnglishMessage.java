@@ -8,13 +8,23 @@ public class EnglishMessage extends MessageList {
     public EnglishMessage() {
         super(TranslationHandler.getInstance().getLanguageHandler().getLanguageByCode("en"));
 
-        add(TranslationKeys.TTT_COMMAND_TRAITORCHAT_USAGE, "/tchat <message>");
+        add(TranslationKeys.TTT_COMMAND_TRAITORCHAT_USAGE, "tchat <message>");
         add(TranslationKeys.TTT_COMMAND_TRAITORCHAT_DESCRIPTION, "&7Send a message to all traitor.");
-        add(TranslationKeys.TTT_COMMAND_TRAITORCHAT_NOTALLOWED, "&cYou can not execute this command.");
+        add(TranslationKeys.TTT_COMMAND_TRAITORCHAT_NOTALLOWED, "&cOnly traitors can use the traitor chat.");
 
-        add(TranslationKeys.TTT_COMMAND_COINSINFO_USAGE, "/coinsinfo");
+        add(TranslationKeys.TTT_COMMAND_COINSINFO_USAGE, "coinsinfo");
         add(TranslationKeys.TTT_COMMAND_COINSINFO_DESCRIPTION, "&7Opens a book with information about the coins system.");
         add(TranslationKeys.TTT_COMMAND_COINSINFO_BOOK, "ToDo: Add Coins info content");
+
+        add(TranslationKeys.TTT_COMMAND_SHOP_USAGE, "shop");
+        add(TranslationKeys.TTT_COMMAND_SHOP_DESCRIPTION, "&7Opens the shop.");
+        add(TranslationKeys.TTT_COMMAND_SHOP_NOTAVAILABLE, "&cThis command is currently not available.");
+
+        add(TranslationKeys.TTT_COMMAND_JOKER_USAGE, "joker");
+        add(TranslationKeys.TTT_COMMAND_JOKER_DESCRIPTION, "&7Opens the joker shop.");
+        add(TranslationKeys.TTT_COMMAND_JOKER_NOTAVAILABLE, "&cThis command is currently not available.");
+
+        add(TranslationKeys.TTT_GAME_TESTER_JOINED, "&e${name} &7has entered the tester.");
 
         add(TranslationKeys.ROLE_CALLOUT_TITLE, "${color}Deine Rolle");
         add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&8Du bist ${color}${role}");
@@ -28,10 +38,13 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_PLAYER_CORPSE_NOTFOUND, "&7Unidentified");
 
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_START, "These are your files. Analyzed corpses will be listed here with there roles. If you analyze a corpse it will take up to 40 seconds till it gets listed.");
-        add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE, "&0Player: ${name}\n&0Role: ${role}");
+        add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_SUPER, "&0Player: ${name}\n&0Role: ${role}");
+        add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_NORMAL, "&0Player: ${name}");
 
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME, "&bShop");
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE, "&7Opens the shop,;&7where you can buy useful items.");
+        add(TranslationKeys.TTT_GAME_ITEM_FILES_NAME, "&bFiles");
+        add(TranslationKeys.TTT_GAME_ITEM_FILES_LORE, "&7Opens the detectives files");
         add(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME, "&eCorpse Analyzer");
         add(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE, "&7If you found a unidentified corpse;&7you can analyze it with this item.");
 
@@ -41,6 +54,7 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION, "&7");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, "&eFallen-Stop");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_REMOVED, "&eYou removed your trap ticket.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, "&eRadar");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, "&eNom-Nom Device");
@@ -56,6 +70,8 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, "&eReperatur-Kit Typ F");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NOTHAVE, "&cThe trap was already used. You need to buy the Trap-Repair item in the shop.");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_USED, "&7You used your trap-repair item.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, "&eBoom Body");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, "&eSprengweste");

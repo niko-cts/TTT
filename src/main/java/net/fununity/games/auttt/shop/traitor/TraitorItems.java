@@ -22,7 +22,7 @@ public enum TraitorItems implements ShopItems {
     ADRENALIN(3, 1, 5, 5, ShopAdrenalin.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION),
     FIREBALL(4, 1, 5, 5, ShopFireball.class, new ItemStack(Material.FIREBALL), TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION),
     TRAP_REPAIR(4, 1, 1, 1, ShopTrapRepair.class, new ItemStack(Material.TRAPPED_CHEST), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION),
-    BOOM_BODY(4, 1, 5, 5, ShopBoomBody.class, new ItemStack(Material.SKULL_ITEM, (short) 3), TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION),
+    BOOM_BODY(4, 1, 5, 5, ShopBoomBody.class, new ItemStack(Material.SKULL_ITEM, 1, (short) 3), TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION),
     JIHAD(4, 1, 1, 1, ShopJihad.class, new ItemStack(Material.MAGMA_CREAM), TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION),
     TESTER_FAKER(5, 1, 2, 2, ShopTesterFaker.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION),
     IDENT_THIEF(5, 1, 5, 5, ShopIdentThief.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION),

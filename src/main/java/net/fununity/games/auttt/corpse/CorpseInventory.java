@@ -42,8 +42,8 @@ public class CorpseInventory {
         this.playerCorpse = playerCorpse;
         this.analyzed = new HashMap<>();
         this.analyzeTask = new HashMap<>();
-        this.items = new ItemBuilder[7 * 3];
-        this.items[10] = UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer()).craft();
+        this.items = new Object[7 * 3];
+        this.items[10] = UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer());
 
         if (RandomUtil.getRandom().nextBoolean()) { // death
             long min = ChronoUnit.MINUTES.between(this.playerCorpse.death, OffsetDateTime.now());

@@ -17,7 +17,6 @@ import net.fununity.mgs.gamespecifc.Arena;
 import net.fununity.mgs.gamestates.Game;
 import net.fununity.mgs.gamestates.GameState;
 import net.fununity.mgs.listener.RunningListener;
-import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -62,14 +61,6 @@ public class GameLogic extends Game {
         FunUnityAPI.getInstance().getServerSettings().disable(ServerSetting.FOOD_LEVEL_CHANGE);
         FunUnityAPI.getInstance().getActionbarManager().start();
 
-        ItemBuilder shop = new ItemBuilder(Material.PAPER).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE);
-        ItemBuilder analyzer = new ItemBuilder(Material.STICK).setName(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE);
-        for (Player player : getPlayers()) {
-            Language lang = FunUnityAPI.getInstance().getPlayerHandler().getPlayer(player).getLanguage();
-            player.getInventory().setItem(7, shop.translate(lang));
-            player.getInventory().setItem(8, analyzer.translate(lang));
-        }
-
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
             if (gameManager.getCurrentGameState() != GameState.INGAME) return;
 
@@ -82,6 +73,13 @@ public class GameLogic extends Game {
             int maximumDetectives = TTT.getInstance().getMinAmountForDetective() >= getPlayers().size() ? (int) Math.round(TTT.getInstance().getDetectiveAmount() * getPlayers().size()) : 0;
             addPlayerRole(maximumDetectives, detectiveJoker, players, Role.DETECTIVE);
 
+            ItemBuilder shop = new ItemBuilder(Material.PAPER).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE);
+            ItemBuilder analyzer = new ItemBuilder(Material.STICK).setName(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE);
+            ItemBuilder files = new ItemBuilder(Material.KNOWLEDGE_BOOK).setName(TranslationKeys.TTT_GAME_ITEM_FILES_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_FILES_LORE);
+            for (TTTPlayer detectives : getTTTPlayerByRole(Role.DETECTIVE)) {
+                detectives.getApiPlayer().getPlayer().getInventory().addItem(files.translate(detectives.getApiPlayer().getLanguage()));
+            }
+
             while (!players.isEmpty()) {
                 Player player = players.get(RandomUtil.getRandomInt(players.size()));
                 players.remove(player);
@@ -91,6 +89,8 @@ public class GameLogic extends Game {
             JokerShopGUI.payback();
 
             for (TTTPlayer tttPlayer : tttPlayers) {
+                tttPlayer.getApiPlayer().getPlayer().getInventory().addItem(shop.translate(tttPlayer.getApiPlayer().getLanguage()));
+                tttPlayer.getApiPlayer().getPlayer().getInventory().addItem(analyzer.translate(tttPlayer.getApiPlayer().getLanguage()));
                 CoinsUtil.startCoins(tttPlayer);
                 tttPlayer.getApiPlayer().getTitleSender().sendTitle(TranslationKeys.ROLE_CALLOUT_TITLE, "${color}",
                         tttPlayer.getRole().getColor() + "", 20 * 5);
@@ -124,12 +124,14 @@ public class GameLogic extends Game {
             }
 
             UUID uuid;
-            if(preferred.isEmpty()) {
+            if (preferred.isEmpty()) {
                 Player random = alternatives.get(RandomUtil.getRandomInt(alternatives.size()));
                 alternatives.remove(random);
                 uuid = random.getUniqueId();
-            } else
+            } else {
                 uuid = preferred.poll();
+                alternatives.remove(Bukkit.getPlayer(uuid));
+            }
             tttPlayers.add(new TTTPlayer(FunUnityAPI.getInstance().getPlayerHandler().getPlayer(uuid), role));
             amount--;
         }

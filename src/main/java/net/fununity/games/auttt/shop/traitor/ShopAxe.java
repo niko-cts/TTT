@@ -10,6 +10,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -41,5 +43,19 @@ public class ShopAxe extends ShopItem {
         event.setDamage(10);
     }
 
+    @EventHandler
+    public void onItem(PlayerItemHeldEvent event) {
+        Player player = event.getPlayer();
+        if (!player.getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId())) return;
+        if (player.getInventory().getItemInMainHand().getType() != Material.GOLD_AXE) {
+            ItemStack previousItems = player.getInventory().getItem(event.getPreviousSlot());
+            if (previousItems != null && previousItems.getType() == Material.GOLD_AXE) {
+                player.removePotionEffect(PotionEffectType.SLOW);
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20 * 3, 0, false));
+            }
+            return;
+        }
+        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, false));
+    }
 
 }

@@ -15,6 +15,15 @@ public class TranslationKeys {
     public static final String TTT_COMMAND_COINSINFO_DESCRIPTION = "ttt.command.coinsinfo.description";
     public static final String TTT_COMMAND_COINSINFO_BOOK = "ttt.command.coinsinfo.book";
 
+    public static final String TTT_COMMAND_SHOP_USAGE = "ttt.command.shop.usage";
+    public static final String TTT_COMMAND_SHOP_DESCRIPTION = "ttt.command.shop.description";
+    public static final String TTT_COMMAND_SHOP_NOTAVAILABLE = "ttt.command.shop.notavailable";
+
+    public static final String TTT_COMMAND_JOKER_USAGE = "ttt.command.joker.usage";
+    public static final String TTT_COMMAND_JOKER_DESCRIPTION = "ttt.command.joker.description";
+    public static final String TTT_COMMAND_JOKER_NOTAVAILABLE = "ttt.command.joker.notavailable";
+
+    public static final String TTT_GAME_TESTER_JOINED = "ttt.game.testerjoined";
 
     public static final String ROLE_CALLOUT_TITLE = "ttt.role.callout.title";
     public static final String ROLE_CALLOUT_SUBTITLE = "ttt.role.callout.subtitle";
@@ -28,11 +37,14 @@ public class TranslationKeys {
     public static final String TTT_GAME_PLAYER_CORPSE_NOTFOUND = "ttt.game.player.corpse.notfound";
 
     public static final String TTT_GAME_PLAYER_DETECTIVE_FILES_START = "ttt.game.player.detective.files.start";
-    public static final String TTT_GAME_PLAYER_DETECTIVE_FILES_CASE = "ttt.game.player.detective.files.case";
+    public static final String TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_SUPER = "ttt.game.player.detective.files.case.super";
+    public static final String TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_NORMAL = "ttt.game.player.detective.files.case.normal";
 
 
     public static final String TTT_GAME_ITEM_SHOP_NAME = "ttt.game.item.shop.name";
     public static final String TTT_GAME_ITEM_SHOP_LORE = "ttt.game.item.shop.lore";
+    public static final String TTT_GAME_ITEM_FILES_NAME = "ttt.game.item.files.name";
+    public static final String TTT_GAME_ITEM_FILES_LORE = "ttt.game.item.files.lore";
     public static final String TTT_GAME_ITEM_ANALYZER_NAME = "ttt.game.item.analyzer.name";
     public static final String TTT_GAME_ITEM_ANALYZER_LORE = "ttt.game.item.analyzer.lore";
 
@@ -42,6 +54,7 @@ public class TranslationKeys {
     public static final String TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION = "ttt.game.shop.item.arrows.description";
     public static final String TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME = "ttt.game.shop.item.trapticket.name";
     public static final String TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION = "ttt.game.shop.item.trapticket.description";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_TICKET_REMOVED = "ttt.game.shop.item.trapticket.removed";
     public static final String TTT_GAME_SHOP_ITEM_RADAR_NAME = "ttt.game.shop.item.radar.name";
     public static final String TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION = "ttt.game.shop.item.radar.description";
     public static final String TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME = "ttt.game.shop.item.nomnomdevice.name";
@@ -57,6 +70,8 @@ public class TranslationKeys {
     public static final String TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION = "ttt.game.shop.item.fireball.description";
     public static final String TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME = "ttt.game.shop.item.traprepair.name";
     public static final String TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION = "ttt.game.shop.item.traprepair.description";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NOTHAVE = "ttt.game.shop.item.traprepair.nothave";
+    public static final String TTT_GAME_SHOP_ITEM_TRAP_REPAIR_USED = "ttt.game.shop.item.traprepair.use";
     public static final String TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME = "ttt.game.shop.item.boombody.name";
     public static final String TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION = "ttt.game.shop.item.boombody.description";
     public static final String TTT_GAME_SHOP_ITEM_JIHAD_NAME = "ttt.game.shop.item.jihad.name";

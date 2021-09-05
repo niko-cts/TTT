@@ -29,11 +29,12 @@ public class RoomsManager {
     private final Tester tester;
     private final Generator generator;
     private final Vent vent;
+    private final Trap trap;
 
     private RoomsManager(Arena arena) {
         Map<String, List<Location>> locations = arena.getTeamLocations();
         if (locations.containsKey("tester_activate"))
-            this.tester = new Tester(locations.get("tester_room"), locations.get("tester_reactionblocks"), locations.get("tester_activate").get(0));
+            this.tester = new Tester(locations.get("tester_room"), locations.get("tester_reactionblocks"), locations.get("tester_redstone"), locations.get("tester_activate").get(0));
         else
             this.tester = null;
 
@@ -46,9 +47,15 @@ public class RoomsManager {
             this.vent = new Vent(locations.get("vent"), locations.get("vent_out"));
         else
             this.vent = null;
+
+        if (locations.containsKey("trap_activation"))
+            this.trap = new Trap(locations.get("trap_activation").get(0), locations.get("trap_blocks"));
+        else
+            this.trap = null;
     }
 
     public void checkForActivation(Player player, Location location) {
+        System.out.println(location + "  " + tester + "  " + tester.getActivationBlock());
         if (tester != null && LocationUtil.equalsLocationBlock(location, tester.getActivationBlock())) {
             if (generator == null || generator.isEnabled())
                 tester.startTester();
@@ -57,8 +64,11 @@ public class RoomsManager {
         }
     }
 
-    public Generator getGenerator() {
-        return generator;
+    public void checkForTrap(Player player, Location location) {
+        System.out.println(location + "  " + trap + "  " + trap.getActivationBlock());
+        if (trap != null && LocationUtil.equalsLocationBlock(location, trap.getActivationBlock())) {
+            trap.buttonPressed(GameLogic.getInstance().getTTTPlayer(player.getUniqueId()));
+        }
     }
 
     public void checkForVent(Player player, Location location) {
@@ -75,7 +85,15 @@ public class RoomsManager {
         }
     }
 
+    public Generator getGenerator() {
+        return generator;
+    }
+
     public Vent getVent() {
         return vent;
+    }
+
+    public Trap getTrap() {
+        return trap;
     }
 }
