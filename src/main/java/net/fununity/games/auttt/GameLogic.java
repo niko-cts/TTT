@@ -76,9 +76,10 @@ public class GameLogic extends Game {
             ItemBuilder shop = new ItemBuilder(Material.PAPER).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE);
             ItemBuilder analyzer = new ItemBuilder(Material.STICK).setName(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE);
             ItemBuilder files = new ItemBuilder(Material.KNOWLEDGE_BOOK).setName(TranslationKeys.TTT_GAME_ITEM_FILES_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_FILES_LORE);
-            for (TTTPlayer detectives : getTTTPlayerByRole(Role.DETECTIVE)) {
+
+            for (TTTPlayer detectives : getTTTPlayerByRole(Role.DETECTIVE))
                 detectives.getApiPlayer().getPlayer().getInventory().addItem(files.translate(detectives.getApiPlayer().getLanguage()));
-            }
+
 
             while (!players.isEmpty()) {
                 Player player = players.get(RandomUtil.getRandomInt(players.size()));

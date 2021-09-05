@@ -12,6 +12,7 @@ import org.bukkit.Location;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -27,7 +28,7 @@ public class VentPlayerData {
     private final APIPlayer apiPlayer;
     private final Vent vent;
 
-    private int ventId;
+    private Integer ventId;
     private BukkitTask task;
     private final BossBar secondsBar;
     private int secondsLeft;
@@ -44,15 +45,15 @@ public class VentPlayerData {
         this.secondsBar.addPlayer(player);
         UUID uuid = player.getUniqueId();
 
-        Location ventLoc = vent.ventLocations.keySet().stream().min(Comparator.comparingDouble(o -> o.distance(location))).orElse(null);
-        if (ventLoc == null) return;
+        ArmorStand vent = this.vent.ventLocations.keySet().stream().min(Comparator.comparingDouble(o -> o.getLocation().distance(location))).orElse(null);
+        if (vent == null) return;
 
         FunUnityAPI.getInstance().getActionbarManager().addActionbar(uuid, new ActionbarMessage(TranslationKeys.TTT_GAME_ROOM_VENT_ENTERED).setDuration(5));
-        ventId = new ArrayList<>(vent.ventLocations.keySet()).indexOf(ventLoc);
-        player.teleport(ventLoc);
+        ventId = new ArrayList<>(this.vent.ventLocations.keySet()).indexOf(vent);
+        vent.addPassenger(player);
         player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, 1, false, false));
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 0, false, false));
-        if (vent.gift)
+        if (this.vent.gift)
             player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, Integer.MAX_VALUE, 0, false, false));
 
 
@@ -62,7 +63,7 @@ public class VentPlayerData {
 
             if (secondsLeft <= 0) {
                 apiPlayer.sendMessage(MessagePrefix.INFO, TranslationKeys.TTT_GAME_ROOM_VENT_TIMEREACHED);
-                vent.jumpOut(player);
+                this.vent.jumpOut(player);
             }
             secondsLeft--;
         }, 0L, 20L);
@@ -78,10 +79,9 @@ public class VentPlayerData {
         player.removePotionEffect(PotionEffectType.POISON);
 
         player.teleport(vent.ventLocations.get(getLocationFromVentId()));
-
     }
 
-    private Location getLocationFromVentId() {
+    private ArmorStand getLocationFromVentId() {
         return new ArrayList<>(vent.ventLocations.keySet()).get(ventId);
     }
 
@@ -90,8 +90,10 @@ public class VentPlayerData {
     }
 
     public void setVentId(int ventId) {
+        if(this.ventId != null)
+            getLocationFromVentId().removePassenger(apiPlayer.getPlayer());
         this.ventId = ventId;
-        apiPlayer.getPlayer().teleport(getLocationFromVentId());
+        getLocationFromVentId().addPassenger(apiPlayer.getPlayer());
     }
 
     public int getSecondsLeft() {

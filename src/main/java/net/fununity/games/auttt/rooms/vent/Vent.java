@@ -7,6 +7,8 @@ import net.fununity.main.api.messages.MessagePrefix;
 import net.fununity.main.api.player.APIPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,7 +21,7 @@ import java.util.*;
 
 public class Vent implements Listener {
 
-    protected final Map<Location, Location> ventLocations;
+    protected final Map<ArmorStand, Location> ventLocations;
     private final Map<UUID, VentPlayerData> playerData;
     private final Set<UUID> currentlyInVent;
     protected boolean gift;
@@ -28,8 +30,12 @@ public class Vent implements Listener {
 
     public Vent(List<Location> vent, List<Location> ventOut) {
         this.ventLocations = new HashMap<>();
-        for (Location location : vent)
-            this.ventLocations.put(location, ventOut.stream().min(Comparator.comparingDouble(o -> o.distance(location))).get());
+        for (Location location : vent) {
+            ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
+            armorStand.setVisible(false);
+            armorStand.setSmall(true);
+            this.ventLocations.put(armorStand, ventOut.stream().min(Comparator.comparingDouble(o -> o.distance(location))).get());
+        }
 
         this.gift = false;
         this.playerData = new HashMap<>();
@@ -73,9 +79,9 @@ public class Vent implements Listener {
     }
 
     public void markLocation(APIPlayer apiPlayer, Location location) {
-        Location ventLoc = ventLocations.keySet().stream().min(Comparator.comparingDouble(o -> o.distance(location))).orElse(null);
-        if (ventLoc == null) return;
-        int index = new ArrayList<>(ventLocations.keySet()).indexOf(ventLoc);
+        ArmorStand vent = ventLocations.keySet().stream().min(Comparator.comparingDouble(o -> o.getLocation().distance(location))).orElse(null);
+        if (vent == null) return;
+        int index = new ArrayList<>(ventLocations.keySet()).indexOf(vent);
         Set<UUID> watcher = this.detectiveWatcher.getOrDefault(index, new HashSet<>());
         watcher.add(apiPlayer.getUniqueId());
         this.detectiveWatcher.put(index, watcher);

@@ -96,4 +96,17 @@ public class TTTPlayer {
     public boolean hasShopItem(ShopItems... shopItems) {
         return this.shopItems.stream().anyMatch(s -> Arrays.asList(shopItems).contains(s.getShopItem()));
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TTTPlayer tttPlayer = (TTTPlayer) o;
+        return role == tttPlayer.role && player.getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(role);
+    }
 }

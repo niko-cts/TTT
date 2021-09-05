@@ -8,7 +8,10 @@ import net.fununity.main.api.player.APIPlayer;
 import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Material;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DetectiveFilesUtil {
 
@@ -16,17 +19,16 @@ public class DetectiveFilesUtil {
         throw new UnsupportedOperationException("DetectiveFilesUtil is a utility class.");
     }
 
-    private static final Map<UUID, List<TTTPlayer>> SCANNED_FILES = new HashMap<>();
+    private static final Set<TTTPlayer> SCANNED_FILES = new HashSet<>();
 
     public static void openFiles(TTTPlayer tttPlayer) {
         APIPlayer player = tttPlayer.getApiPlayer();
-        List<TTTPlayer> analyzedCases = SCANNED_FILES.getOrDefault(player.getUniqueId(), new ArrayList<>());
 
         boolean superIdent = tttPlayer.hasShopItem(DetectiveItems.SUPER_IDENT);
 
         Language lang = player.getLanguage();
         ItemBuilder itemBuilder = new ItemBuilder(Material.WRITTEN_BOOK).addPage(lang.getTranslation(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_START));
-        for (TTTPlayer analyzedCase : analyzedCases) {
+        for (TTTPlayer analyzedCase : new ArrayList<>(SCANNED_FILES)) {
             itemBuilder.addPage(lang.getTranslation(superIdent ?
                             TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_SUPER : TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_NORMAL,
                     Arrays.asList("${name}", "${role}"), Arrays.asList(analyzedCase.getColoredName(), analyzedCase.getRole().getColoredName())));
@@ -35,10 +37,8 @@ public class DetectiveFilesUtil {
         player.openBook(itemBuilder.craft());
     }
 
-    public static void analyzed(UUID uuid, TTTPlayer tttPlayer) {
-        List<TTTPlayer> analyzedCases = SCANNED_FILES.getOrDefault(uuid, new ArrayList<>());
-        analyzedCases.add(tttPlayer);
-        SCANNED_FILES.put(uuid, analyzedCases);
+    public static void analyzed(TTTPlayer tttPlayer) {
+        SCANNED_FILES.add(tttPlayer);
     }
 
 }

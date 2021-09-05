@@ -9,16 +9,16 @@
 traitor:
   # Amount of traitors in the round.
   # Value will be multiplied with the players amount and will be the amount of traitors in the round
-  amount: 0.35
+  amount: 0.38
   # the maximum amount of traitors in the round can be
   maximum: 3
 
 detective:
   # Amount of detectives in the round.
   # Value will be multiplied with the players amount and will be the amount of detectives in the round
-  amount: 0.2
-  # the minimum amount of players that detectives will be selected
-  minimum: 6
+  amount: 0.15
+  # the minimum amount of players, when detectives will be selected
+  minimum: 4
 
 
 # Determine the probability an item drop when clicking on a chest.

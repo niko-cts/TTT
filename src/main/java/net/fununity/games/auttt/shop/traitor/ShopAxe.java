@@ -37,9 +37,12 @@ public class ShopAxe extends ShopItem {
         }
         use(false);
         damager.getInventory().getItemInMainHand().setDurability((short) (getUsed() * 15 + getUsed()));
+        if (getUsed() == getMaximumUses()) {
+            damager.removePotionEffect(PotionEffectType.SLOW);
+            damager.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20 * 3, 1, false));
+        }
 
         this.lastHit = System.currentTimeMillis();
-        damager.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20*3, 1));
         event.setDamage(10);
     }
 
@@ -47,15 +50,16 @@ public class ShopAxe extends ShopItem {
     public void onItem(PlayerItemHeldEvent event) {
         Player player = event.getPlayer();
         if (!player.getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId())) return;
-        if (player.getInventory().getItemInMainHand().getType() != Material.GOLD_AXE) {
-            ItemStack previousItems = player.getInventory().getItem(event.getPreviousSlot());
-            if (previousItems != null && previousItems.getType() == Material.GOLD_AXE) {
+        ItemStack newItem = player.getInventory().getItem(event.getNewSlot());
+        if (newItem != null && newItem.getType() == Material.GOLD_AXE) {
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 1, false));
+        } else {
+            ItemStack previousItem = player.getInventory().getItem(event.getPreviousSlot());
+            if (previousItem != null && previousItem.getType() == Material.GOLD_AXE) {
                 player.removePotionEffect(PotionEffectType.SLOW);
-                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20 * 3, 0, false));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20 * 3, 1, false));
             }
-            return;
         }
-        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, false));
     }
 
 }

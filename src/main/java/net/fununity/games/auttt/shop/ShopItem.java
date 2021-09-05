@@ -2,6 +2,7 @@ package net.fununity.games.auttt.shop;
 
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.TTTPlayer;
+import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.mgs.gamestates.GameState;
 import net.fununity.misc.translationhandler.translations.Language;
@@ -15,6 +16,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
 
 /**
  * This is the abstract class for every shop item.
@@ -97,11 +99,14 @@ public abstract class ShopItem implements Listener {
 
     /**
      * Sets and gives the player the item to use this ShopItem.
-     * @param itemSack ItemStack - the item to give.
+     * @param itemStack ItemStack - the item to give.
      * @since 1.1
      */
-    public void giveItemToUse(ItemStack itemSack) {
-        this.itemUse = itemSack;
+    public void giveItemToUse(ItemStack itemStack) {
+        this.itemUse = itemStack.clone();
+        ItemMeta itemMeta = this.itemUse.getItemMeta();
+        itemMeta.setLocalizedName(RandomUtil.getRandomString(10));
+        this.itemUse.setItemMeta(itemMeta);
         tttPlayer.getApiPlayer().getPlayer().getInventory().addItem(itemUse);
     }
 

@@ -23,7 +23,7 @@ import org.bukkit.inventory.EquipmentSlot;
 public class ShopBoomBody extends ShopItem {
 
     private static final double DAMAGE_RADIUS = 4;
-    private static final double DAMAGE_AMOUNT = 5;
+    private static final double DAMAGE_AMOUNT = 15;
     private NPC npc;
     private Location hologramLocation;
 
@@ -60,7 +60,7 @@ public class ShopBoomBody extends ShopItem {
         }
 
         Location location = npc.getLocation().clone();
-        location.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, location, 1);
+        location.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, location, 3);
         location.getWorld().playSound(location, Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
         for (TTTPlayer player : GameLogic.getInstance().getTTTPlayerByRole(Role.INNOCENT, Role.DETECTIVE)) {
             if (player.getApiPlayer().getPlayer().getLocation().distance(location) <= DAMAGE_RADIUS) {

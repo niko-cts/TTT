@@ -14,14 +14,17 @@ import net.fununity.main.api.hologram.HologramText;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.main.api.item.UsefulItems;
 import net.fununity.main.api.player.APIPlayer;
+import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.npc.NPC;
 import net.fununity.npc.events.PlayerInteractAtNPCEvent;
 import net.minecraft.server.v1_12_R1.EnumItemSlot;
 import net.minecraft.server.v1_12_R1.PacketPlayInUseEntity;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemStack;
 
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -30,21 +33,18 @@ import java.util.List;
 
 public class PlayerCorpse {
 
-    private static final int FOUND_PROCESS_STEPS = 30;
-
     protected final TTTPlayer tttPlayer;
     protected final OffsetDateTime death;
 
     private final Location hologramLocation;
     private final NPC npc;
-    private final CorpseInventory corpseInventory;
-    private TTTPlayer foundBy;
+    private final CorpseInventoryManager corpseInventoryManager;
 
     public PlayerCorpse(TTTPlayer tttPlayer, PlayerDeathEvent event) {
         this.tttPlayer = tttPlayer;
         this.death = OffsetDateTime.now();
 
-        this.corpseInventory = new CorpseInventory(this, event);
+        this.corpseInventoryManager = new CorpseInventoryManager(this, event);
 
         this.npc = new NPC("", tttPlayer.getApiPlayer().getPlayer().getLocation(), "ttt_undefined", false);
         this.npc.setLookAtPlayer(false);
@@ -56,32 +56,35 @@ public class PlayerCorpse {
 
     public void clickedOn(PlayerInteractAtNPCEvent event) {
         APIPlayer apiPlayer = event.getPlayer();
-        if (foundBy != null || event.getAction() != PacketPlayInUseEntity.EnumEntityUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
-                GameLogic.getInstance().gameManager.isSpectator(apiPlayer.getPlayer())) return;
+        if (event.getAction() != PacketPlayInUseEntity.EnumEntityUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
+                GameManager.getInstance().isSpectator(apiPlayer.getPlayer())) return;
 
         // NomNomDevice
         TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
         if (tttPlayer == null) return;
         List<ShopItem> nomNomDevices = tttPlayer.getShopItemsOfType(TraitorItems.NOM_NOM_DEVICE);
-        if(!nomNomDevices.isEmpty() && apiPlayer.getPlayer().getPlayer().getInventory().getItemInMainHand()
-                .equals(nomNomDevices.get(0).getShopItem().getTranslatedItem(apiPlayer.getLanguage()))) {
+        ItemStack item = tttPlayer.getApiPlayer().getPlayer().getInventory().getItemInMainHand();
+        if (!nomNomDevices.isEmpty() && nomNomDevices.get(0).getShopItem().getTranslatedItem(apiPlayer.getLanguage()).equals(item)) {
             nomNomDevices.get(0).use(true);
             npc.destroy();
             apiPlayer.playSound(Sound.ENTITY_PLAYER_BURP);
             return;
         }
 
-        found(GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId()));
+        if (item == null || item.getType() != Material.STICK) return;
+
+        if (this.tttPlayer.isFound())
+            this.corpseInventoryManager.openInventory(apiPlayer);
+        else
+            found(tttPlayer);
     }
 
     public void found(TTTPlayer foundBy) {
-        this.foundBy = foundBy;
         this.tttPlayer.setFound(true);
         CoinsUtil.foundBody(foundBy, this.tttPlayer);
 
         updateHologram(this.tttPlayer.getColoredName(), false);
         this.npc.equip(EnumItemSlot.HEAD, new ItemBuilder(UsefulItems.PLAYER_HEAD).setSkullOwner(this.tttPlayer.getApiPlayer().getDatabasePlayer().getPlayerTextures()).craft());
-        this.npc.click((event) -> this.corpseInventory.openGUI(event.getPlayer()));
 
         for (TTTPlayer tttPlayer : GameLogic.getInstance().getTTTPlayers()) {
             tttPlayer.getApiPlayer().sendMessage(TranslationKeys.TTT_GAME_PLAYER_FOUND,
