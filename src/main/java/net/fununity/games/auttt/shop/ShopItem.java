@@ -141,6 +141,16 @@ public abstract class ShopItem implements Listener {
         return shopItem;
     }
 
+
+    /**
+     * Returns the item the player got for the shop.
+     * @return ItemStack - the itemstack for the shop item.
+     * @since 1.1
+     */
+    public ItemStack getUseItem() {
+        return itemUse;
+    }
+
     /**
      * Removes the ShopItem from the TTTPlayer.
      * @since 1.1

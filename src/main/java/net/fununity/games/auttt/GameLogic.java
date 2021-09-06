@@ -4,6 +4,7 @@ import net.fununity.games.auttt.corpse.PlayerCorpse;
 import net.fununity.games.auttt.gui.JokerShopGUI;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.rooms.RoomsManager;
+import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.util.CoinsUtil;
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
@@ -234,11 +235,13 @@ public class GameLogic extends Game {
      */
     @Override
     public void playerLeaves(Player player) {
-        tttPlayers.remove(getTTTPlayer(player.getUniqueId()));
+        TTTPlayer tttPlayer = getTTTPlayer(player.getUniqueId());
+        new ArrayList<>(tttPlayer.getShopItems()).forEach(ShopItem::removeItem);
+        tttPlayers.remove(tttPlayer);
 
-        for (TTTPlayer tttPlayer : getTTTPlayers()) {
-            TTTScoreboard.updateScoreboard(tttPlayer);
-            TTTScoreboard.updateTablist(tttPlayer);
+        for (TTTPlayer onPlayer : getTTTPlayers()) {
+            TTTScoreboard.updateScoreboard(onPlayer);
+            TTTScoreboard.updateTablist(onPlayer);
         }
 
         // end check:

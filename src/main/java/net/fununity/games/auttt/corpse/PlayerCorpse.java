@@ -62,13 +62,21 @@ public class PlayerCorpse {
         // NomNomDevice
         TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
         if (tttPlayer == null) return;
-        List<ShopItem> nomNomDevices = tttPlayer.getShopItemsOfType(TraitorItems.NOM_NOM_DEVICE);
+
         ItemStack item = tttPlayer.getApiPlayer().getPlayer().getInventory().getItemInMainHand();
-        if (!nomNomDevices.isEmpty() && nomNomDevices.get(0).getShopItem().getTranslatedItem(apiPlayer.getLanguage()).equals(item)) {
+
+        List<ShopItem> nomNomDevices = tttPlayer.getShopItemsOfType(TraitorItems.NOM_NOM_DEVICE);
+        if (!nomNomDevices.isEmpty() && nomNomDevices.get(0).getUseItem().equals(item)) {
             nomNomDevices.get(0).use(true);
             npc.destroy();
             apiPlayer.playSound(Sound.ENTITY_PLAYER_BURP);
             return;
+        }
+        List<ShopItem> identThief = tttPlayer.getShopItemsOfType(TraitorItems.IDENT_THIEF);
+        if (!identThief.isEmpty() && identThief.get(0).getUseItem().equals(item)) {
+            apiPlayer.getPlayer().setDisplayName(this.tttPlayer.getApiPlayer().getPlayer().getName());
+            identThief.get(0).use(true);
+            apiPlayer.playSound(Sound.ENTITY_ENDERMEN_TELEPORT);
         }
 
         if (item == null || item.getType() != Material.STICK) return;
