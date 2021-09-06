@@ -69,13 +69,24 @@ public abstract class ShopItem implements Listener {
         PlayerInventory inventory = tttPlayer.getApiPlayer().getPlayer().getInventory();
         for (int i = 0; i < inventory.getContents().length; i++) {
             ItemStack content = inventory.getContents()[i];
-            if (itemUse.equals(content)) {
+            if (equalsItem(content)) {
                 if (content.getAmount() > 1)
                     content.setAmount(content.getAmount() - 1);
                 else
                     inventory.setItem(i, new ItemStack(Material.AIR));
             }
         }
+    }
+
+    /**
+     * Check if the given item is the shop itemstack
+     * @param item ItemStack - the item to check
+     * @return boolean - the item is the shop itemstack
+     * @see ShopItem#getUseItem()
+     * @since 1.1
+     */
+    public boolean equalsItem(ItemStack item) {
+        return item.hasItemMeta() && item.getItemMeta().hasLocalizedName() && itemUse.getItemMeta().getLocalizedName().equals(item.getItemMeta().getLocalizedName());
     }
 
     /**
@@ -105,7 +116,7 @@ public abstract class ShopItem implements Listener {
     public void giveItemToUse(ItemStack itemStack) {
         this.itemUse = itemStack.clone();
         ItemMeta itemMeta = this.itemUse.getItemMeta();
-        itemMeta.setLocalizedName(RandomUtil.getRandomString(10));
+        itemMeta.setLocalizedName(getShopItem().name() + RandomUtil.getRandomString(10));
         this.itemUse.setItemMeta(itemMeta);
         tttPlayer.getApiPlayer().getPlayer().getInventory().addItem(itemUse);
     }
@@ -129,7 +140,7 @@ public abstract class ShopItem implements Listener {
         if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) return false;
         if (GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return false;
         if (event.getHand() != EquipmentSlot.HAND || !event.getPlayer().getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId())) return false;
-        return event.getPlayer().getInventory().getItemInMainHand().equals(itemUse);
+        return equalsItem(event.getPlayer().getInventory().getItemInMainHand());
     }
 
     /**
@@ -168,7 +179,7 @@ public abstract class ShopItem implements Listener {
     @EventHandler
     public void onDrop(PlayerDropItemEvent event) {
         if (itemUse == null || !event.getPlayer().getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId())) return;
-        if (event.getItemDrop().getItemStack().equals(itemUse))
+        if (equalsItem(event.getItemDrop().getItemStack()))
             event.setCancelled(true);
     }
 }

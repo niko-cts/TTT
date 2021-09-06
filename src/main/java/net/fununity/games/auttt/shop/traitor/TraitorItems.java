@@ -28,7 +28,8 @@ public enum TraitorItems implements ShopItems {
     IDENT_THIEF(5, 1, 5, 5, ShopIdentThief.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION),
     GENERATOR(5, 1, 5, 5, ShopGenerator.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION),
     INVISIBILITY(6, 1, 5, 1, ShopInvisibility.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION),
-    ROBOT(7, 1, 2, 2, ShopRobot.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION);
+    ROBOT(7, 1, 2, 2, ShopRobot.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION),
+    SENTRYGUN(7, 1, 2, 2, ShopSentryGun.class, new ItemStack(Material.ARMOR_STAND), TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION);
 
     private final int coinsCost;
     private final int maximumUses;

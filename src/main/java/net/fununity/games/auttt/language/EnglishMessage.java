@@ -86,6 +86,8 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_NAME, "&eElliot KM-01");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, "&eSentryGun");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "");
 
         // INNOCENT
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "&eBoomBody-Stop");
@@ -132,6 +134,7 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_NAME, "&dDetective joker &8- &e${cost} Tokens");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, "&7Buy this joker card, to get;&7prioritized at the detective selection.;&7If you won't get detective,;&7you'll receive back your money.;;&6&lPremiums get ${off} off!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_TITLE, "&2Confirm purchase");
+        add(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_INFO, "&7Buy this joker card and;&7receive a prioritized selection;&7Keep in mind that the prioritized;&7selection is not random!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_GAME_STARTED, "&cThe game has already started!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_SEND, "&aYou successfully purchased the joker!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_PAYBACK_INFO, "&7You joker card was not used. You have received your money back.");

@@ -83,7 +83,9 @@ public class JokerShopGUI {
         Language lang = apiPlayer.getLanguage();
         CustomInventory menu = new CustomInventory(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_TITLE), 9*3);
 
-        menu.setItem(15, item, new ClickAction() {
+        menu.setItem(2, new ItemBuilder(Material.PAPER).setName(" ").setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_INFO).split(";")).craft());
+
+        menu.setItem(14, item, new ClickAction() {
             @Override
             public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
                 if (BalanceHandler.getInstance().getMoney(apiPlayer.getUniqueId()) < cost) {
@@ -91,7 +93,7 @@ public class JokerShopGUI {
                     return;
                 }
                 apiPlayer.getPlayer().closeInventory();
-                if (GameManager.getInstance().getCurrentGameState() != GameState.LOBBY) {
+                if (!GameLogic.getInstance().getTTTPlayers().isEmpty()) {
                     apiPlayer.sendMessage(MessagePrefix.ERROR, TranslationKeys.TTT_GUI_JOKERSHOP_GAME_STARTED);
                     return;
                 }

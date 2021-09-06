@@ -4,6 +4,7 @@ import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.rooms.vent.Vent;
+import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.detectives.DetectiveItems;
 import net.fununity.main.api.util.LocationUtil;
 import net.fununity.mgs.gamespecifc.Arena;
@@ -55,7 +56,6 @@ public class RoomsManager {
     }
 
     public void checkForActivation(Player player, Location location) {
-        System.out.println(location + "  " + tester + "  " + tester.getActivationBlock());
         if (tester != null && LocationUtil.equalsLocationBlock(location, tester.getActivationBlock())) {
             if (generator == null || generator.isEnabled())
                 tester.startTester();
@@ -65,7 +65,6 @@ public class RoomsManager {
     }
 
     public void checkForTrap(Player player, Location location) {
-        System.out.println(location + "  " + trap + "  " + trap.getActivationBlock());
         if (trap != null && LocationUtil.equalsLocationBlock(location, trap.getActivationBlock())) {
             trap.buttonPressed(GameLogic.getInstance().getTTTPlayer(player.getUniqueId()));
         }
@@ -74,11 +73,15 @@ public class RoomsManager {
     public void checkForVent(Player player, Location location) {
         if (vent != null) {
             TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(player.getUniqueId());
-            if (tttPlayer.getRole() == Role.TRAITOR)
+            if (tttPlayer.getRole() == Role.TRAITOR) {
                 vent.jumpIn(player, location);
-            else if (tttPlayer.hasShopItem(DetectiveItems.MOVE_SENSOR) &&
-                    tttPlayer.getApiPlayer().getPlayer().getInventory().getItemInMainHand().equals(DetectiveItems.MOVE_SENSOR.getTranslatedItem(tttPlayer.getApiPlayer().getLanguage()))) {
-                tttPlayer.getShopItemsOfType(DetectiveItems.MOVE_SENSOR).get(0).use(true);
+                return;
+            }
+            List<ShopItem> moveSensors = tttPlayer.getShopItemsOfType(DetectiveItems.MOVE_SENSOR);
+
+            if (!moveSensors.isEmpty() &&
+                    moveSensors.get(0).equalsItem(tttPlayer.getApiPlayer().getPlayer().getInventory().getItemInMainHand())) {
+                moveSensors.get(0).use(true);
                 vent.markLocation(tttPlayer.getApiPlayer(), location);
             } else
                 player.playSound(location, Sound.BLOCK_IRON_DOOR_CLOSE, 1, 1);

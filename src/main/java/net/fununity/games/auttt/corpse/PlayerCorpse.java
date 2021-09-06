@@ -66,14 +66,14 @@ public class PlayerCorpse {
         ItemStack item = tttPlayer.getApiPlayer().getPlayer().getInventory().getItemInMainHand();
 
         List<ShopItem> nomNomDevices = tttPlayer.getShopItemsOfType(TraitorItems.NOM_NOM_DEVICE);
-        if (!nomNomDevices.isEmpty() && nomNomDevices.get(0).getUseItem().equals(item)) {
+        if (!nomNomDevices.isEmpty() && nomNomDevices.get(0).equalsItem(item)) {
             nomNomDevices.get(0).use(true);
             npc.destroy();
             apiPlayer.playSound(Sound.ENTITY_PLAYER_BURP);
             return;
         }
         List<ShopItem> identThief = tttPlayer.getShopItemsOfType(TraitorItems.IDENT_THIEF);
-        if (!identThief.isEmpty() && identThief.get(0).getUseItem().equals(item)) {
+        if (!identThief.isEmpty() && identThief.get(0).equalsItem(item)) {
             apiPlayer.getPlayer().setDisplayName(this.tttPlayer.getApiPlayer().getPlayer().getName());
             identThief.get(0).use(true);
             apiPlayer.playSound(Sound.ENTITY_ENDERMEN_TELEPORT);

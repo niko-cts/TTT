@@ -86,6 +86,8 @@ public class TranslationKeys {
     public static final String TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION = "ttt.game.shop.item.invisibility.description";
     public static final String TTT_GAME_SHOP_ITEM_ROBOT_NAME = "ttt.game.shop.item.robot.name";
     public static final String TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION = "ttt.game.shop.item.robot.description";
+    public static final String TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME = "ttt.game.shop.item.sentrygun.name";
+    public static final String TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION = "ttt.game.shop.item.sentrygun.description";
 
     // DETECTIVE
     public static final String TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME = "ttt.game.shop.item.nightvision.name";
@@ -131,8 +133,9 @@ public class TranslationKeys {
     public static final String TTT_GUI_JOKERSHOP_DETECTIVE_NAME = "ttt.gui.jokershop.detective.name";
     public static final String TTT_GUI_JOKERSHOP_DETECTIVE_LORE = "ttt.gui.jokershop.detective.lore";
     public static final String TTT_GUI_JOKERSHOP_CONFIRM_TITLE = "ttt.gui.jokershop.confirm.title";
-    public static final String TTT_GUI_JOKERSHOP_GAME_STARTED = "ttt.gui.jokershop.game.started";
+    public static final String TTT_GUI_JOKERSHOP_CONFIRM_INFO = "ttt.gui.jokershop.confirm.info";
     public static final String TTT_GUI_JOKERSHOP_CONFIRM_SEND = "ttt.gui.jokershop.confirm.send";
+    public static final String TTT_GUI_JOKERSHOP_GAME_STARTED = "ttt.gui.jokershop.game.started";
     public static final String TTT_GUI_JOKERSHOP_PAYBACK_INFO = "ttt.gui.jokershop.payback.info";
 
     public static final String TTT_GUI_SHOP_TITLE = "ttt.gui.shop.title";

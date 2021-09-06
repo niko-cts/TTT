@@ -5,7 +5,11 @@ import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 
 public class ShopRobot extends ShopItem {
+
     public ShopRobot(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);
+
     }
+
+
 }
