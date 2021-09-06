@@ -12,8 +12,6 @@ import net.fununity.main.api.item.UsefulItems;
 import net.fununity.main.api.messages.MessagePrefix;
 import net.fununity.main.api.player.APIPlayer;
 import net.fununity.main.api.player.BalanceHandler;
-import net.fununity.mgs.gamestates.GameManager;
-import net.fununity.mgs.gamestates.GameState;
 import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -83,9 +81,9 @@ public class JokerShopGUI {
         Language lang = apiPlayer.getLanguage();
         CustomInventory menu = new CustomInventory(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_TITLE), 9*3);
 
-        menu.setItem(2, new ItemBuilder(Material.PAPER).setName(" ").setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_INFO).split(";")).craft());
+        menu.setItem(11, new ItemBuilder(Material.PAPER).setName(" ").setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_INFO).split(";")).craft());
 
-        menu.setItem(14, item, new ClickAction() {
+        menu.setItem(15, item, new ClickAction() {
             @Override
             public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
                 if (BalanceHandler.getInstance().getMoney(apiPlayer.getUniqueId()) < cost) {
