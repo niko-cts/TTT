@@ -17,16 +17,30 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+/**
+ * This class represents the generator in the game.
+ * @author Niko
+ * @since 1.1
+ */
 public class Generator {
 
     private final Location location;
     private boolean enabled;
 
+    /**
+     * Instantiates the generator.
+     * @param location Location - the activate button location
+     * @since 1.1
+     */
     public Generator(Location location) {
         this.location = location;
         this.enabled = true;
     }
 
+    /**
+     * Disables the generator
+     * @since 1.1
+     */
     private void disable() {
         this.enabled = false;
         for (TTTPlayer tttPlayer : GameLogic.getInstance().getTTTPlayerByRole(Role.INNOCENT, Role.DETECTIVE)) {
@@ -39,6 +53,10 @@ public class Generator {
         BroadcastHandler.broadcastMessage(TranslationKeys.TTT_GAME_ROOM_GENERATOR_DISABLE_BROADCAST);
     }
 
+    /**
+     * (Re)enables the generator.
+     * @since 1.1
+     */
     private void enable() {
         this.enabled = true;
         for (TTTPlayer tttPlayer : GameLogic.getInstance().getTTTPlayerByRole(Role.INNOCENT, Role.DETECTIVE)) {
@@ -51,14 +69,29 @@ public class Generator {
         BroadcastHandler.broadcastMessage(TranslationKeys.TTT_GAME_ROOM_GENERATOR_ENABLE_BROADCAST);
     }
 
+    /**
+     * Check if the generator is activated.
+     * @return boolean - generator is enabled.
+     * @since 1.1
+     */
     public boolean isEnabled() {
         return enabled;
     }
 
+    /**
+     * Get the location of the activation block
+     * @return Location - the activation location.
+     * @since 0.0.1
+     */
     protected Location getActivationBlock() {
         return location;
     }
 
+    /**
+     * Will be called, when the activation block was clicked.
+     * @param player Player - the player who clicked the button.
+     * @since 1.1
+     */
     protected void buttonPressed(Player player) {
         TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(player.getUniqueId());
         if (!isEnabled()) {

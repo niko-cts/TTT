@@ -15,14 +15,29 @@ import org.bukkit.entity.Player;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class manages all special rooms of ttt.
+ * @author Niko
+ * @since 1.1
+ */
 public class RoomsManager {
 
     private static RoomsManager instance;
 
+    /**
+     * Loads the room manager and instantiates the class.
+     * @param arena Arena - the played arena.
+     * @since 1.1
+     */
     public static void loadManager(Arena arena) {
         instance = new RoomsManager(arena);
     }
 
+    /**
+     * Get the singleton instance of this class.
+     * @return {@link RoomsManager} - instance of this class.
+     * @since 1.1
+     */
     public static RoomsManager getInstance() {
         return instance;
     }
