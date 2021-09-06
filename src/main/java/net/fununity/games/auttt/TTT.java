@@ -4,7 +4,8 @@ import net.fununity.games.auttt.commands.CoinsInfoCommand;
 import net.fununity.games.auttt.commands.JokerCommand;
 import net.fununity.games.auttt.commands.ShopCommand;
 import net.fununity.games.auttt.commands.TraitorCommand;
-import net.fununity.games.auttt.language.EnglishMessage;
+import net.fununity.games.auttt.language.EnglishMessages;
+import net.fununity.games.auttt.language.GermanMessages;
 import net.fununity.games.auttt.listener.PlayerDamagesPlayerListener;
 import net.fununity.games.auttt.listener.PlayerDropListener;
 import net.fununity.games.auttt.listener.PlayerInteractListener;
@@ -35,7 +36,8 @@ public class TTT extends JavaPlugin {
         this.detectiveAmount = this.getConfig().getInt("detective.amount");
         this.minAmountForDetective = this.getConfig().getInt("detective.minimum");
 
-        new EnglishMessage();
+        new EnglishMessages();
+        new GermanMessages();
 
         RegisterUtil registerUtil = new RegisterUtil(this);
         registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener(), new GeneralShopListener());
