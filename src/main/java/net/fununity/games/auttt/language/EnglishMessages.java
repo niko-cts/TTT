@@ -19,6 +19,7 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_COMMAND_SHOP_USAGE, "shop");
         add(TranslationKeys.TTT_COMMAND_SHOP_DESCRIPTION, "&7Opens the shop.");
         add(TranslationKeys.TTT_COMMAND_SHOP_NOTAVAILABLE, "&cThis command is currently not available.");
+        add(TranslationKeys.TTT_COMMAND_SHOP_NOTINRANGE, "&cYou can only buy a shop item between 1 - ${max}.");
 
         add(TranslationKeys.TTT_COMMAND_JOKER_USAGE, "joker");
         add(TranslationKeys.TTT_COMMAND_JOKER_DESCRIPTION, "&7Opens the joker shop.");
@@ -87,8 +88,6 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eTarnknappe");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_NAME, "&eElliot KM-01");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, "&eSentryGun");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "");
 

@@ -18,6 +18,7 @@ public class TranslationKeys {
     public static final String TTT_COMMAND_SHOP_USAGE = "ttt.command.shop.usage";
     public static final String TTT_COMMAND_SHOP_DESCRIPTION = "ttt.command.shop.description";
     public static final String TTT_COMMAND_SHOP_NOTAVAILABLE = "ttt.command.shop.notavailable";
+    public static final String TTT_COMMAND_SHOP_NOTINRANGE = "ttt.command.shop.notinrange";
 
     public static final String TTT_COMMAND_JOKER_USAGE = "ttt.command.joker.usage";
     public static final String TTT_COMMAND_JOKER_DESCRIPTION = "ttt.command.joker.description";
@@ -83,8 +84,6 @@ public class TranslationKeys {
     public static final String TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION = "ttt.game.shop.item.generator.description";
     public static final String TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME = "ttt.game.shop.item.invisibility.name";
     public static final String TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION = "ttt.game.shop.item.invisibility.description";
-    public static final String TTT_GAME_SHOP_ITEM_ROBOT_NAME = "ttt.game.shop.item.robot.name";
-    public static final String TTT_GAME_SHOP_ITEM_ROBOT_DESCRIPTION = "ttt.game.shop.item.robot.description";
     public static final String TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME = "ttt.game.shop.item.sentrygun.name";
     public static final String TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION = "ttt.game.shop.item.sentrygun.description";
 

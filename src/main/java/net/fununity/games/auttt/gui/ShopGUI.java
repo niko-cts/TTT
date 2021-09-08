@@ -30,22 +30,7 @@ public class ShopGUI {
                     .setLore(lang.getTranslation(shopItem.getDescriptionKey(), "${cost}", shopItem.getCoinsCost() + "")).craft(), new ClickAction() {
                 @Override
                 public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
-                    if (tttPlayer.getCoins() < shopItem.getCoinsCost()) {
-                        apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS));
-                        return;
-                    }
-                    if (shopItem.getMaximumAmountAtOnce() <= tttPlayer.getShopItemsOfType(shopItem).size()) {
-                        apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUCURRENTAMOUNT));
-                        return;
-                    }
-                    if (shopItem.getMaximumBuys() <= tttPlayer.getShopItemBuyAmounts(shopItem)) {
-                        apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUBUYSAMOUNT));
-                        return;
-                    }
-
-                    tttPlayer.buysShopItem(shopItem);
-                    setCloseInventory(true);
-                    apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_BUYED), "${name}", lang.getTranslation(shopItem.getNameKey()));
+                    setCloseInventory(tryToBuyItem(tttPlayer, shopItem));
                 }
             });
         }
@@ -63,6 +48,26 @@ public class ShopGUI {
             }
         });
         menu.open(apiPlayer);
+    }
+
+    public static boolean tryToBuyItem(TTTPlayer tttPlayer, ShopItems shopItem) {
+        APIPlayer apiPlayer = tttPlayer.getApiPlayer();
+        if (tttPlayer.getCoins() < shopItem.getCoinsCost()) {
+            apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS));
+            return false;
+        }
+        if (shopItem.getMaximumAmountAtOnce() <= tttPlayer.getShopItemsOfType(shopItem).size()) {
+            apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUCURRENTAMOUNT));
+            return false;
+        }
+        if (shopItem.getMaximumBuys() <= tttPlayer.getShopItemBuyAmounts(shopItem)) {
+            apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUBUYSAMOUNT));
+            return false;
+        }
+
+        apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_SHOP_BUYED), "${name}", apiPlayer.getLanguage().getTranslation(shopItem.getNameKey()));
+        tttPlayer.buysShopItem(shopItem);
+        return true;
     }
 
 }
