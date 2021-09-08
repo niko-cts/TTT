@@ -86,7 +86,7 @@ public abstract class ShopItem implements Listener {
      * @since 1.1
      */
     public boolean equalsItem(ItemStack item) {
-        return item.hasItemMeta() && item.getItemMeta().hasLocalizedName() && itemUse.getItemMeta().getLocalizedName().equals(item.getItemMeta().getLocalizedName());
+        return item != null && item.hasItemMeta() && item.getItemMeta().hasLocalizedName() && itemUse.getItemMeta().getLocalizedName().equals(item.getItemMeta().getLocalizedName());
     }
 
     /**

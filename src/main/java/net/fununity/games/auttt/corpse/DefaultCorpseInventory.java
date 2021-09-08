@@ -29,12 +29,10 @@ public class DefaultCorpseInventory {
         this.staticElements = new HashMap<>();
         this.individualElements = new HashMap<>();
 
+        this.staticElements.put(22, new CorpseItem(CorpseElements.HEAD, UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer())));
 
-        this.staticElements.put(20, new CorpseItem(CorpseElements.HEAD, UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer())));
-
-        if (RandomUtil.getRandom().nextBoolean()) { // death
+        if (RandomUtil.getRandom().nextBoolean()) // death
             insertIndividualElements(CorpseElements.BLOOD, RandomUtil.getRandomInt(5));
-        }
 
         if (RandomUtil.getRandom().nextBoolean()) { // killed item
             Entity killer = event.getEntity().getLastDamageCause().getEntity();
@@ -59,25 +57,36 @@ public class DefaultCorpseInventory {
                 insertItem(CorpseElements.HELDITEM, item, 1);
         }
 
-        if(playerCorpse.tttPlayer.getRole() == Role.DETECTIVE && RandomUtil.getRandom().nextBoolean()) { // FILES
+        if (playerCorpse.tttPlayer.getRole() == Role.DETECTIVE && RandomUtil.getRandom().nextBoolean())  // FILES
             insertItem(CorpseElements.DETEFILES, new ItemBuilder(Material.KNOWLEDGE_BOOK).setName(TranslationKeys.TTT_GAME_ITEM_FILES_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_FILES_LORE), 1);
-        }
     }
 
+    /**
+     * Inserts only the {@link CorpseElements} itself.
+     * The item will be created in {@link IndividualCorpseInventory}, when a player analyzes the corpse.
+     * @param corpseElement {@link CorpseElements} - the element of the corpse item.
+     * @param amount int - amount of items in the inventory.
+     * @since 1.1
+     */
     private void insertIndividualElements(CorpseElements corpseElement, int amount) {
         for (int i = 0; i < amount; i++) {
             int position;
             do {
                 position = RandomUtil.getRandomInt(INVENTORY_SIZE) + 10;
             } while (staticElements.containsKey(position) || individualElements.containsKey(position));
-            individualElements.put(position, corpseElement);
+            this.individualElements.put(position, corpseElement);
         }
     }
 
+    /**
+     * Inserts the item in the gui.
+     * @param corpseElement {@link CorpseElements} - the element of the corpse item.
+     * @param item Object - the displayed item.
+     * @param amount int - amount of items in the inventory.
+     * @since 1.1
+     */
     private void insertItem(CorpseElements corpseElement, Object item, int amount) {
         for (int i = 0; i < amount; i++) {
-            if (staticElements.size() + individualElements.size() >= INVENTORY_SIZE)
-                break;
             int position;
             do {
                 position = RandomUtil.getRandomInt(INVENTORY_SIZE) + 10;

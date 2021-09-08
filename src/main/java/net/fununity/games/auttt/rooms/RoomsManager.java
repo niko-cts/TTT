@@ -52,7 +52,7 @@ public class RoomsManager {
 
     private RoomsManager(Arena arena) {
         Map<String, List<Location>> locations = arena.getTeamLocations();
-        if (locations.containsKey("tester_activate"))
+        if (locations.containsKey("tester_activate") && locations.containsKey("tester_teleportback") && locations.containsKey("tester_teleportin"))
             this.tester = new Tester(locations.get("tester_room"), locations.get("tester_reactionblocks"), locations.get("tester_redstone"), locations.get("tester_activate").get(0),
                     locations.get("tester_teleportin").get(0), locations.get("tester_teleportback").get(0));
         else
@@ -63,12 +63,12 @@ public class RoomsManager {
         else
             this.generator = null;
 
-        if (locations.containsKey("vent"))
+        if (locations.containsKey("vent") && locations.containsKey("vent_out"))
             this.vent = new Vent(locations.get("vent"), locations.get("vent_out"));
         else
             this.vent = null;
 
-        if (locations.containsKey("trap_activation"))
+        if (locations.containsKey("trap_activation") && locations.containsKey("trap_blocks"))
             this.trap = new Trap(locations.get("trap_activation").get(0), locations.get("trap_blocks"));
         else
             this.trap = null;
@@ -77,7 +77,7 @@ public class RoomsManager {
     public void checkForActivation(Player player, Location location) {
         if (tester != null && LocationUtil.equalsLocationBlock(location, tester.getActivationBlock())) {
             if (generator == null || generator.isEnabled())
-                tester.startTester();
+                tester.startTester(player);
         } else if (generator != null && LocationUtil.equalsLocationBlock(location, generator.getActivationBlock())) {
             generator.buttonPressed(player);
         }

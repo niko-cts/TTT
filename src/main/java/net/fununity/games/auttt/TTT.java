@@ -9,6 +9,7 @@ import net.fununity.games.auttt.language.GermanMessages;
 import net.fununity.games.auttt.listener.*;
 import net.fununity.games.auttt.shop.GeneralShopListener;
 import net.fununity.main.api.item.ItemBuilder;
+import net.fununity.main.api.minigames.MinigameNames;
 import net.fununity.main.api.minigames.stats.minigames.Minigames;
 import net.fununity.main.api.util.RegisterUtil;
 import net.fununity.mgs.Minigame;
@@ -41,7 +42,7 @@ public class TTT extends JavaPlugin {
         registerUtil.addCommands(new TraitorCommand(), new CoinsInfoCommand(), new ShopCommand(), new JokerCommand());
         registerUtil.register();
 
-        Minigame ttt = new Minigame("TTT", Minigames.TTT, GameLogic.class);
+        Minigame ttt = new Minigame(MinigameNames.TTT.getDisplayName(), Minigames.TTT, GameLogic.class);
         ttt.setAutoReward(false);
         ttt.setDeathMessage(false);
         ttt.setScoreboard(false);

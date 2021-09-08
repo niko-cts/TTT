@@ -69,6 +69,7 @@ public class GameLogic extends Game {
             // ROLES SORTING
             int maximumTraitor = (int) Math.min(TTT.getInstance().getMaxTraitorAmount(), Math.round(TTT.getInstance().getTraitorAmount() * getPlayers().size()));
             List<Player> players = getPlayers();
+            Collections.shuffle(players);
 
             addPlayerRole(maximumTraitor, traitorJoker, players, Role.TRAITOR);
 
@@ -227,7 +228,7 @@ public class GameLogic extends Game {
         }
 
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
-            TTTScoreboard.playerDied(tttPlayer);
+            TTTScoreboard.reAddPlayer(tttPlayer.getApiPlayer().getPlayer());
             getTTTPlayerByRole(Role.TRAITOR).forEach(TTTScoreboard::updateScoreboard);
             TTTScoreboard.updateScoreboard(tttPlayer);
             TTTScoreboard.updateTablist(tttPlayer);

@@ -15,6 +15,7 @@ import net.fununity.misc.translationhandler.translations.Language;
 import net.minecraft.server.v1_12_R1.PacketPlayOutPlayerInfo;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
@@ -165,50 +166,14 @@ public class TTTScoreboard {
 
     /**
      * Player dies in game and should be added on the tab list.
-     * @param tttPlayer {@link TTTPlayer} - the player who died.
+     * @param player Player - the player who died.
      * @since 0.0.1
      */
-    public static void playerDied(TTTPlayer tttPlayer) {
-        PacketPlayOutPlayerInfo packet = new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, ((CraftPlayer) tttPlayer.getApiPlayer().getPlayer()).getHandle());
+    public static void reAddPlayer(Player player) {
+        PacketPlayOutPlayerInfo packet = new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, ((CraftPlayer) player).getHandle());
 
         for (APIPlayer onlinePlayer : FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers())
             onlinePlayer.sendPacket(packet);
     }
-
-
-    // Note: Packet wise changing tab list
-    /*private static final MinecraftServer NMS_SERVER = ((CraftServer) TTT.getInstance().getServer()).getServer();
-
-    public static void updateTablist(TTTPlayer tttPlayer) {
-        Player player = tttPlayer.getApiPlayer().getPlayer();
-        WorldServer nmsWorld = ((CraftWorld) player.getWorld()).getHandle();
-
-        for (APIPlayer onlinePlayer : FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers()) {
-            TTTPlayer onlineTTT = GameLogic.getInstance().getTTTPlayer(onlinePlayer.getUniqueId());
-
-            String name;
-            if (tttPlayer.isFound() || // Player was found
-                    (!tttPlayer.isAlive() && // player dead
-                            (GameManager.getInstance().getCurrentGameState() == GameState.ENDING || // ending phase
-                                    GameLogic.getInstance().gameManager.isSpectator(onlinePlayer.getPlayer()) || // online is spectator
-                                    onlineTTT.getRole() == Role.TRAITOR))) // online is traitor
-                name = "§z" + tttPlayer.getRole().getColor() + "" + ChatColor.STRIKETHROUGH + player.getName();
-            else
-            if (tttPlayer.getRole() == Role.DETECTIVE ||  // Player is detective
-                    GameManager.getInstance().getCurrentGameState() == GameState.ENDING || // ending phase
-                    GameLogic.getInstance().gameManager.isSpectator(onlinePlayer.getPlayer()) || // online player is spectator
-                    onlineTTT.getRole() == Role.TRAITOR) // online player is traitor
-                name = tttPlayer.getColoredName();
-            else
-                name = ChatColor.YELLOW + player.getName();
-
-            EntityPlayer ePlayer = new EntityPlayer(NMS_SERVER, nmsWorld, new GameProfile(player.getUniqueId(), name.substring(0, Math.min(16, name.length()))), new PlayerInteractManager(nmsWorld));
-
-            onlinePlayer.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, ePlayer));
-
-            Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () ->
-                    onlinePlayer.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, ePlayer)), 1L);
-        }
-    }*/
 
 }

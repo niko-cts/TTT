@@ -2,6 +2,7 @@ package net.fununity.games.auttt.rooms.vent;
 
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.language.TranslationKeys;
+import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.actionbar.ActionbarMessage;
 import net.fununity.main.api.messages.MessagePrefix;
@@ -51,11 +52,17 @@ public class VentPlayerData {
         FunUnityAPI.getInstance().getActionbarManager().addActionbar(uuid, new ActionbarMessage(TranslationKeys.TTT_GAME_ROOM_VENT_ENTERED).setDuration(5));
         ventId = new ArrayList<>(this.vent.ventLocations.keySet()).indexOf(vent);
         vent.addPassenger(player);
+
         player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, 1, false, false));
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 0, false, false));
         if (this.vent.gift)
             player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, Integer.MAX_VALUE, 0, false, false));
 
+        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+            onlinePlayer.hidePlayer(TTT.getInstance(), player);
+            Bukkit.getScheduler().runTaskLater(TTT.getInstance(), ()->
+                TTTScoreboard.reAddPlayer(onlinePlayer), 1L);
+        }
 
         task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), () -> {
             secondsBar.setTitle(ChatColor.LIGHT_PURPLE + "" + this.secondsLeft);
@@ -77,6 +84,11 @@ public class VentPlayerData {
         player.removePotionEffect(PotionEffectType.BLINDNESS);
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20 * 3, 0, true, true));
         player.removePotionEffect(PotionEffectType.POISON);
+        getLocationFromVentId().removePassenger(player);
+
+        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+            onlinePlayer.showPlayer(TTT.getInstance(), player);
+        }
 
         player.teleport(vent.ventLocations.get(getLocationFromVentId()));
     }
@@ -90,7 +102,7 @@ public class VentPlayerData {
     }
 
     public void setVentId(int ventId) {
-        if(this.ventId != null)
+        if (this.ventId != null)
             getLocationFromVentId().removePassenger(apiPlayer.getPlayer());
         this.ventId = ventId;
         getLocationFromVentId().addPassenger(apiPlayer.getPlayer());
