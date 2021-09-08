@@ -4,6 +4,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 public class GeneralShopListener implements Listener {
 
@@ -14,4 +16,16 @@ public class GeneralShopListener implements Listener {
             ((Player) event.getHitEntity()).damage(30);
     }
 
+    @EventHandler
+    public void onEntity(PlayerInteractEntityEvent event) {
+        if (event.getRightClicked().hasMetadata("ttt-sentry")) {
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onEntity(PlayerInteractAtEntityEvent event) {
+        if (event.getRightClicked().hasMetadata("ttt-sentry"))
+            event.setCancelled(true);
+    }
 }

@@ -15,6 +15,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.UUID;
@@ -42,6 +43,7 @@ public class ShopSentryGun extends ShopItem {
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         if (!didPlayerUse(event)) return;
+        use(true);
         spawnSentry(event.getPlayer().getLocation());
     }
 
@@ -49,8 +51,10 @@ public class ShopSentryGun extends ShopItem {
         this.sentry = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
         this.sentry.setItemInHand(new ItemStack(Material.BOW));
         this.sentry.setHelmet(new ItemStack(Material.GOLD_HELMET));
+        this.sentry.setMetadata("ttt-sentry", new FixedMetadataValue(TTT.getInstance(), 1));
+        this.sentry.setArms(true);
         BukkitTask task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), this::checkForShoot, 20L, 20L);
-        Bukkit.getScheduler().runTaskLater(TTT.getInstance(), task::cancel, 20*DESTROY_SECONDS);
+        Bukkit.getScheduler().runTaskLater(TTT.getInstance(), task::cancel, 20 * DESTROY_SECONDS);
     }
 
     private void checkForShoot() {
@@ -64,10 +68,9 @@ public class ShopSentryGun extends ShopItem {
                         o2.getApiPlayer().getUniqueId().equals(lastUUID))).orElse(null);
         if (tttPlayer == null) return;
         this.lastUUID = tttPlayer.getApiPlayer().getUniqueId();
-        Arrow arrow = sentry.launchProjectile(Arrow.class, tttPlayer.getApiPlayer().getPlayer().getLocation().toVector().subtract(sentry.getEyeLocation().toVector()).multiply(2));
+        Arrow arrow = sentry.launchProjectile(Arrow.class, tttPlayer.getApiPlayer().getPlayer().getEyeLocation().toVector().subtract(sentry.getEyeLocation().toVector()).multiply(1));
         arrow.setCritical(true);
         arrow.setPickupStatus(Arrow.PickupStatus.DISALLOWED);
-        arrow.setKnockbackStrength(4);
     }
 
 }

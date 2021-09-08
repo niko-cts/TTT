@@ -3,9 +3,9 @@ package net.fununity.games.auttt.language;
 import net.fununity.main.api.common.messages.MessageList;
 import net.fununity.misc.translationhandler.TranslationHandler;
 
-public class EnglishMessage extends MessageList {
+public class EnglishMessages extends MessageList {
 
-    public EnglishMessage() {
+    public EnglishMessages() {
         super(TranslationHandler.getInstance().getLanguageHandler().getLanguageByCode("en"));
 
         add(TranslationKeys.TTT_COMMAND_TRAITORCHAT_USAGE, "tchat <message>");
