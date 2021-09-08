@@ -34,7 +34,14 @@ public class Trap {
     }
 
     public void buttonPressed(TTTPlayer tttPlayer) {
-        if (testerProtected || tttPlayer.getRole() != Role.TRAITOR) return;
+        if (tttPlayer.getRole() != Role.TRAITOR) {
+            tttPlayer.getApiPlayer().sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GAME_ROOM_TRAP_CANTENTER));
+            return;
+        }
+        if (testerProtected) {
+            tttPlayer.getApiPlayer().sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GAME_ROOM_TRAP_PROTECTED));
+            return;
+        }
         if (tttPlayer.hasShopItem(TraitorItems.TRAP_TICKET))
             return;
 

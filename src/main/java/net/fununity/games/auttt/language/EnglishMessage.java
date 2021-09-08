@@ -24,7 +24,8 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_COMMAND_JOKER_DESCRIPTION, "&7Opens the joker shop.");
         add(TranslationKeys.TTT_COMMAND_JOKER_NOTAVAILABLE, "&cThis command is currently not available.");
 
-        add(TranslationKeys.TTT_GAME_TESTER_JOINED, "&e${name} &7has entered the tester.");
+        add(TranslationKeys.TTT_GAME_ROOM_TESTER_JOINED, "&e${name} &7has entered the tester.");
+        add(TranslationKeys.TTT_GAME_ROOM_TESTER_COOLDOWN, "&cThe tester has a cooldown of 5 seconds.");
 
         add(TranslationKeys.ROLE_CALLOUT_TITLE, "${color}Deine Rolle");
         add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&8Du bist ${color}${role}");
@@ -40,6 +41,8 @@ public class EnglishMessage extends MessageList {
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_START, "These are your files. Analyzed corpses will be listed here with there roles. If you analyze a corpse it will take up to 40 seconds till it gets listed.");
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_SUPER, "&0Player: ${name}\n&0Role: ${role}");
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_NORMAL, "&0Player: ${name}");
+
+        add(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN, "&cYou can open the enderchest after the protection time.");
 
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME, "&bShop");
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE, "&7Opens the shop,;&7where you can buy useful items.");
@@ -160,6 +163,12 @@ public class EnglishMessage extends MessageList {
         // VENT
         add(TranslationKeys.TTT_GAME_ROOM_VENT_TIMEREACHED, "&cYou can no longer be in a vent.");
         add(TranslationKeys.TTT_GAME_ROOM_VENT_ENTERED, "&7In Vent - &eScroll&7 to move - &6Shift&7 to leave");
+        add(TranslationKeys.TTT_GAME_ROOM_VENT_CANTENTER, "&cOnly Traitor can enter the vent.");
+
+        //TRAP
+        add(TranslationKeys.TTT_GAME_ROOM_TRAP_CANTENTER, "&cOnly Traitor can activate the trap.");
+        add(TranslationKeys.TTT_GAME_ROOM_TRAP_PROTECTED, "&cThe trap was protected by a detective.");
+
 
         insertIntoLanguage();
     }

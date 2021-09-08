@@ -23,6 +23,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.inventory.PlayerInventory;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -78,9 +79,13 @@ public class GameLogic extends Game {
             ItemBuilder analyzer = new ItemBuilder(Material.STICK).setName(TranslationKeys.TTT_GAME_ITEM_ANALYZER_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_ANALYZER_LORE);
             ItemBuilder files = new ItemBuilder(Material.KNOWLEDGE_BOOK).setName(TranslationKeys.TTT_GAME_ITEM_FILES_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_FILES_LORE);
 
-            for (TTTPlayer detectives : getTTTPlayerByRole(Role.DETECTIVE))
-                detectives.getApiPlayer().getPlayer().getInventory().addItem(files.translate(detectives.getApiPlayer().getLanguage()));
-
+            for (TTTPlayer detectives : getTTTPlayerByRole(Role.DETECTIVE)) {
+                PlayerInventory inv = detectives.getApiPlayer().getPlayer().getInventory();
+                if (inv.getItem(8) == null)
+                    inv.setItem(8, files.translate(detectives.getApiPlayer().getLanguage()));
+                else
+                    inv.addItem(files.translate(detectives.getApiPlayer().getLanguage()));
+            }
 
             while (!players.isEmpty()) {
                 Player player = players.get(RandomUtil.getRandomInt(players.size()));
@@ -91,8 +96,18 @@ public class GameLogic extends Game {
             JokerShopGUI.payback();
 
             for (TTTPlayer tttPlayer : tttPlayers) {
-                tttPlayer.getApiPlayer().getPlayer().getInventory().addItem(shop.translate(tttPlayer.getApiPlayer().getLanguage()));
-                tttPlayer.getApiPlayer().getPlayer().getInventory().addItem(analyzer.translate(tttPlayer.getApiPlayer().getLanguage()));
+                PlayerInventory inv = tttPlayer.getApiPlayer().getPlayer().getInventory();
+
+                if (inv.getItem(7) == null)
+                    inv.setItem(7, shop.translate(tttPlayer.getApiPlayer().getLanguage()));
+                else
+                    inv.addItem(shop.translate(tttPlayer.getApiPlayer().getLanguage()));
+
+                if (inv.getItem(8) == null)
+                    inv.setItem(8, analyzer.translate(tttPlayer.getApiPlayer().getLanguage()));
+                else
+                    inv.addItem(analyzer.translate(tttPlayer.getApiPlayer().getLanguage()));
+
                 CoinsUtil.startCoins(tttPlayer);
                 tttPlayer.getApiPlayer().getTitleSender().sendTitle(TranslationKeys.ROLE_CALLOUT_TITLE, "${color}",
                         tttPlayer.getRole().getColor() + "", 20 * 5);

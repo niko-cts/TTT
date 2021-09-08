@@ -3,8 +3,11 @@ package net.fununity.games.auttt.listener;
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.gui.ShopGUI;
+import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.rooms.RoomsManager;
 import net.fununity.games.auttt.util.DetectiveFilesUtil;
+import net.fununity.main.api.FunUnityAPI;
+import net.fununity.main.api.actionbar.ActionbarMessage;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.mgs.gamestates.GameManager;
@@ -137,7 +140,6 @@ public class PlayerInteractListener implements Listener {
         }
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
         Block block = event.getClickedBlock();
-        System.out.println(block.getLocation() + "  " + event.getPlayer().getLocation());
         if (block.getType() == Material.CHEST) {
             event.setCancelled(true);
             block.setType(Material.AIR);
@@ -145,14 +147,20 @@ public class PlayerInteractListener implements Listener {
             return;
         }
 
-        if (GameLogic.getInstance().getTTTPlayers().isEmpty()) return;
-
         if (block.getType() == Material.ENDER_CHEST) {
             event.setCancelled(true);
+            if (GameLogic.getInstance().getTTTPlayers().isEmpty()) {
+                FunUnityAPI.getInstance().getActionbarManager().addActionbar(event.getPlayer().getUniqueId(),
+                        new ActionbarMessage(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN));
+                return;
+            }
+
             block.setType(Material.AIR);
             giveRandomItem(event.getPlayer(), enderFloat, enderMap);
             return;
         }
+
+        if (GameLogic.getInstance().getTTTPlayers().isEmpty()) return;
 
         switch (block.getType()) {
             case WOOD_BUTTON:

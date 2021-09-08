@@ -16,7 +16,7 @@ import org.bukkit.inventory.ItemStack;
  */
 public enum Role {
 
-    TRAITOR(ChatColor.RED, "Traitor", UsefulItems.BACKGROUND_RED, TraitorItems.values()),
+    TRAITOR(ChatColor.DARK_RED, "Traitor", UsefulItems.BACKGROUND_RED, TraitorItems.values()),
     DETECTIVE(ChatColor.BLUE, "Detective", UsefulItems.BACKGROUND_BLUE, DetectiveItems.values()),
     INNOCENT(ChatColor.GREEN, "Innocent", UsefulItems.BACKGROUND_GREEN, InnocentItems.values());
 

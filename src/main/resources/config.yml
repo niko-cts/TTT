@@ -1,7 +1,7 @@
 # Author: Niko
 
 # Special Location names for e.g. rooms are listed below:
-# tester_activate (activation button), tester_room (checking room locations), tester_redstone (will be a redstone block), tester_reactionblocks (reaction blocks)
+# tester_activate (activation button), tester_room (checking room locations), tester_redstone (will be a redstone block), tester_reactionblocks (reaction blocks), tester_teleportback (teleport out), tester_teleportin (teleport in)
 # generator_button (activation/disable button for generator)
 # vent (vent spectate), vent_out (vent teleport location)
 # trap_activation (activate button), trap_blocks (blocks to remove)

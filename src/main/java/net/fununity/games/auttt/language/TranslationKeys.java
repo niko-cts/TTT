@@ -23,8 +23,6 @@ public class TranslationKeys {
     public static final String TTT_COMMAND_JOKER_DESCRIPTION = "ttt.command.joker.description";
     public static final String TTT_COMMAND_JOKER_NOTAVAILABLE = "ttt.command.joker.notavailable";
 
-    public static final String TTT_GAME_TESTER_JOINED = "ttt.game.testerjoined";
-
     public static final String ROLE_CALLOUT_TITLE = "ttt.role.callout.title";
     public static final String ROLE_CALLOUT_SUBTITLE = "ttt.role.callout.subtitle";
     public static final String ROLE_CALLOUT_TEXT = "ttt.role.callout.text";
@@ -40,6 +38,7 @@ public class TranslationKeys {
     public static final String TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_SUPER = "ttt.game.player.detective.files.case.super";
     public static final String TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_NORMAL = "ttt.game.player.detective.files.case.normal";
 
+    public static final String TTT_GAME_ENDERCHEST_CANTOPEN = "ttt.game.enderchest.cantopen";
 
     public static final String TTT_GAME_ITEM_SHOP_NAME = "ttt.game.item.shop.name";
     public static final String TTT_GAME_ITEM_SHOP_LORE = "ttt.game.item.shop.lore";
@@ -157,6 +156,14 @@ public class TranslationKeys {
 
     public static final String TTT_GAME_ROOM_VENT_TIMEREACHED = "ttt.game.room.vent.timereached";
     public static final String TTT_GAME_ROOM_VENT_ENTERED = "ttt.game.room.vent.entered";
+    public static final String TTT_GAME_ROOM_VENT_CANTENTER = "ttt.game.room.vent.cantenter";
+
+    public static final String TTT_GAME_ROOM_TRAP_CANTENTER = "ttt.game.room.trap.cantenter";
+    public static final String TTT_GAME_ROOM_TRAP_PROTECTED = "ttt.game.room.trap.protected";
+
+    public static final String TTT_GAME_ROOM_TESTER_JOINED = "ttt.game.room.tester.joined";
+    public static final String TTT_GAME_ROOM_TESTER_COOLDOWN = "ttt.game.room.tester.cooldown";
+
 
 
 }

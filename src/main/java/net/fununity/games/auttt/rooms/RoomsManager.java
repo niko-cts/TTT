@@ -3,9 +3,12 @@ package net.fununity.games.auttt.rooms;
 import net.fununity.games.auttt.GameLogic;
 import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTTPlayer;
+import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.rooms.vent.Vent;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.detectives.DetectiveItems;
+import net.fununity.main.api.FunUnityAPI;
+import net.fununity.main.api.actionbar.ActionbarMessage;
 import net.fununity.main.api.util.LocationUtil;
 import net.fununity.mgs.gamespecifc.Arena;
 import org.bukkit.Location;
@@ -50,7 +53,8 @@ public class RoomsManager {
     private RoomsManager(Arena arena) {
         Map<String, List<Location>> locations = arena.getTeamLocations();
         if (locations.containsKey("tester_activate"))
-            this.tester = new Tester(locations.get("tester_room"), locations.get("tester_reactionblocks"), locations.get("tester_redstone"), locations.get("tester_activate").get(0));
+            this.tester = new Tester(locations.get("tester_room"), locations.get("tester_reactionblocks"), locations.get("tester_redstone"), locations.get("tester_activate").get(0),
+                    locations.get("tester_teleportin").get(0), locations.get("tester_teleportback").get(0));
         else
             this.tester = null;
 
@@ -98,8 +102,10 @@ public class RoomsManager {
                     moveSensors.get(0).equalsItem(tttPlayer.getApiPlayer().getPlayer().getInventory().getItemInMainHand())) {
                 moveSensors.get(0).use(true);
                 vent.markLocation(tttPlayer.getApiPlayer(), location);
-            } else
+            } else {
                 player.playSound(location, Sound.BLOCK_IRON_DOOR_CLOSE, 1, 1);
+                FunUnityAPI.getInstance().getActionbarManager().addActionbar(player.getUniqueId(), new ActionbarMessage(TranslationKeys.TTT_GAME_ROOM_VENT_CANTENTER));
+            }
         }
     }
 
