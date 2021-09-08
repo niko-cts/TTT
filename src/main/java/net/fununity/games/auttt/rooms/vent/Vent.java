@@ -6,6 +6,7 @@ import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.messages.MessagePrefix;
 import net.fununity.main.api.player.APIPlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
@@ -34,7 +35,9 @@ public class Vent implements Listener {
             ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
             armorStand.setVisible(false);
             armorStand.setSmall(true);
-            this.ventLocations.put(armorStand, ventOut.stream().min(Comparator.comparingDouble(o -> o.distance(location))).get());
+            Location locOut = ventOut.stream().min(Comparator.comparingDouble(o -> o.distance(location))).get();
+            this.ventLocations.put(armorStand, locOut);
+            Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), ()->locOut.getWorld().playEffect(locOut, Effect.CHORUS_FLOWER_GROW, 0), 20L, 20L);
         }
 
         this.gift = false;

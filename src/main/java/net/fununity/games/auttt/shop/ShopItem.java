@@ -65,7 +65,7 @@ public abstract class ShopItem implements Listener {
      * Removes the itemstack by one.
      * @since 1.1
      */
-    private void removeItemStack() {
+    protected void removeItemStack() {
         PlayerInventory inventory = tttPlayer.getApiPlayer().getPlayer().getInventory();
         for (int i = 0; i < inventory.getContents().length; i++) {
             ItemStack content = inventory.getContents()[i];
