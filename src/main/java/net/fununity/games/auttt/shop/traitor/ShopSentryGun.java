@@ -23,7 +23,7 @@ import java.util.UUID;
 public class ShopSentryGun extends ShopItem {
 
     private static final int DESTROY_SECONDS = 30;
-    private static final int SHOOT_RADIUS = 10;
+    private static final int SHOOT_RADIUS = 12;
     private static final double SHOOT_ANGLE = 12;
 
     private ArmorStand sentry;
@@ -43,8 +43,8 @@ public class ShopSentryGun extends ShopItem {
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         if (!didPlayerUse(event)) return;
-        use(true);
         spawnSentry(event.getPlayer().getLocation());
+        use(true);
     }
 
     private void spawnSentry(Location location) {
@@ -72,7 +72,7 @@ public class ShopSentryGun extends ShopItem {
         if (tttPlayer == null) return;
         this.lastUUID = tttPlayer.getApiPlayer().getUniqueId();
         Arrow arrow = sentry.launchProjectile(Arrow.class, tttPlayer.getApiPlayer().getPlayer().getEyeLocation()
-                .toVector().subtract(sentry.getEyeLocation().toVector()).normalize().multiply(2.1));
+                .toVector().subtract(sentry.getEyeLocation().toVector()).normalize().multiply(1.75));
         arrow.setPickupStatus(Arrow.PickupStatus.DISALLOWED);
     }
 

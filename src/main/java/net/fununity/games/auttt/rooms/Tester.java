@@ -52,9 +52,8 @@ public class Tester {
         for (Location redstoneBlock : redstoneBlocks)
             redstoneBlock.getBlock().setType(Material.REDSTONE_BLOCK);
 
-        player.teleport(teleportIn);
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            if(!onlinePlayer.getUniqueId().equals(player.getUniqueId()) && !GameManager.getInstance().isSpectator(onlinePlayer)) {
+            if (!onlinePlayer.getUniqueId().equals(player.getUniqueId()) && !GameManager.getInstance().isSpectator(onlinePlayer)) {
                 for (Location location : playerRoomLocation) {
                     if (LocationUtil.equalsLocationBlock(location, onlinePlayer.getLocation())){
                         onlinePlayer.teleport(teleportOut);
@@ -62,6 +61,7 @@ public class Tester {
                 }
             }
         }
+        player.teleport(teleportIn);
 
         BroadcastHandler.broadcastMessage(TranslationKeys.TTT_GAME_ROOM_TESTER_JOINED, "${name}", player.getName());
 

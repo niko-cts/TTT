@@ -54,7 +54,7 @@ public class RoomsManager {
         Map<String, List<Location>> locations = arena.getTeamLocations();
         if (locations.containsKey("tester_activate") && locations.containsKey("tester_teleportback") && locations.containsKey("tester_teleportin"))
             this.tester = new Tester(locations.get("tester_room"), locations.get("tester_reactionblocks"), locations.get("tester_redstone"), locations.get("tester_activate").get(0),
-                    locations.get("tester_teleportin").get(0), locations.get("tester_teleportback").get(0));
+                    locations.get("tester_teleportback").get(0), locations.get("tester_teleportin").get(0));
         else
             this.tester = null;
 
