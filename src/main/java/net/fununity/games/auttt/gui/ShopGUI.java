@@ -18,6 +18,10 @@ import org.bukkit.inventory.ItemStack;
 
 public class ShopGUI {
 
+    private ShopGUI() {
+        throw new UnsupportedOperationException("ShopGUI is a gui class.");
+    }
+
     public static void open(TTTPlayer tttPlayer) {
         APIPlayer apiPlayer = tttPlayer.getApiPlayer();
         Language lang = apiPlayer.getLanguage();

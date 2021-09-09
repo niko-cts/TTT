@@ -49,11 +49,12 @@ public class ShopSentryGun extends ShopItem {
 
     private void spawnSentry(Location location) {
         this.sentry = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
+        this.sentry.setMetadata("ttt-sentry", new FixedMetadataValue(TTT.getInstance(), 1));
+        this.sentry.setArms(true);
         this.sentry.setItemInHand(new ItemStack(Material.BOW));
         this.sentry.setHelmet(new ItemStack(Material.GOLD_HELMET));
-        this.sentry.setMetadata("ttt-sentry", new FixedMetadataValue(TTT.getInstance(), 1));
-        BukkitTask task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), this::checkForShoot, 20L, 20L);
-        Bukkit.getScheduler().runTaskLater(TTT.getInstance(), ()->{
+        BukkitTask task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), this::checkForShoot, 15L, 15L);
+        Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
             task.cancel();
             this.sentry.remove();
         }, 20 * DESTROY_SECONDS);
@@ -63,15 +64,15 @@ public class ShopSentryGun extends ShopItem {
         TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayerByRole(Role.DETECTIVE, Role.INNOCENT).stream()
                 .filter(t -> t.getApiPlayer().getPlayer().getWorld().equals(sentry.getWorld()))
                 .filter(t -> t.getApiPlayer().getPlayer().getLocation().distance(sentry.getLocation()) <= SHOOT_RADIUS)
-                .filter(t -> t.getApiPlayer().getPlayer().getEyeLocation().toVector().subtract(sentry.getEyeLocation().toVector())
-                        .angle(sentry.getEyeLocation().getDirection()) >= SHOOT_ANGLE)
+                .filter(t -> Math.toDegrees(t.getApiPlayer().getPlayer().getEyeLocation().toVector().subtract(sentry.getEyeLocation().toVector())
+                        .angle(sentry.getEyeLocation().getDirection())) <= SHOOT_ANGLE)
                 .min((o1, o2) -> Boolean.compare(
                         o1.getApiPlayer().getUniqueId().equals(lastUUID),
                         o2.getApiPlayer().getUniqueId().equals(lastUUID))).orElse(null);
         if (tttPlayer == null) return;
         this.lastUUID = tttPlayer.getApiPlayer().getUniqueId();
         Arrow arrow = sentry.launchProjectile(Arrow.class, tttPlayer.getApiPlayer().getPlayer().getEyeLocation()
-                .toVector().subtract(sentry.getEyeLocation().toVector()).normalize().multiply(1.5));
+                .toVector().subtract(sentry.getEyeLocation().toVector()).normalize().multiply(2.1));
         arrow.setPickupStatus(Arrow.PickupStatus.DISALLOWED);
     }
 
