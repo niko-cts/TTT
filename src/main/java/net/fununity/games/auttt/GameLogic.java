@@ -67,13 +67,13 @@ public class GameLogic extends Game {
             if (gameManager.getCurrentGameState() != GameState.INGAME) return;
 
             // ROLES SORTING
-            int maximumTraitor = (int) Math.min(TTT.getInstance().getMaxTraitorAmount(), Math.round(TTT.getInstance().getTraitorAmount() * getPlayers().size()));
+            int maximumTraitor = (int) Math.min(TTT.getInstance().getMaxTraitorAmount(), Math.round(TTT.getInstance().getTraitorAmountMultiplier() * getPlayers().size()));
             List<Player> players = getPlayers();
             Collections.shuffle(players);
 
             addPlayerRole(maximumTraitor, traitorJoker, players, Role.TRAITOR);
 
-            int maximumDetectives = TTT.getInstance().getMinAmountForDetective() >= getPlayers().size() ? (int) Math.round(TTT.getInstance().getDetectiveAmount() * getPlayers().size()) : 0;
+            int maximumDetectives = TTT.getInstance().getMinAmountForDetective() >= getPlayers().size() ? (int) Math.round(TTT.getInstance().getDetectiveAmountMultiplier() * getPlayers().size()) : 0;
             addPlayerRole(maximumDetectives, detectiveJoker, players, Role.DETECTIVE);
 
             ItemBuilder shop = new ItemBuilder(Material.PAPER).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE);

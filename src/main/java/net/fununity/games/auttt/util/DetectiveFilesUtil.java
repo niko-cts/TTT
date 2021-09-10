@@ -13,6 +13,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * This class is a utility class for the detective files.
+ * It opens a book with the analyzed player + roles.
+ * @author Niko
+ * @since 1.0
+ */
 public class DetectiveFilesUtil {
 
     private DetectiveFilesUtil() {
@@ -21,6 +27,11 @@ public class DetectiveFilesUtil {
 
     private static final Set<TTTPlayer> SCANNED_FILES = new HashSet<>();
 
+    /**
+     * Opens the files book.
+     * @param tttPlayer {@link net.fununity.games.auttt.TTTPlayer} - the player who should open.
+     * @since 1.1
+     */
     public static void openFiles(TTTPlayer tttPlayer) {
         APIPlayer player = tttPlayer.getApiPlayer();
 
@@ -37,6 +48,11 @@ public class DetectiveFilesUtil {
         player.openBook(itemBuilder.craft());
     }
 
+    /**
+     * A player who has been analyzed.
+     * @param tttPlayer {@link net.fununity.games.auttt.TTTPlayer} - the player who has been analyzed
+     * @since 1.1
+     */
     public static void analyzed(TTTPlayer tttPlayer) {
         SCANNED_FILES.add(tttPlayer);
     }

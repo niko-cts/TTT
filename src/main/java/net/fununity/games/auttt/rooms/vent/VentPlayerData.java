@@ -9,7 +9,6 @@ import net.fununity.main.api.messages.MessagePrefix;
 import net.fununity.main.api.player.APIPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
@@ -20,9 +19,14 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.UUID;
 
+/**
+ * This class caches and manages traitors entered the vent.
+ * @see Vent
+ * @author Niko
+ * @since 1.1
+ */
 public class VentPlayerData {
 
     private static final int DURATION = 30;
@@ -41,19 +45,21 @@ public class VentPlayerData {
         this.secondsBar = Bukkit.getServer().createBossBar(ChatColor.LIGHT_PURPLE + "" + this.secondsLeft, BarColor.PURPLE, BarStyle.SOLID);
     }
 
-    public void jumpIn(Location location) {
+    /**
+     * Will be called, when the player enters the vent.
+     * Starts timer and sets player as passenger.
+     * @param vent ArmorStand - the armorstand representing the vent entry.
+     * @since 1.1
+     */
+    protected void jumpIn(ArmorStand vent) {
         Player player = apiPlayer.getPlayer();
         this.secondsBar.addPlayer(player);
         UUID uuid = player.getUniqueId();
 
-        ArmorStand vent = this.vent.ventLocations.keySet().stream().min(Comparator.comparingDouble(o -> o.getLocation().distance(location))).orElse(null);
-        if (vent == null) return;
 
         FunUnityAPI.getInstance().getActionbarManager().addActionbar(uuid, new ActionbarMessage(TranslationKeys.TTT_GAME_ROOM_VENT_ENTERED).setDuration(5));
         ventId = new ArrayList<>(this.vent.ventLocations.keySet()).indexOf(vent);
         vent.addPassenger(player);
-
-        player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, 1, false, false));
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 0, false, false));
         if (this.vent.gift)
             player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, Integer.MAX_VALUE, 0, false, false));
@@ -70,17 +76,20 @@ public class VentPlayerData {
 
             if (secondsLeft <= 0) {
                 apiPlayer.sendMessage(MessagePrefix.INFO, TranslationKeys.TTT_GAME_ROOM_VENT_TIMEREACHED);
-                this.vent.jumpOut(player);
+                this.vent.quit(player);
             }
             secondsLeft--;
         }, 0L, 20L);
     }
 
+    /**
+     * Will be called, when the player quits the vent.
+     * @since 1.1
+     */
     protected void jumpOut() {
         Player player = apiPlayer.getPlayer();
         this.secondsBar.removePlayer(player);
         task.cancel();
-        player.removePotionEffect(PotionEffectType.INVISIBILITY);
         player.removePotionEffect(PotionEffectType.BLINDNESS);
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20 * 3, 0, true, true));
         player.removePotionEffect(PotionEffectType.POISON);
@@ -90,29 +99,54 @@ public class VentPlayerData {
             onlinePlayer.showPlayer(TTT.getInstance(), player);
         }
 
-        player.teleport(vent.ventLocations.get(getLocationFromVentId()));
+        player.teleport(vent.ventLocations.get(getArmorStandFromVentId()));
     }
 
-    private ArmorStand getLocationFromVentId() {
+    /**
+     * Gets the ArmorStand corresponding to the index of the vent
+     * @return ArmorStand - the armorstand as a vent entry.
+     * @since 1.1
+     */
+    private ArmorStand getArmorStandFromVentId() {
         return new ArrayList<>(vent.ventLocations.keySet()).get(ventId);
     }
 
-    public int getVentId() {
+    /**
+     * Get the vent id the player currently is.
+     * @return int - id of vent entry.
+     * @since 1.1
+     */
+    protected int getVentId() {
         return ventId;
     }
 
-    public void setVentId(int ventId) {
+    /**
+     * Sets the vent id the player should switch to.
+     * @param ventId int - the new vent entry.
+     * @since 1.1
+     */
+    protected void setVentId(int ventId) {
         if (this.ventId != null)
-            getLocationFromVentId().removePassenger(apiPlayer.getPlayer());
+            getArmorStandFromVentId().removePassenger(apiPlayer.getPlayer());
         this.ventId = ventId;
-        getLocationFromVentId().addPassenger(apiPlayer.getPlayer());
+        getArmorStandFromVentId().addPassenger(apiPlayer.getPlayer());
     }
 
-    public int getSecondsLeft() {
+    /**
+     * Get the amount of seconds left the player can stand in the vent.
+     * @return int - seconds left in the vent.
+     * @since 1.1
+     */
+    protected int getSecondsLeft() {
         return secondsLeft;
     }
 
-    public APIPlayer getPlayer() {
-        return apiPlayer;
+    /**
+     * Sets the seconds left the player can stay in vent.
+     * @param secondsLeft int - seconds left.
+     * @since 1.1
+     */
+    protected void setSecondsLeft(int secondsLeft) {
+        this.secondsLeft = secondsLeft;
     }
 }

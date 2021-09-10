@@ -8,6 +8,11 @@ import net.fununity.main.api.messages.MessagePrefix;
 import net.fununity.main.api.player.APIPlayer;
 import org.bukkit.command.CommandSender;
 
+/**
+ * Command class to allow players open the joker gui even after {@link net.fununity.mgs.gamestates.GameState#LOBBY}.
+ * @author Niko
+ * @since 1.1
+ */
 public class JokerCommand extends APICommand {
 
     public JokerCommand() {

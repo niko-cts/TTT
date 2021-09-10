@@ -12,6 +12,15 @@ import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * All shop items of the {@link net.fununity.games.auttt.Role#TRAITOR}.
+ * Player with this role can buy the items from below.
+ * @see ShopItems
+ * @see net.fununity.games.auttt.gui.ShopGUI
+ * @see ShopItem
+ * @author Niko
+ * @since 1.1
+ */
 public enum TraitorItems implements ShopItems {
     ARROWS(1, 0, 5, 5, ShopArrows.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION),
     TRAP_TICKET(1, 0, 10, 10, ShopTrapTicket.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION),

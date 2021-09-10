@@ -1,12 +1,23 @@
 package net.fununity.games.auttt.shop.innocents;
 
 import net.fununity.games.auttt.language.TranslationKeys;
-import net.fununity.games.auttt.shop.*;
+import net.fununity.games.auttt.shop.ShopItem;
+import net.fununity.games.auttt.shop.ShopItems;
+import net.fununity.games.auttt.shop.ShopRadar;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * All shop items of the {@link net.fununity.games.auttt.Role#INNOCENT}.
+ * Player with this role can buy the items from below.
+ * @see ShopItems
+ * @see net.fununity.games.auttt.gui.ShopGUI
+ * @see ShopItem
+ * @author Niko
+ * @since 1.1
+ */
 public enum InnocentItems implements ShopItems {
     NIGHTVISION(1, 0, 1, 1, ShopNightVision.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION),
     ARROWS(1, 0, 5, 5, ShopArrows.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION),

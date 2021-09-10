@@ -21,6 +21,12 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 
+/**
+ * This class manages all inventories for one specific corpse.
+ * @see PlayerCorpse
+ * @author Niko
+ * @since 1.1
+ */
 public class CorpseInventoryManager {
 
     private final Map<UUID, IndividualCorpseInventory> corpseInventories;
@@ -29,6 +35,12 @@ public class CorpseInventoryManager {
     private final PlayerCorpse playerCorpse;
     private final DefaultCorpseInventory defaultCorpseInventory;
 
+    /**
+     * Instantiates the class.
+     * @param playerCorpse {@link PlayerCorpse} - the player corpse.
+     * @param event PlayerDeathEvent - the death event of the player.
+     * @since 1.1
+     */
     public CorpseInventoryManager(PlayerCorpse playerCorpse, PlayerDeathEvent event) {
         this.corpseInventories = new HashMap<>();
         this.analyzing = new HashSet<>();
@@ -37,7 +49,11 @@ public class CorpseInventoryManager {
         this.defaultCorpseInventory = new DefaultCorpseInventory(this, playerCorpse, event);
     }
 
-
+    /**
+     * Opens the inventory for the given player.
+     * @param apiPlayer APIPlayer - the player.
+     * @since 1.1
+     */
     public void openInventory(APIPlayer apiPlayer) {
         if (corpseInventories.containsKey(apiPlayer.getUniqueId())) {
             TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());

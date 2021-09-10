@@ -31,7 +31,6 @@ public class ShopInvisibility extends ShopItem {
     }
 
 
-
     @EventHandler
     public void onPlayerHit(EntityDamageByEntityEvent event) {
         if (!event.getDamager().getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId())) return;

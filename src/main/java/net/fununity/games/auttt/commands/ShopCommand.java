@@ -12,6 +12,11 @@ import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.mgs.gamestates.GameState;
 import org.bukkit.command.CommandSender;
 
+/**
+ * Command class to open the shop GUI and instant buy a item.
+ * @author Niko
+ * @since 1.1
+ */
 public class ShopCommand extends APICommand {
 
     public ShopCommand() {

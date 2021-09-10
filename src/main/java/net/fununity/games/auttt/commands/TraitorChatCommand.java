@@ -12,11 +12,16 @@ import net.fununity.mgs.gamestates.GameManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
-public class TraitorCommand extends APICommand {
+/**
+ * Command class for a traitor chat.
+ * @author Niko
+ * @since 1.0
+ */
+public class TraitorChatCommand extends APICommand {
 
     private static final String FORMAT = Role.TRAITOR.getColoredName() + " ${name} " + ChatColor.DARK_GRAY + SpecialChars.DOUBLE_ARROW_RIGHT + ChatColor.GRAY + " ${message}";
 
-    public TraitorCommand() {
+    public TraitorChatCommand() {
         super("traitor", "", TranslationKeys.TTT_COMMAND_TRAITORCHAT_USAGE, TranslationKeys.TTT_COMMAND_TRAITORCHAT_DESCRIPTION, "tchat", "t", "traitorchat");
     }
 

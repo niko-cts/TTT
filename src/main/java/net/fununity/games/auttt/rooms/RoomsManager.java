@@ -93,7 +93,7 @@ public class RoomsManager {
         if (vent != null) {
             TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(player.getUniqueId());
             if (tttPlayer.getRole() == Role.TRAITOR) {
-                vent.jumpIn(player, location);
+                vent.enters(player, location);
                 return;
             }
             List<ShopItem> moveSensors = tttPlayer.getShopItemsOfType(DetectiveItems.MOVE_SENSOR);

@@ -7,6 +7,11 @@ import net.fununity.main.api.player.APIPlayer;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 
+/**
+ * Command class to give the player information about the coins.
+ * @author Niko
+ * @since 1.0
+ */
 public class CoinsInfoCommand extends APICommand {
 
     public CoinsInfoCommand() {
