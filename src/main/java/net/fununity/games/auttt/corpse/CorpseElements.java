@@ -8,6 +8,7 @@ package net.fununity.games.auttt.corpse;
  */
 public enum CorpseElements {
 
+    GLASS(false),
     HEAD(false),
     BLOOD(false),
     KILLWEAPON(false),

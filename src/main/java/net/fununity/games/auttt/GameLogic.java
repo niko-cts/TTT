@@ -119,8 +119,8 @@ public class GameLogic extends Game {
                 tttPlayer.getApiPlayer().sendMessage(TranslationKeys.ROLE_CALLOUT_TEXT,
                         Arrays.asList("${color}", "${role}"),
                         Arrays.asList(tttPlayer.getRole().getColor() + "", tttPlayer.getRole().getColoredName()));
-                TTTScoreboard.updateScoreboard(tttPlayer);
-                TTTScoreboard.updateTablist(tttPlayer);
+                TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
+                TTTScoreboard.updateTablist(tttPlayer.getApiPlayer());
             }
         }, 20L * Minigame.getInstance().getProtectionTime());
         RoomsManager.loadManager(getArena());
@@ -185,8 +185,8 @@ public class GameLogic extends Game {
             } else if (tttPlayer.getRole() != Role.TRAITOR)
                 winner.add(tttPlayer.getApiPlayer().getPlayer());
 
-            TTTScoreboard.updateScoreboard(tttPlayer);
-            TTTScoreboard.updateTablist(tttPlayer);
+            TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
+            TTTScoreboard.updateTablist(tttPlayer.getApiPlayer());
         }
 
         CoinsUtil.win(innoAlive == 0 ? Role.TRAITOR : Role.INNOCENT, Role.DETECTIVE);
@@ -229,9 +229,9 @@ public class GameLogic extends Game {
 
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
             TTTScoreboard.reAddPlayer(tttPlayer.getApiPlayer().getPlayer());
-            getTTTPlayerByRole(Role.TRAITOR).forEach(TTTScoreboard::updateScoreboard);
-            TTTScoreboard.updateScoreboard(tttPlayer);
-            TTTScoreboard.updateTablist(tttPlayer);
+            getTTTPlayerByRole(Role.TRAITOR).forEach(t -> TTTScoreboard.updateScoreboard(t.getApiPlayer()));
+            TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
+            TTTScoreboard.updateTablist(tttPlayer.getApiPlayer());
         }, 2L);
 
         new PlayerCorpse(tttPlayer, event);
@@ -256,8 +256,8 @@ public class GameLogic extends Game {
         tttPlayers.remove(tttPlayer);
 
         for (TTTPlayer onPlayer : getTTTPlayers()) {
-            TTTScoreboard.updateScoreboard(onPlayer);
-            TTTScoreboard.updateTablist(onPlayer);
+            TTTScoreboard.updateScoreboard(onPlayer.getApiPlayer());
+            TTTScoreboard.updateTablist(onPlayer.getApiPlayer());
         }
 
         // end check:

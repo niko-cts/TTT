@@ -88,7 +88,7 @@ public class PlayerCorpse {
     }
 
     public void found(TTTPlayer foundBy) {
-        this.tttPlayer.setFound(true);
+        this.tttPlayer.found();
         CoinsUtil.foundBody(foundBy, this.tttPlayer);
 
         updateHologram(this.tttPlayer.getColoredName(), false);
@@ -100,7 +100,7 @@ public class PlayerCorpse {
                     Arrays.asList(this.tttPlayer.getColoredName(), this.tttPlayer.getRole().getColoredName(),
                             tttPlayer.getRole() == Role.TRAITOR ? foundBy.getColoredName() : foundBy.getApiPlayer().getPlayer().getName()));
 
-            TTTScoreboard.updateScoreboard(tttPlayer);
+            TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
         }
     }
 

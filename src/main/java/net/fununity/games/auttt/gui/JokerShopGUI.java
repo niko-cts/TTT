@@ -32,7 +32,7 @@ public class JokerShopGUI {
         Language lang = apiPlayer.getLanguage();
         CustomInventory menu = new CustomInventory(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_TITLE), 9*3);
 
-        int traitorCost = (int) (JOKER_TRAITOR * (apiPlayer.hasPermission("ttt.joker") ? 0.5 : 1));
+        int traitorCost = JOKER_TRAITOR / (apiPlayer.hasPermission("ttt.joker") ? 2 : 1);
 
         ItemStack traitorItem = new ItemBuilder(Material.REDSTONE)
                 .setName(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_NAME, "${cost}", ""+traitorCost))
@@ -40,7 +40,7 @@ public class JokerShopGUI {
         menu.setItem(12, traitorItem, new ClickAction() {
             @Override
             public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
-                if (GameLogic.getInstance().getTraitorJoker().contains(apiPlayer.getUniqueId())) {
+                if (GameLogic.getInstance().getTraitorJoker().contains(apiPlayer.getUniqueId()) || GameLogic.getInstance().getDetectiveJoker().contains(apiPlayer.getUniqueId())) {
                     apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_JOKERSHOP_ALREADY_BOUGHT));
                     return;
                 }
@@ -53,14 +53,14 @@ public class JokerShopGUI {
             }
         });
 
-        int detectiveCost = (int) (JOKER_DETECTIVE * (apiPlayer.hasPermission("ttt.joker") ? 0.5 : 1));
+        int detectiveCost = JOKER_DETECTIVE / (apiPlayer.hasPermission("ttt.joker") ? 2 : 1);
         ItemStack detectiveItem = new ItemBuilder(Material.INK_SACK, (short) 4)
                 .setName(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_NAME, "${cost}", ""+detectiveCost))
                 .setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, "${off}", "50%").split(";")).craft();
         menu.setItem(14, detectiveItem, new ClickAction() {
             @Override
             public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
-                if (GameLogic.getInstance().getDetectiveJoker().contains(apiPlayer.getUniqueId())) {
+                if (GameLogic.getInstance().getDetectiveJoker().contains(apiPlayer.getUniqueId()) || GameLogic.getInstance().getTraitorJoker().contains(apiPlayer.getUniqueId())) {
                     apiPlayer.sendActionbar(new ActionbarMessage(TranslationKeys.TTT_GUI_JOKERSHOP_ALREADY_BOUGHT));
                     return;
                 }

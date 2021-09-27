@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class DefaultCorpseInventory {
 
-    protected static final int INVENTORY_SIZE = 44;
+    protected static final int INVENTORY_SIZE = 45;
     protected final CorpseInventoryManager corpseInventoryManager;
     protected final PlayerCorpse playerCorpse;
     protected final Map<Integer, CorpseItem> staticElements;
@@ -28,6 +28,19 @@ public class DefaultCorpseInventory {
         this.playerCorpse = playerCorpse;
         this.staticElements = new HashMap<>();
         this.individualElements = new HashMap<>();
+
+        this.staticElements.put(22, new CorpseItem(CorpseElements.HEAD, UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer())));
+
+        for (int i = 1; i < 9; i++) {
+            this.staticElements.put(i, new CorpseItem(CorpseElements.GLASS, playerCorpse.tttPlayer.getRole().getGlass()));
+            this.staticElements.put(INVENTORY_SIZE - i, new CorpseItem(CorpseElements.GLASS, playerCorpse.tttPlayer.getRole().getGlass()));
+        }
+
+        for (int i = 0; i < INVENTORY_SIZE; i += 9) {
+            this.staticElements.put(i, new CorpseItem(CorpseElements.GLASS, playerCorpse.tttPlayer.getRole().getGlass()));
+            if (i + 8 < INVENTORY_SIZE)
+                this.staticElements.put(i + 8, new CorpseItem(CorpseElements.GLASS, playerCorpse.tttPlayer.getRole().getGlass()));
+        }
 
         this.staticElements.put(22, new CorpseItem(CorpseElements.HEAD, UsefulItems.getPlayerHead(playerCorpse.tttPlayer.getApiPlayer())));
 
@@ -72,7 +85,7 @@ public class DefaultCorpseInventory {
         for (int i = 0; i < amount; i++) {
             int position;
             do {
-                position = RandomUtil.getRandomInt(INVENTORY_SIZE) + 10;
+                position = RandomUtil.getRandomInt(INVENTORY_SIZE);
             } while (staticElements.containsKey(position) || individualElements.containsKey(position));
             this.individualElements.put(position, corpseElement);
         }
@@ -89,7 +102,7 @@ public class DefaultCorpseInventory {
         for (int i = 0; i < amount; i++) {
             int position;
             do {
-                position = RandomUtil.getRandomInt(INVENTORY_SIZE) + 10;
+                position = RandomUtil.getRandomInt(INVENTORY_SIZE);
             } while (staticElements.containsKey(position) || individualElements.containsKey(position));
             this.staticElements.put(position, new CorpseItem(corpseElement, item));
         }

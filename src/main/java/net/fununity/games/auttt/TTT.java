@@ -47,7 +47,7 @@ public class TTT extends JavaPlugin {
         new GermanMessages();
 
         RegisterUtil registerUtil = new RegisterUtil(this);
-        registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener(), new ProjectileHitListener(), new ChatListener(), new GeneralShopListener());
+        registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new PlayerJoinListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener(), new ProjectileHitListener(), new ChatListener(), new GeneralShopListener());
         registerUtil.addCommands(new TraitorChatCommand(), new CoinsInfoCommand(), new ShopCommand(), new JokerCommand());
         registerUtil.register();
 

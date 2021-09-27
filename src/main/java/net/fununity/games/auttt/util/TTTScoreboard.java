@@ -5,6 +5,7 @@ import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.main.api.FunUnityAPI;
+import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.common.util.SpecialChars;
 import net.fununity.main.api.player.APIPlayer;
 import net.fununity.mgs.Minigame;
@@ -14,6 +15,7 @@ import net.fununity.mgs.language.Constants;
 import net.fununity.misc.translationhandler.translations.Language;
 import net.minecraft.server.v1_12_R1.PacketPlayOutPlayerInfo;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
@@ -37,12 +39,13 @@ public class TTTScoreboard {
 
     /**
      * Updates the ttt scoreboard for the given player.
-     * @param player TTTPlayer - the ttt player.
+     * @param apiPlayer APIPlayer - the ttt player.
      * @since 0.0.1
      */
-    public static void updateScoreboard(TTTPlayer player) {
-        Scoreboard board = player.getApiPlayer().getPlayer().getScoreboard();
+    public static void updateScoreboard(APIPlayer apiPlayer) {
+        Scoreboard board = apiPlayer.getPlayer().getScoreboard();
         GameLogic game = GameLogic.getInstance();
+        TTTPlayer tttPlayer = game.getTTTPlayer(apiPlayer.getUniqueId());
 
         if (board.getObjective(OBJ_NAME) != null)
             board.getObjective(OBJ_NAME).unregister();
@@ -51,46 +54,46 @@ public class TTTScoreboard {
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
         obj.setDisplayName(FunUnityAPI.getPrefix());
         obj.getScore(Minigame.getInstance().getName()).setScore(42);
-        obj.getScore("§a ").setScore(12);
+        obj.getScore("§a ").setScore(11);
 
-        Language language = player.getApiPlayer().getLanguage();
-        obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_YOUR_ROLE)).setScore(11);
-        obj.getScore(LINE_COL + player.getRole().getColoredName()).setScore(10);
+        Language language = apiPlayer.getLanguage();
+        if (tttPlayer != null) {
+            obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_YOUR_ROLE)).setScore(10);
+            obj.getScore(LINE_COL + tttPlayer.getRole().getColoredName()).setScore(9);
 
-        obj.getScore(" §5").setScore(9);
+            obj.getScore(" §5").setScore(8);
+        }
 
-        obj.getScore(language.getTranslation(Constants.SCOREBOARD_PLAYER)).setScore(8);
+        obj.getScore(language.getTranslation(Constants.SCOREBOARD_PLAYER)).setScore(7);
 
-        int playerSize = player.getRole() == Role.TRAITOR || game.gameManager.isSpectator(player.getApiPlayer().getPlayer()) ?
+        int playerSize = tttPlayer != null && tttPlayer.getRole() == Role.TRAITOR || game.gameManager.isSpectator(apiPlayer.getPlayer()) ?
                 game.getPlayers().size() : (int) (game.getPlayers().stream().filter(p -> !game.gameManager.isSpectator(p)).count() +
                 game.getTTTPlayers().stream().filter(t -> t.isDead() && !t.isFound()).count());
 
-        obj.getScore(LINE_COL + "§a" + playerSize + "§7/§a" + game.getStartedPlayerAmount()).setScore(7);
-
-        obj.getScore("§a  ").setScore(6);
-
+        obj.getScore(LINE_COL + "§a" + playerSize + "§7/§a" + game.getStartedPlayerAmount()).setScore(6);
 
         long foundTraitors = game.getTTTPlayerByRole(Role.TRAITOR).stream().filter(t -> t.isDead() && t.isFound()).count();
         obj.getScore(" §f ").setScore(5);
         obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_FOUND_TRAITORS)).setScore(4);
         obj.getScore(LINE_COL + "§e" + foundTraitors + "§d").setScore(3);
 
-        obj.getScore(" §d ").setScore(2);
-        obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_COINS)).setScore(1);
-        obj.getScore(LINE_COL + "§e" + player.getCoins() + "§8").setScore(0);
+        if (tttPlayer != null) {
+            obj.getScore(" §d ").setScore(2);
+            obj.getScore(language.getTranslation(TranslationKeys.SCOREBOARD_COINS)).setScore(1);
+            obj.getScore(LINE_COL + "§e" + tttPlayer.getCoins() + "§8").setScore(0);
+        }
     }
-
 
     /**
      * Updates the tab list for the player.
      * Will show the given player all current ttt player with there status.
-     * @param player TTTPlayer - Player to update
+     * @param apiPlayer APIPlayer - Player to update
      */
-    public static void updateTablist(TTTPlayer player) {
-        APIPlayer apiPlayer = player.getApiPlayer();
+    public static void updateTablist(APIPlayer apiPlayer) {
         Scoreboard playerBoard = Bukkit.getScoreboardManager().getNewScoreboard();
-        player.getApiPlayer().getPlayer().setScoreboard(playerBoard);
+        apiPlayer.getPlayer().setScoreboard(playerBoard);
 
+        TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
         for (TTTPlayer online : GameLogic.getInstance().getTTTPlayers()) {
             Scoreboard onlineBoard = online.getApiPlayer().getPlayer().getScoreboard();
 
@@ -102,19 +105,21 @@ public class TTTScoreboard {
             boolean partyTogether = apiPlayer.getPartyOwner() != null && apiPlayer.getPartyOwner().equals(online.getApiPlayer().getPartyOwner());
 
             // player to online board
-            Team onlineGetsPlayerTeam = getPlayerTeam(player, onlineBoard, partyTogether, online.getRole() == Role.TRAITOR || GameManager.getInstance().isSpectator(online.getApiPlayer().getPlayer()));
-            onlineGetsPlayerTeam.addEntry(apiPlayer.getPlayer().getName());
+            if (tttPlayer != null) {
+                Team onlineGetsPlayerTeam = getPlayerTeam(tttPlayer, onlineBoard, partyTogether, online.getRole() == Role.TRAITOR || GameManager.getInstance().isSpectator(online.getApiPlayer().getPlayer()));
+                onlineGetsPlayerTeam.addEntry(apiPlayer.getPlayer().getName());
+            }
 
             // online to player board
-            Team playerGetsOnlineTeam = getPlayerTeam(online, playerBoard, partyTogether, player.getRole() == Role.TRAITOR || GameManager.getInstance().isSpectator(player.getApiPlayer().getPlayer()));
+            Team playerGetsOnlineTeam = getPlayerTeam(online, playerBoard, partyTogether, tttPlayer != null && (tttPlayer.getRole() == Role.TRAITOR || GameManager.getInstance().isSpectator(apiPlayer.getPlayer())));
             playerGetsOnlineTeam.addEntry(online.getApiPlayer().getPlayer().getName());
         }
 
         // player to player board
-        Team playerGetsPlayerTeam = getPlayerTeam(player, playerBoard, apiPlayer.getPartyOwner() != null, true);
+        Team playerGetsPlayerTeam = getPlayerTeam(tttPlayer, playerBoard, apiPlayer.getPartyOwner() != null, true);
         playerGetsPlayerTeam.addEntry(apiPlayer.getPlayer().getName());
 
-        updateScoreboard(player);
+        updateScoreboard(apiPlayer);
     }
 
     /**
@@ -130,11 +135,15 @@ public class TTTScoreboard {
         String teamPriority;
         String prefix;
 
-        if (tttPlayer.isFound() || // Player was found
-                (tttPlayer.isDead() && // player dead
-                        (GameManager.getInstance().getCurrentGameState() == GameState.ENDING || // ending phase
-                                trueVision))) { // online is traitor
-            prefix = "§4§l" + SpecialChars.CHROSS + " " + tttPlayer.getRole().getColor();
+
+        if (tttPlayer == null) {
+            prefix = Role.INNOCENT.getColor() + "";
+            teamPriority = Role.INNOCENT.ordinal() + "";
+        } else if (tttPlayer.isFound() || // Player was found
+                (tttPlayer.isDead() && (trueVision || // player dead
+                        GameManager.getInstance().getCurrentGameState() == GameState.ENDING))) // ending phase
+            { // online is traitor
+            prefix = ChatColor.DARK_RED + "" + ChatColor.BOLD + SpecialChars.CHROSS + " " + tttPlayer.getRole().getColor();
             teamPriority = "ZZ" + tttPlayer.getRole().ordinal();
         } else if (tttPlayer.getRole() == Role.DETECTIVE ||  // Player is detective
                 GameManager.getInstance().getCurrentGameState() == GameState.ENDING || // ending phase
@@ -147,7 +156,7 @@ public class TTTScoreboard {
         }
 
 
-        String teamName = teamPriority + tttPlayer.getApiPlayer().getUniqueId().toString().substring(0, 16 - teamPriority.length());
+        String teamName = teamPriority + (tttPlayer != null ? tttPlayer.getApiPlayer().getUniqueId().toString().substring(0, 16 - teamPriority.length()) : "zzz" + RandomUtil.getRandomString(5));
 
         Team team = board.getTeam(teamName);
         if (team != null) {

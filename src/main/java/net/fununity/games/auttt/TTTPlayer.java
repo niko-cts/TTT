@@ -44,7 +44,7 @@ public class TTTPlayer {
 
     public void setCoins(int coins) {
         this.coins = coins;
-        TTTScoreboard.updateScoreboard(this);
+        TTTScoreboard.updateScoreboard(getApiPlayer());
     }
 
     public int getCoins() {
@@ -55,9 +55,9 @@ public class TTTPlayer {
         this.alive = alive;
     }
 
-    public void setFound(boolean found) {
-        this.found = found;
-        TTTScoreboard.updateTablist(this);
+    public void found() {
+        this.found = true;
+        TTTScoreboard.updateTablist(getApiPlayer());
     }
 
     public boolean isDead() {

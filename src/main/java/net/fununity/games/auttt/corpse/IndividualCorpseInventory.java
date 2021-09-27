@@ -40,21 +40,10 @@ public class IndividualCorpseInventory {
     }
 
     public void openInventory(TTTPlayer tttPlayer) {
-        CustomInventory menu = new CustomInventory(defaultCorpseInventory.playerCorpse.tttPlayer.getColoredName(), 9 * 5);
+        CustomInventory menu = new CustomInventory(defaultCorpseInventory.playerCorpse.tttPlayer.getColoredName(), DefaultCorpseInventory.INVENTORY_SIZE);
         menu.setSpecialHolder("corpse-" + defaultCorpseInventory.playerCorpse.tttPlayer.getApiPlayer().getUniqueId());
 
-        for (int i = 1; i < 9; i++) {
-            menu.setItem(i, tttPlayer.getRole().getGlass());
-            menu.setItem(menu.getInventory().getSize() - i, tttPlayer.getRole().getGlass());
-        }
-
-        for (int i = 0; i < menu.getInventory().getSize(); i += 9) {
-            menu.setItem(i, tttPlayer.getRole().getGlass());
-            if (i + 8 < menu.getInventory().getSize())
-                menu.setItem(i + 8, tttPlayer.getRole().getGlass());
-        }
-
-        for (int i = 10; i < DefaultCorpseInventory.INVENTORY_SIZE; i += ((i+1) % 8 == 0 ? 3 : 1)) {
+        for (int i = 0; i < DefaultCorpseInventory.INVENTORY_SIZE; i++) {
             CorpseItem corpseItem = this.defaultCorpseInventory.staticElements.getOrDefault(i, null);
             if (corpseItem == null) {
                 corpseItem = this.individualElements.getOrDefault(i, null);

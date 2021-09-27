@@ -99,7 +99,6 @@ public class CorpseInventoryManager {
                         openInventory(apiPlayer);
                     }
 
-
                 }, 20L * (tttPlayer.hasShopItem(DetectiveItems.SUPER_IDENT) ? 10 : 30));
                 openInventory(apiPlayer);
             }

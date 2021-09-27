@@ -93,7 +93,7 @@ public class VentPlayerData {
         player.removePotionEffect(PotionEffectType.BLINDNESS);
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20 * 3, 0, true, true));
         player.removePotionEffect(PotionEffectType.POISON);
-        getLocationFromVentId().removePassenger(player);
+        getArmorStandFromVentId().removePassenger(player);
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             onlinePlayer.showPlayer(TTT.getInstance(), player);
