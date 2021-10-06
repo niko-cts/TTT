@@ -136,7 +136,7 @@ public class JokerShopGUI {
         APIPlayer apiPlayer = FunUnityAPI.getInstance().getPlayerHandler().getPlayer(uuid);
         if (apiPlayer != null) {
             int cost = (int) (maxCost * (apiPlayer.hasPermission("ttt.joker") ? 0.5 : 1));
-            BalanceHandler.getInstance().giveMoney(uuid, cost, false);
+            BalanceHandler.getInstance().giveMoney(uuid, cost, true);
             apiPlayer.sendMessage(MessagePrefix.INFO, TranslationKeys.TTT_GUI_JOKERSHOP_PAYBACK_INFO);
         }
     }

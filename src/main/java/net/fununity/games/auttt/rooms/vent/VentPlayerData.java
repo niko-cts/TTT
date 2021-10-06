@@ -60,6 +60,7 @@ public class VentPlayerData {
         FunUnityAPI.getInstance().getActionbarManager().addActionbar(uuid, new ActionbarMessage(TranslationKeys.TTT_GAME_ROOM_VENT_ENTERED).setDuration(5));
         ventId = new ArrayList<>(this.vent.ventLocations.keySet()).indexOf(vent);
         vent.addPassenger(player);
+        player.setAllowFlight(true);
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 0, false, false));
         if (this.vent.gift)
             player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, Integer.MAX_VALUE, 0, false, false));
@@ -71,13 +72,15 @@ public class VentPlayerData {
         }
 
         task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), () -> {
-            secondsBar.setTitle(ChatColor.LIGHT_PURPLE + "" + this.secondsLeft);
-            secondsBar.setProgress((double) secondsLeft / DURATION);
 
             if (secondsLeft <= 0) {
                 apiPlayer.sendMessage(MessagePrefix.INFO, TranslationKeys.TTT_GAME_ROOM_VENT_TIMEREACHED);
                 this.vent.quit(player);
+                return;
             }
+
+            secondsBar.setTitle(ChatColor.LIGHT_PURPLE + "" + this.secondsLeft);
+            secondsBar.setProgress(Math.abs((double) secondsLeft / DURATION));
             secondsLeft--;
         }, 0L, 20L);
     }
@@ -90,10 +93,12 @@ public class VentPlayerData {
         Player player = apiPlayer.getPlayer();
         this.secondsBar.removePlayer(player);
         task.cancel();
+
+        getArmorStandFromVentId().removePassenger(player);
         player.removePotionEffect(PotionEffectType.BLINDNESS);
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20 * 3, 0, true, true));
         player.removePotionEffect(PotionEffectType.POISON);
-        getArmorStandFromVentId().removePassenger(player);
+        player.setAllowFlight(false);
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             onlinePlayer.showPlayer(TTT.getInstance(), player);

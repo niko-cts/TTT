@@ -28,9 +28,9 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_ROOM_TESTER_JOINED, "&e${name} &7has entered the tester.");
         add(TranslationKeys.TTT_GAME_ROOM_TESTER_COOLDOWN, "&cThe tester has a cooldown of 5 seconds.");
 
-        add(TranslationKeys.ROLE_CALLOUT_TITLE, "${color}Deine Rolle");
-        add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&8Du bist ${color}${role}");
-        add(TranslationKeys.ROLE_CALLOUT_TEXT, "&7Du bist ${color}${role}&7! Bla");
+        add(TranslationKeys.ROLE_CALLOUT_TITLE, "${role}");
+        add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&8Du bist ${role}");
+        add(TranslationKeys.ROLE_CALLOUT_TEXT, "&7Du bist ${role}&7!");
         add(TranslationKeys.ROLE_WON, "&aThe ${role} &ahave won the game!");
 
         add(TranslationKeys.TTT_GAME_PLAYER_DIED, "${name} &7died!");
@@ -132,7 +132,7 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GUI_JOKERSHOP_TITLE, "&eJoker shop");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_NAME, "&cTraitor joker &8- &e${cost} Tokens");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_LORE, "&7Buy this joker card, to get;&7prioritized at the traitor selection.;&7If you won't get traitor,;&7you'll receive back your money.;;&6&lPremiums get ${off} off!");
-        add(TranslationKeys.TTT_GUI_JOKERSHOP_ALREADY_BOUGHT, "&cYou have already bought this joker.");
+        add(TranslationKeys.TTT_GUI_JOKERSHOP_ALREADY_BOUGHT, "&cYou have already bought a joker.");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_NAME, "&dDetective joker &8- &e${cost} Tokens");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, "&7Buy this joker card, to get;&7prioritized at the detective selection.;&7If you won't get detective,;&7you'll receive back your money.;;&6&lPremiums get ${off} off!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_TITLE, "&2Confirm purchase");

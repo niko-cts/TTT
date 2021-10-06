@@ -40,7 +40,7 @@ public class TTT extends JavaPlugin {
         this.saveDefaultConfig();
         this.traitorAmount = this.getConfig().getDouble("traitor.amount");
         this.maxTraitorAmount = this.getConfig().getInt("traitor.maximum");
-        this.detectiveAmount = this.getConfig().getInt("detective.amount");
+        this.detectiveAmount = this.getConfig().getDouble("detective.amount");
         this.minAmountForDetective = this.getConfig().getInt("detective.minimum");
 
         new EnglishMessages();
@@ -56,6 +56,7 @@ public class TTT extends JavaPlugin {
         ttt.setDeathMessage(false);
         ttt.setScoreboard(false);
         ttt.setTablist(false);
+        ttt.setMinPlayers(3);
         ttt.setProtectionTime(30);
         ttt.setExtraLobbyItem(new ItemBuilder(Material.PAPER).setName(ChatColor.GOLD + "JokerGUI").craft());
     }

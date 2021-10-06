@@ -73,7 +73,8 @@ public class GameLogic extends Game {
 
             addPlayerRole(maximumTraitor, traitorJoker, players, Role.TRAITOR);
 
-            int maximumDetectives = TTT.getInstance().getMinAmountForDetective() >= getPlayers().size() ? (int) Math.round(TTT.getInstance().getDetectiveAmountMultiplier() * getPlayers().size()) : 0;
+            int maximumDetectives = TTT.getInstance().getMinAmountForDetective() <= getPlayers().size() ?
+                    (int) Math.round(TTT.getInstance().getDetectiveAmountMultiplier() * getPlayers().size()) : 0;
             addPlayerRole(maximumDetectives, detectiveJoker, players, Role.DETECTIVE);
 
             ItemBuilder shop = new ItemBuilder(Material.PAPER).setName(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME).setLore(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE);
@@ -110,15 +111,15 @@ public class GameLogic extends Game {
                     inv.addItem(analyzer.translate(tttPlayer.getApiPlayer().getLanguage()));
 
                 CoinsUtil.startCoins(tttPlayer);
-                tttPlayer.getApiPlayer().getTitleSender().sendTitle(TranslationKeys.ROLE_CALLOUT_TITLE, "${color}",
-                        tttPlayer.getRole().getColor() + "", 20 * 5);
+                tttPlayer.getApiPlayer().getTitleSender().sendTitle(TranslationKeys.ROLE_CALLOUT_TITLE, "${role}",
+                        tttPlayer.getRole().getColoredName() + "", 20 * 5);
                 tttPlayer.getApiPlayer().getTitleSender().sendSubtitle(TranslationKeys.ROLE_CALLOUT_SUBTITLE,
-                        Arrays.asList("${color}", "${role}"),
-                        Arrays.asList(tttPlayer.getRole().getColor() + "", tttPlayer.getRole().getColoredName()),
+                        "${role}",
+                        tttPlayer.getRole().getColoredName(),
                         20 * 5);
                 tttPlayer.getApiPlayer().sendMessage(TranslationKeys.ROLE_CALLOUT_TEXT,
-                        Arrays.asList("${color}", "${role}"),
-                        Arrays.asList(tttPlayer.getRole().getColor() + "", tttPlayer.getRole().getColoredName()));
+                        "${role}",
+                        tttPlayer.getRole().getColoredName());
                 TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
                 TTTScoreboard.updateTablist(tttPlayer.getApiPlayer());
             }
