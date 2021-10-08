@@ -22,21 +22,21 @@ import org.bukkit.inventory.ItemStack;
  * @since 1.1
  */
 public enum TraitorItems implements ShopItems {
-    ARROWS(1, 0, 5, 5, ShopArrows.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION),
-    TRAP_TICKET(1, 0, 10, 10, ShopTrapTicket.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION),
+    ARROWS(1, 0, 5, 5, ShopArrows.class, new ItemStack(Material.ARROW), TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION),
+    TRAP_TICKET(1, 0, 10, 10, ShopTrapTicket.class, new ItemStack(Material.STONE_BUTTON), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION),
     RADAR(2, 0, 1, 1, ShopRadar.class, new ItemStack(Material.COMPASS), TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION),
-    NOM_NOM_DEVICE(3, 0, 1, 1, ShopNomNomDevice.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION),
+    NOM_NOM_DEVICE(3, 0, 1, 1, ShopNomNomDevice.class, new ItemStack(Material.DISPENSER), TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION),
     AXE(3, 2, 5, 5, ShopAxe.class, new ItemStack(Material.GOLD_AXE), TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION),
     IRON_SWORD(3, 251, 1, 1, ShopIronSword.class, new ItemStack(Material.IRON_SWORD), TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION),
-    ADRENALIN(3, 1, 5, 5, ShopAdrenalin.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION),
-    FIREBALL(4, 1, 5, 5, ShopFireball.class, new ItemStack(Material.FIREBALL), TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION),
-    TRAP_REPAIR(4, 1, 1, 1, ShopTrapRepair.class, new ItemStack(Material.TRAPPED_CHEST), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION),
+    ADRENALIN(3, 1, 5, 5, ShopAdrenalin.class, new ItemStack(Material.FEATHER), TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION),
+    FIREBALL(4, 1, 5, 5, ShopFireball.class, new ItemStack(Material.FIRE_CHARGE), TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION),
+    TRAP_REPAIR(4, 1, 1, 1, ShopTrapRepair.class, new ItemStack(Material.HOOK), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION),
     BOOM_BODY(4, 1, 5, 5, ShopBoomBody.class, new ItemStack(Material.SKULL_ITEM, 1, (short) 3), TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION),
-    JIHAD(4, 1, 1, 1, ShopJihad.class, new ItemStack(Material.MAGMA_CREAM), TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION),
+    JIHAD(4, 1, 1, 1, ShopJihad.class, new ItemStack(Material.TNT), TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION),
     TESTER_FAKER(5, 1, 2, 2, ShopTesterFaker.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION),
-    IDENT_THIEF(5, 1, 5, 5, ShopIdentThief.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION),
-    GENERATOR(5, 1, 5, 5, ShopGenerator.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION),
-    INVISIBILITY(6, 1, 5, 1, ShopInvisibility.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION),
+    IDENT_THIEF(5, 1, 5, 5, ShopIdentThief.class, new ItemStack(Material.PUMPKIN), TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION),
+    GENERATOR(5, 1, 5, 5, ShopGenerator.class, new ItemStack(Material.COMPERATOR), TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION),
+    INVISIBILITY(6, 1, 5, 1, ShopInvisibility.class, new ItemStack(Material.GLASS), TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION),
     SENTRYGUN(7, 1, 2, 2, ShopSentryGun.class, new ItemStack(Material.ARMOR_STAND), TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION);
 
     private final int coinsCost;
