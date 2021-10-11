@@ -120,9 +120,9 @@ public class GameLogic extends Game {
                 tttPlayer.getApiPlayer().sendMessage(TranslationKeys.ROLE_CALLOUT_TEXT,
                         "${role}",
                         tttPlayer.getRole().getColoredName());
-                TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
-                TTTScoreboard.updateTablist(tttPlayer.getApiPlayer());
+
             }
+            FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(TTTScoreboard::updateTablist);
         }, 20L * Minigame.getInstance().getProtectionTime());
         RoomsManager.loadManager(getArena());
     }
@@ -185,10 +185,8 @@ public class GameLogic extends Game {
                     winner.add(tttPlayer.getApiPlayer().getPlayer());
             } else if (tttPlayer.getRole() != Role.TRAITOR)
                 winner.add(tttPlayer.getApiPlayer().getPlayer());
-
-            TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
-            TTTScoreboard.updateTablist(tttPlayer.getApiPlayer());
         }
+        FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(TTTScoreboard::updateTablist);
 
         CoinsUtil.win(innoAlive == 0 ? Role.TRAITOR : Role.INNOCENT, Role.DETECTIVE);
 
@@ -256,10 +254,7 @@ public class GameLogic extends Game {
         new ArrayList<>(tttPlayer.getShopItems()).forEach(ShopItem::removeItem);
         tttPlayers.remove(tttPlayer);
 
-        for (TTTPlayer onPlayer : getTTTPlayers()) {
-            TTTScoreboard.updateScoreboard(onPlayer.getApiPlayer());
-            TTTScoreboard.updateTablist(onPlayer.getApiPlayer());
-        }
+        FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(TTTScoreboard::updateTablist);
 
         // end check:
         checkForGameEnd();
