@@ -116,9 +116,17 @@ public abstract class ShopItem implements Listener {
     public void giveItemToUse(ItemStack itemStack) {
         this.itemUse = itemStack.clone();
         ItemMeta itemMeta = this.itemUse.getItemMeta();
-        itemMeta.setLocalizedName(getShopItem().name() + RandomUtil.getRandomString(10));
+        itemMeta.setLocalizedName(tttPlayer.getApiPlayer().getLanguage().getTranslation(getShopItem().getNameKey()) + getRandomColors());
         this.itemUse.setItemMeta(itemMeta);
         tttPlayer.getApiPlayer().getPlayer().getInventory().addItem(itemUse);
+    }
+
+    private String getRandomColors() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < 10 + RandomUtil.getRandomInt(10); i++) {
+            builder.append("§").append(RandomUtil.getRandomString(1));
+        }
+        return builder.toString();
     }
 
     /**
