@@ -69,9 +69,11 @@ public class PlayerCorpse {
         if (!nomNomDevices.isEmpty() && nomNomDevices.get(0).equalsItem(item)) {
             nomNomDevices.get(0).use(true);
             npc.destroy();
+            FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(on -> on.hideHolograms(this.hologramLocation));
             apiPlayer.playSound(Sound.ENTITY_PLAYER_BURP);
             return;
         }
+
         List<ShopItem> identThief = tttPlayer.getShopItemsOfType(TraitorItems.IDENT_THIEF);
         if (!identThief.isEmpty() && identThief.get(0).equalsItem(item)) {
             apiPlayer.getPlayer().setDisplayName(this.tttPlayer.getApiPlayer().getPlayer().getName());

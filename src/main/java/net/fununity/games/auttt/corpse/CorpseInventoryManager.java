@@ -94,8 +94,8 @@ public class CorpseInventoryManager {
                     corpseInventories.put(apiPlayer.getUniqueId(), new IndividualCorpseInventory(defaultCorpseInventory));
                     analyzing.remove(apiPlayer.getUniqueId());
 
-                    if (apiPlayer.hasCustomData("openInv") && ((CustomInventory) apiPlayer.getCustomData("openInv"))
-                            .getSpecialHolder().equals(apiPlayer.getUniqueId().toString() + "|" + playerCorpse.tttPlayer.getApiPlayer().getUniqueId())) {
+                    if (apiPlayer.hasCustomData("openInv") && ((CustomInventory) apiPlayer.getCustomData("openInv")).getSpecialHolder() != null &&
+                            ((CustomInventory) apiPlayer.getCustomData("openInv")).getSpecialHolder().equals(apiPlayer.getUniqueId().toString() + "|" + playerCorpse.tttPlayer.getApiPlayer().getUniqueId())) {
                         openInventory(apiPlayer);
                     }
 

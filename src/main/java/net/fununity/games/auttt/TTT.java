@@ -47,7 +47,7 @@ public class TTT extends JavaPlugin {
         new GermanMessages();
 
         RegisterUtil registerUtil = new RegisterUtil(this);
-        registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new PlayerJoinListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener(), new ProjectileHitListener(), new ChatListener(), new GeneralShopListener());
+        registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener(), new ProjectileHitListener(), new ChatListener(), new GeneralShopListener());
         registerUtil.addCommands(new TraitorChatCommand(), new CoinsInfoCommand(), new ShopCommand(), new JokerCommand());
         registerUtil.register();
 
@@ -56,7 +56,7 @@ public class TTT extends JavaPlugin {
         ttt.setDeathMessage(false);
         ttt.setScoreboard(false);
         ttt.setTablist(false);
-        ttt.setMinPlayers(3);
+        ttt.setMinPlayers(2);
         ttt.setProtectionTime(30);
         ttt.setExtraLobbyItem(new ItemBuilder(Material.PAPER).setName(ChatColor.GOLD + "JokerGUI").craft());
     }

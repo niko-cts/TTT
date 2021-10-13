@@ -16,6 +16,7 @@ import net.fununity.misc.translationhandler.translations.Language;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Arrays;
 import java.util.Queue;
 import java.util.UUID;
 
@@ -36,7 +37,7 @@ public class JokerShopGUI {
 
         ItemStack traitorItem = new ItemBuilder(Material.REDSTONE)
                 .setName(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_NAME, "${cost}", ""+traitorCost))
-                .setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_LORE, "${off}", "50%").split(";")).craft();
+                .setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_LORE, Arrays.asList("${off}", "${cost}"), Arrays.asList("50%", ""+traitorCost)).split(";")).craft();
         menu.setItem(12, traitorItem, new ClickAction() {
             @Override
             public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
@@ -56,7 +57,7 @@ public class JokerShopGUI {
         int detectiveCost = JOKER_DETECTIVE / (apiPlayer.hasPermission("ttt.joker") ? 2 : 1);
         ItemStack detectiveItem = new ItemBuilder(Material.INK_SACK, (short) 4)
                 .setName(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_NAME, "${cost}", ""+detectiveCost))
-                .setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, "${off}", "50%").split(";")).craft();
+                .setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, Arrays.asList("${off}", "${cost}"), Arrays.asList("50%", ""+detectiveCost)).split(";")).craft();
         menu.setItem(14, detectiveItem, new ClickAction() {
             @Override
             public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {

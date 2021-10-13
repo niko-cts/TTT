@@ -52,7 +52,6 @@ public class ShopSentryGun extends ShopItem {
         this.sentry.setMetadata("ttt-sentry", new FixedMetadataValue(TTT.getInstance(), 1));
         this.sentry.setArms(true);
         this.sentry.setItemInHand(new ItemStack(Material.BOW));
-        this.sentry.setHelmet(new ItemStack(Material.GOLD_HELMET));
         BukkitTask task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), this::checkForShoot, 15L, 15L);
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
             task.cancel();

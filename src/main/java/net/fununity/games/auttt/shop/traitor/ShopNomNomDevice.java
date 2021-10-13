@@ -12,8 +12,10 @@ import net.fununity.games.auttt.shop.ShopItems;
  * @since 1.1
  */
 public class ShopNomNomDevice extends ShopItem {
+
     public ShopNomNomDevice(ShopItems shopItem, TTTPlayer tttPlayer) {
         super(shopItem, tttPlayer);
         giveItemToUse();
     }
+
 }

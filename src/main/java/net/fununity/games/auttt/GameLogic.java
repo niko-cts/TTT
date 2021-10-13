@@ -156,6 +156,16 @@ public class GameLogic extends Game {
         }
     }
 
+    @Override
+    public void joinGame(Player player, boolean spectator) {
+        super.joinGame(player, spectator);
+        if (spectator) {
+            for (Player onlinePlayer : Bukkit.getOnlinePlayers())
+                onlinePlayer.hidePlayer(TTT.getInstance(), player);
+            TTTScoreboard.updateTablist(FunUnityAPI.getInstance().getPlayerHandler().getPlayer(player));
+        }
+    }
+
     /**
      * Will be called every second from the mgs.
      * @param i - seconds left

@@ -31,7 +31,7 @@ public class ShopGUI {
         for (ShopItems shopItem : shopItems) {
             menu.addItem(new ItemBuilder(shopItem.getItem())
                     .setName(lang.getTranslation(shopItem.getNameKey()))
-                    .setLore(lang.getTranslation(shopItem.getDescriptionKey(), "${cost}", shopItem.getCoinsCost() + "")).craft(), new ClickAction() {
+                    .setLore(lang.getTranslation(shopItem.getDescriptionKey(), "${cost}", shopItem.getCoinsCost() + "").split(";")).craft(), new ClickAction() {
                 @Override
                 public void onClick(APIPlayer apiPlayer, ItemStack itemStack, int i) {
                     setCloseInventory(tryToBuyItem(tttPlayer, shopItem));
