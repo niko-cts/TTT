@@ -100,7 +100,7 @@ public class PlayerCorpse {
             tttPlayer.getApiPlayer().sendMessage(TranslationKeys.TTT_GAME_PLAYER_FOUND,
                     Arrays.asList("${name}", "${role}", "${found}"),
                     Arrays.asList(this.tttPlayer.getColoredName(), this.tttPlayer.getRole().getColoredName(),
-                            tttPlayer.getRole() == Role.TRAITOR ? foundBy.getColoredName() : foundBy.getApiPlayer().getPlayer().getName()));
+                            tttPlayer.getRole() == Role.TRAITOR ? foundBy.getColoredName() : Role.INNOCENT.getColor() + foundBy.getApiPlayer().getPlayer().getName()));
 
             TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
         }

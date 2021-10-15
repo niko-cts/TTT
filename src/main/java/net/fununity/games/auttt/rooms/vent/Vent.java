@@ -228,4 +228,7 @@ public class Vent implements Listener {
         }
     }
 
+    public boolean isInVent(UUID uuid) {
+        return currentlyInVent.contains(uuid);
+    }
 }

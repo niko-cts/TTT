@@ -26,6 +26,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.PlayerInventory;
 
 import java.util.*;
+import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 /**
@@ -68,7 +69,9 @@ public class GameLogic extends Game {
 
             // ROLES SORTING
             int maximumTraitor = (int) Math.min(TTT.getInstance().getMaxTraitorAmount(), Math.round(TTT.getInstance().getTraitorAmountMultiplier() * getPlayers().size()));
-            List<Player> players = getPlayers();
+            List<UUID> players = new ArrayList<>();
+            getPlayers().forEach(p -> players.add(p.getUniqueId()));
+
             Collections.shuffle(players);
 
             addPlayerRole(maximumTraitor, traitorJoker, players, Role.TRAITOR);
@@ -90,7 +93,7 @@ public class GameLogic extends Game {
             }
 
             while (!players.isEmpty()) {
-                Player player = players.get(RandomUtil.getRandomInt(players.size()));
+                UUID player = players.get(RandomUtil.getRandomInt(players.size()));
                 players.remove(player);
                 tttPlayers.add(new TTTPlayer(FunUnityAPI.getInstance().getPlayerHandler().getPlayer(player), Role.INNOCENT));
             }
@@ -135,22 +138,23 @@ public class GameLogic extends Game {
      * @param role Role - Role to give the player.
      * @since 0.0.1
      */
-    private void addPlayerRole(int amount, Queue<UUID> preferred, List<Player> alternatives, Role role) {
+    private void addPlayerRole(int amount, Queue<UUID> preferred, List<UUID> alternatives, Role role) {
         while (amount > 0) {
             if (alternatives.isEmpty() && preferred.isEmpty()) {
-                TTT.getInstance().getLogger().warning("There are no more players available to fit in the role!");
+                TTT.getInstance().getLogger().log(Level.WARNING, "There are no more players available to fit in {0}!", role.name());
                 return;
             }
 
             UUID uuid;
             if (preferred.isEmpty()) {
-                Player random = alternatives.get(RandomUtil.getRandomInt(alternatives.size()));
-                alternatives.remove(random);
-                uuid = random.getUniqueId();
+                uuid = alternatives.get(RandomUtil.getRandomInt(alternatives.size()));
             } else {
                 uuid = preferred.poll();
-                alternatives.remove(Bukkit.getPlayer(uuid));
             }
+            alternatives.remove(uuid);
+            if (getTTTPlayer(uuid) != null)
+                continue;
+
             tttPlayers.add(new TTTPlayer(FunUnityAPI.getInstance().getPlayerHandler().getPlayer(uuid), role));
             amount--;
         }
