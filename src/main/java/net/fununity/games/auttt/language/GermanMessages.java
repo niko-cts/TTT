@@ -43,7 +43,7 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_SUPER, "&0Spieler: ${name}\n&0Rolle: ${role}");
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_NORMAL, "&0Spieler: ${name}");
 
-        add(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN, "&7Dieses Item kann erst §cnach Ende 7der Schutzzeit eingesammelt werden!");
+        add(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN, "&7Dieses Item kann erst §cnach Ende der Schutzzeit eingesammelt werden!");
 
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME, "&bShop");
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE, "&7Öffne den Shop um;&7nützliche Items zu erhalten!");
@@ -62,14 +62,14 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, "&eRadar");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION, "§7Zeigt dir den nähesten;§7oder einen ausgewählten;§7Spieler an.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, "&eNom-Nom Device");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "§7Verspeise alle alle 60 Sekunden;§7eine Leiche um 2 Herzen zu;§7regenerieren.");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "§7Verspeise alle 60 Sekunden;§7eine Leiche um 2 Herzen zu;§7regenerieren.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, "&eStreitaxt");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "§7Diese schwere Waffe fügt mit einem;§7Schlag 5 Herzen Schaden zu. Doch;§7durch ihr hohes Gewicht verlangsamst;§7du dich, selbst wenn du;§7die Axt wieder weggelegt hast.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_COOLDOWN, "&cAchtung! &7Axtschwung muss abklingen!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "&eEisenschwert");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "§7Besorge dir ein Eisenschwert;&7auch wenn du keine Enderchest;&7erwischt hast!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "&eAdrenalin");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "§7Dieser Trtank verleiht 10 Sekunden;§7den Effekt Schnelligkeit, wenn;§7er getrunken wird");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "§7Dieser Trank verleiht 10 Sekunden;§7den Effekt Schnelligkeit, wenn;§7er getrunken wird");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "&eInferno");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "§7Dieser feurige Ball hinterlässt an;§7seiner Einschlagsstelle ein Meer;§7aus Flammen.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, "&eReperatur-Kit Typ F");
@@ -86,10 +86,10 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION, "§7Täusche deine Verfolger und nimm;§7die Identität einer Leiche an.;§7Du spielst nun so lange als dieser;§7Spieler, bis die Leiche identifiziert wird.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, "&eSaboteur");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "§7Mit diesem Item kannst du den;§7Generator deaktivieren. Für alle;§7Innocents und Detectives ohne;§7Nachtsichtgerät wird alles dunkel.");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eTarnknappe");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eTarnkappe");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "§7Verschwinde für 30 Sekunden in;§7den Schutz der Unsichtbarkeit.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, "&eSentryGun");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "Ein mächtiger Geschützturm, der alles vernichtet, was ihm zu nahe kommt.;Sein Sichtfeld ist aber sehr eingeschränkt...");
 
         // INNOCENT
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "&eBoomBody-Stop");
