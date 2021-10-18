@@ -71,6 +71,8 @@ public class Vent implements Listener {
      * @since 1.1
      */
     public void enters(Player player, Location location) {
+        if (isInVent(player.getUniqueId())) return;
+
         if (playerData.containsKey(player.getUniqueId())) {
             VentPlayerData ventPlayerData = playerData.get(player.getUniqueId());
 

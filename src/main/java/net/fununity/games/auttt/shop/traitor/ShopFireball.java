@@ -14,6 +14,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -28,7 +29,7 @@ public class ShopFireball extends ShopItem {
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         if (!didPlayerUse(event)) return;
-        if (RoomsManager.getInstance().getVent().isInVent(event.getPlayer().getUniqueId())) {
+        if (RoomsManager.getInstance().getVent().isInVent(event.getPlayer().getUniqueId()) || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             event.setCancelled(true);
             return;
         }

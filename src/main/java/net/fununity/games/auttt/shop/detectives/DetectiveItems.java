@@ -147,6 +147,6 @@ public enum DetectiveItems implements ShopItems {
      */
     @Override
     public ItemStack getTranslatedItem(Language language) {
-        return new ItemBuilder(getItem()).setName(language.getTranslation(getNameKey())).setLore(language.getTranslation(getDescriptionKey())).craft();
+        return new ItemBuilder(getItem()).setName(language.getTranslation(getNameKey())).setLore(language.getTranslation(getDescriptionKey()).split(";")).craft();
     }
 }

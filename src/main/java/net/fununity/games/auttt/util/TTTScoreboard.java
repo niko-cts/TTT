@@ -106,12 +106,12 @@ public class TTTScoreboard {
 
             // player to online board
             if (tttPlayer != null) {
-                Team onlineGetsPlayerTeam = getPlayerTeam(tttPlayer, onlineBoard, partyTogether, online.getRole() == Role.TRAITOR || GameManager.getInstance().isSpectator(online.getApiPlayer().getPlayer()));
+                Team onlineGetsPlayerTeam = getPlayerTeam(tttPlayer, onlineBoard, partyTogether, online.getRole() == Role.TRAITOR);
                 onlineGetsPlayerTeam.addEntry(apiPlayer.getPlayer().getName());
             }
 
             // online to player board
-            Team playerGetsOnlineTeam = getPlayerTeam(online, playerBoard, partyTogether, tttPlayer != null && (tttPlayer.getRole() == Role.TRAITOR || GameManager.getInstance().isSpectator(apiPlayer.getPlayer())));
+            Team playerGetsOnlineTeam = getPlayerTeam(online, playerBoard, partyTogether, tttPlayer != null && (tttPlayer.getRole() == Role.TRAITOR));
             playerGetsOnlineTeam.addEntry(online.getApiPlayer().getPlayer().getName());
         }
 
