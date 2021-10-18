@@ -89,7 +89,7 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eTarnkappe");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "§7Verschwinde für 30 Sekunden in;§7den Schutz der Unsichtbarkeit.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, "&eSentryGun");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "Ein mächtiger Geschützturm, der alles vernichtet, was ihm zu nahe kommt.;Sein Sichtfeld ist aber sehr eingeschränkt...");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "§7Ein mächtiger Geschützturm, der alles vernichtet, was ihm zu nahe kommt.;§7wSein Sichtfeld ist aber sehr eingeschränkt...");
 
         // INNOCENT
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "&eBoomBody-Stop");
