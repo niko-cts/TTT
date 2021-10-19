@@ -29,8 +29,8 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_ROOM_TESTER_COOLDOWN, "&cThe tester has a cooldown of 5 seconds.");
 
         add(TranslationKeys.ROLE_CALLOUT_TITLE, "${role}");
-        add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&8Du bist ${role}");
-        add(TranslationKeys.ROLE_CALLOUT_TEXT, "&7Du bist ${role}&7!");
+        add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&7You are ${role}");
+        add(TranslationKeys.ROLE_CALLOUT_TEXT, "&7You are ${role}, &7Good luck!");
         add(TranslationKeys.ROLE_WON, "&aThe ${role} &ahave won the game!");
 
         add(TranslationKeys.TTT_GAME_PLAYER_DIED, "${name} &7died!");
