@@ -31,7 +31,7 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.ROLE_CALLOUT_TITLE, "${role}");
         add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&7Du bist ein ${role} &7geworden!");
         add(TranslationKeys.ROLE_CALLOUT_TEXT, "&7Du bist ${role}&7! Viel Erfolg!");
-        add(TranslationKeys.ROLE_WON, "&aThe ${role} &awon the game!");
+        add(TranslationKeys.ROLE_WON, "&aDie ${role} &ahaben das Spiel gewonnen!");
 
         add(TranslationKeys.TTT_GAME_PLAYER_DIED, "${name} &7ist gestorben!");
         add(TranslationKeys.TTT_GAME_PLAYER_FOUND, "${name} &7wurde von ${found} &7gefunden.");
