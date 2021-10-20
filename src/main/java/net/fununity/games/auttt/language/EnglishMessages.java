@@ -54,7 +54,7 @@ public class EnglishMessages extends MessageList {
 
         // SHOP ITEM
         // TRAITOR
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, "&ePfeilvorrat");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, "&eArrow Supply");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION, "&7");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, "&eFallen-Stop");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION, "");
@@ -63,12 +63,12 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, "&eNom-Nom Device");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, "&eStreitaxt");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, "&eBattle Ax");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_COOLDOWN, "&cYou axe is on cooldown!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "&eEisenschwert");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "&eAdrenalin");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "&eAdrenaline");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "&eInferno");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "");
@@ -78,7 +78,7 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_USED, "&7You used your trap-repair item.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, "&eBoom Body");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, "&eSprengweste");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, "&eExplosive Vest");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, "&eInnocent-Pass");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION, "");
@@ -86,7 +86,7 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, "&eSaboteur");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eTarnknappe");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eCamouflage Cap");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, "&eSentryGun");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "");
@@ -97,29 +97,29 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_WARN, "&cWarning this is a boom body!");
         
         // DETECTIVE
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, "&eNachtsichtgerät");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, "&eNight Vision Device");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_NAME, "&eSuper-Identifizierer");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "&eEnterhaken");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "&eGrappling Hook");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "&eFallenfrei");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "&eTrap Free");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "&eBewegungsmelder");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "&eMotion Detector");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eMove sensor! &6${name} &7came out of the vent!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED, "&aYour move sensor was set.");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "&eDetektor");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "&eDetector");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "&eGiftige Luft");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "&ePoisonous Air");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "&eSamariter");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "&eSamaritan");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "&eOne-Shot-Bogen");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "&eOne-Shot-Bow");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_NAME, "Medi-Kit");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_NAME, "&eJugend");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_NAME, "&eYouth");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_DESCRIPTION, "");
 
 
@@ -149,9 +149,9 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GUI_SHOP_COINS_LORE, "&7Click to get info;&7how you receive coins.");
         add(TranslationKeys.TTT_GUI_SHOP_BUYED, "&aYou have successfully bought &e${name}&a!");
 
-        add(TranslationKeys.SCOREBOARD_YOUR_ROLE, "&6Your role");
-        add(TranslationKeys.SCOREBOARD_FOUND_TRAITORS, "&6Found Traitor");
-        add(TranslationKeys.SCOREBOARD_COINS, "&6Shop coins");
+        add(TranslationKeys.SCOREBOARD_YOUR_ROLE, "&7Your Role:");
+        add(TranslationKeys.SCOREBOARD_FOUND_TRAITORS, "&7Found Traitor:");
+        add(TranslationKeys.SCOREBOARD_COINS, "&7Points:");
 
         // GENERATOR
         add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_DISABLE_BROADCAST, "&cThe Generator was disabled!");
