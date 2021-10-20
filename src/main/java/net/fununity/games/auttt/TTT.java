@@ -10,7 +10,7 @@ import net.fununity.games.auttt.listener.*;
 import net.fununity.games.auttt.shop.GeneralShopListener;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.main.api.minigames.MinigameNames;
-import net.fununity.main.api.minigames.stats.minigames.Minigames;
+import net.fununity.main.api.minigames.Minigames;
 import net.fununity.main.api.util.RegisterUtil;
 import net.fununity.mgs.Minigame;
 import org.bukkit.ChatColor;

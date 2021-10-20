@@ -2,6 +2,7 @@ package net.fununity.games.auttt.shop;
 
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.TTTPlayer;
+import net.fununity.mgs.gamestates.GameManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -16,6 +17,7 @@ public class ShopRadar extends ShopItem {
                 Bukkit.getOnlinePlayers().stream()
                         .filter(on -> !on.getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId()))
                         .filter(on -> on.getWorld().getUID().equals(tttPlayer.getApiPlayer().getPlayer().getWorld().getUID()))
+                        .filter(on -> !GameManager.getInstance().isSpectator(on))
                         .min(Comparator.comparingDouble(o -> o.getLocation().distance(getPlayer().getLocation())))
                         .ifPresent(o -> getPlayer().setCompassTarget(o.getLocation())), 0L, 20 * 2L);
     }

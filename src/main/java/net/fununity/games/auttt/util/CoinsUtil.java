@@ -5,7 +5,7 @@ import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.main.api.actionbar.ActionbarMessage;
-import net.fununity.main.api.minigames.stats.minigames.StatType;
+import net.fununity.main.api.minigames.stats.StatType;
 import net.fununity.mgs.stats.PlayerStatsManager;
 
 import java.util.Arrays;
