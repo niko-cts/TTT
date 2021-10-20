@@ -74,12 +74,13 @@ public class PlayerCorpse {
             return;
         }
 
-        List<ShopItem> identThief = tttPlayer.getShopItemsOfType(TraitorItems.IDENT_THIEF);
+        /*List<ShopItem> identThief = tttPlayer.getShopItemsOfType(TraitorItems.IDENT_THIEF);
         if (!identThief.isEmpty() && identThief.get(0).equalsItem(item)) {
             apiPlayer.getPlayer().setDisplayName(this.tttPlayer.getApiPlayer().getPlayer().getName());
             identThief.get(0).use(true);
             apiPlayer.playSound(Sound.ENTITY_ENDERMEN_TELEPORT);
-        }
+        }*/
+
 
         if (item == null || item.getType() != Material.STICK) return;
 

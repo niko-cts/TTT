@@ -1,6 +1,7 @@
 package net.fununity.games.auttt.shop.traitor;
 
 import net.fununity.games.auttt.GameLogic;
+import net.fununity.games.auttt.Role;
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.TTTPlayer;
 import net.fununity.games.auttt.shop.ShopItem;
@@ -40,10 +41,14 @@ public class ShopJihad extends ShopItem {
             task.cancel();
             tnt.remove();
             if (!player.isOnline()) return;
+            player.damage(30);
             for (TTTPlayer online : GameLogic.getInstance().getTTTPlayers()) {
                 if (GameManager.getInstance().isPlayer(online.getApiPlayer().getPlayer()) &&
+                        online.getApiPlayer().getPlayer().getLocation().getWorld().getUID().equals(player.getLocation().getWorld().getUID()) &&
                         online.getApiPlayer().getPlayer().getLocation().distance(player.getLocation()) <= DISTANCE) {
-                    online.getApiPlayer().getPlayer().damage(30, player);
+                    TTTPlayer tttOnline = GameLogic.getInstance().getTTTPlayer(online.getApiPlayer().getUniqueId());
+                    if (tttOnline != null && tttOnline.getRole() != Role.TRAITOR)
+                        online.getApiPlayer().getPlayer().damage(30, player);
                 }
             }
         }, TICK_DURATION);

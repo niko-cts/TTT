@@ -34,7 +34,7 @@ public enum TraitorItems implements ShopItems {
     BOOM_BODY(4, 1, 5, 5, ShopBoomBody.class, new ItemStack(Material.SKULL_ITEM, 1, (short) 3), TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION),
     JIHAD(4, 1, 1, 1, ShopJihad.class, new ItemStack(Material.TNT), TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION),
     TESTER_FAKER(5, 1, 2, 2, ShopTesterFaker.class, new ItemStack(Material.PAPER), TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION),
-    IDENT_THIEF(5, 1, 5, 5, ShopIdentThief.class, new ItemStack(Material.PUMPKIN), TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION),
+    //IDENT_THIEF(5, 1, 5, 5, ShopIdentThief.class, new ItemStack(Material.PUMPKIN), TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION),
     GENERATOR(5, 1, 5, 5, ShopGenerator.class, new ItemStack(Material.REDSTONE_COMPARATOR), TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION),
     INVISIBILITY(6, 1, 5, 1, ShopInvisibility.class, new ItemStack(Material.GLASS), TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION),
     SENTRYGUN(7, 1, 2, 2, ShopSentryGun.class, new ItemStack(Material.ARMOR_STAND), TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION);

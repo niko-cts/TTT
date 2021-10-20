@@ -45,6 +45,7 @@ public class ShopFireball extends ShopItem {
         if (!event.getEntity().hasMetadata("ttt-fireball")) return;
         Location location = event.getEntity().getLocation();
         location.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, location, 0);
+
         for (Entity nearbyEntity : location.getWorld().getNearbyEntities(location, 3, 3, 3)) {
             if (nearbyEntity instanceof Player) {
                 TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(nearbyEntity.getUniqueId());
