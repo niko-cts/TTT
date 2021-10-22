@@ -2,6 +2,8 @@ package net.fununity.games.auttt.listener;
 
 import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.event.player.LanguageChangeEvent;
+import net.fununity.mgs.gamestates.GameManager;
+import net.fununity.mgs.gamestates.GameState;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -19,7 +21,8 @@ public class LanguageChangeListener implements Listener {
      */
     @EventHandler
     public void onLanguage(LanguageChangeEvent event) {
-        TTTScoreboard.updateScoreboard(event.getAPIPlayer());
+        if (GameManager.getInstance().getCurrentGameState() == GameState.INGAME)
+            TTTScoreboard.updateScoreboard(event.getAPIPlayer());
     }
 
 }

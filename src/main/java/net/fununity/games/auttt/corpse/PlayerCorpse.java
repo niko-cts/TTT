@@ -7,7 +7,6 @@ import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.traitor.TraitorItems;
 import net.fununity.games.auttt.util.CoinsUtil;
-import net.fununity.games.auttt.util.TTTScoreboard;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.hologram.APIHologram;
 import net.fununity.main.api.hologram.HologramText;
@@ -102,8 +101,6 @@ public class PlayerCorpse {
                     Arrays.asList("${name}", "${role}", "${found}"),
                     Arrays.asList(this.tttPlayer.getColoredName(), this.tttPlayer.getRole().getColoredName(),
                             tttPlayer.getRole() == Role.TRAITOR ? foundBy.getColoredName() : Role.INNOCENT.getColor() + foundBy.getApiPlayer().getPlayer().getName()));
-
-            TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
         }
     }
 

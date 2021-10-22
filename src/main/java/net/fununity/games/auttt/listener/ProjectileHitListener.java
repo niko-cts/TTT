@@ -17,8 +17,11 @@ public class ProjectileHitListener implements Listener {
     @EventHandler
     public void onHit(ProjectileHitEvent event) {
         if (GameManager.getInstance().getCurrentGameState() != GameState.INGAME) return;
-        if (event.getHitBlock() == null || !(event.getEntity() instanceof Arrow) || !(event.getEntity().getShooter() instanceof Player)) return;
-        RoomsManager.getInstance().checkForTrap((Player) event.getEntity().getShooter(), event.getHitBlock().getLocation());
+        if (!(event.getEntity() instanceof Arrow) || !(event.getEntity().getShooter() instanceof Player)) return;
+        if (event.getHitBlock() != null) {
+            RoomsManager.getInstance().checkForTrap((Player) event.getEntity().getShooter(), event.getHitBlock().getLocation());
+            return;
+        }
         if (!(event.getHitEntity() instanceof Player)) return;
 
         TTTPlayer hit = GameLogic.getInstance().getTTTPlayer(event.getHitEntity().getUniqueId());

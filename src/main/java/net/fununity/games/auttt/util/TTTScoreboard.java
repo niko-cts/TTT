@@ -94,25 +94,26 @@ public class TTTScoreboard {
         apiPlayer.getPlayer().setScoreboard(playerBoard);
 
         TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
-        for (TTTPlayer online : GameLogic.getInstance().getTTTPlayers()) {
-            Scoreboard onlineBoard = online.getApiPlayer().getPlayer().getScoreboard();
+        for (APIPlayer online : FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers()) {
+            Scoreboard onlineBoard = online.getPlayer().getScoreboard();
 
             // online is same as player or online has no scoreboard
-            if (online.getApiPlayer().getUniqueId().equals(apiPlayer.getUniqueId()) || onlineBoard == null)
+            if (online.getUniqueId().equals(apiPlayer.getUniqueId()) || onlineBoard == null)
                 continue;
 
             // is player in party with online
-            boolean partyTogether = apiPlayer.getPartyOwner() != null && apiPlayer.getPartyOwner().equals(online.getApiPlayer().getPartyOwner());
+            boolean partyTogether = apiPlayer.getPartyOwner() != null && apiPlayer.getPartyOwner().equals(online.getPartyOwner());
 
+            TTTPlayer onlineTTT = GameLogic.getInstance().getTTTPlayer(online.getUniqueId());
             // player to online board
             if (tttPlayer != null) {
-                Team onlineGetsPlayerTeam = getPlayerTeam(tttPlayer, onlineBoard, partyTogether, online.getRole() == Role.TRAITOR);
+                Team onlineGetsPlayerTeam = getPlayerTeam(tttPlayer, onlineBoard, partyTogether, onlineTTT != null && onlineTTT.getRole() == Role.TRAITOR);
                 onlineGetsPlayerTeam.addEntry(apiPlayer.getPlayer().getName());
             }
 
             // online to player board
-            Team playerGetsOnlineTeam = getPlayerTeam(online, playerBoard, partyTogether, tttPlayer != null && (tttPlayer.getRole() == Role.TRAITOR));
-            playerGetsOnlineTeam.addEntry(online.getApiPlayer().getPlayer().getName());
+            Team playerGetsOnlineTeam = getPlayerTeam(onlineTTT, playerBoard, partyTogether, tttPlayer != null && tttPlayer.getRole() == Role.TRAITOR);
+            playerGetsOnlineTeam.addEntry(online.getPlayer().getName());
         }
 
         // player to player board
@@ -137,8 +138,8 @@ public class TTTScoreboard {
 
 
         if (tttPlayer == null) {
-            prefix = Role.INNOCENT.getColor() + "";
-            teamPriority = Role.INNOCENT.ordinal() + "";
+            prefix = ChatColor.GRAY + "";
+            teamPriority = "ZZZ";
         } else if (tttPlayer.isFound() || // Player was found
                 (tttPlayer.isDead() && (trueVision || // player dead
                         GameManager.getInstance().getCurrentGameState() == GameState.ENDING))) // ending phase

@@ -7,6 +7,7 @@ import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.actionbar.ActionbarMessage;
 import net.fununity.main.api.messages.MessagePrefix;
 import net.fununity.main.api.player.APIPlayer;
+import net.fununity.mgs.gamestates.GameManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;
@@ -65,11 +66,14 @@ public class VentPlayerData {
         if (this.vent.gift)
             player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, Integer.MAX_VALUE, 0, false, false));
 
-        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+        for (Player onlinePlayer : Bukkit.getOnlinePlayers())
             onlinePlayer.hidePlayer(TTT.getInstance(), player);
-            Bukkit.getScheduler().runTaskLater(TTT.getInstance(), ()->
-                TTTScoreboard.reAddPlayer(onlinePlayer), 1L);
-        }
+
+        Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
+            for (Player onlinePlayer : GameManager.getInstance().getPlayers()) {
+                TTTScoreboard.reAddPlayer(onlinePlayer);
+            }
+        }, 1L);
 
         task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), () -> {
 

@@ -3,6 +3,7 @@ package net.fununity.games.auttt;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
 import net.fununity.games.auttt.util.TTTScoreboard;
+import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.player.APIPlayer;
 
 import java.lang.reflect.InvocationTargetException;
@@ -57,7 +58,7 @@ public class TTTPlayer {
 
     public void found() {
         this.found = true;
-        TTTScoreboard.updateTablist(getApiPlayer());
+        FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers().forEach(TTTScoreboard::updateTablist);
     }
 
     public boolean isDead() {

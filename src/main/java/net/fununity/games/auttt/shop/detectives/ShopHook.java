@@ -22,8 +22,8 @@ public class ShopHook extends ShopItem {
         if (!(event.getEntity() instanceof FishHook) || !(event.getEntity().getShooter() instanceof Player)) return;
         TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(((Player) event.getEntity().getShooter()).getUniqueId());
         if (tttPlayer == null || !tttPlayer.hasShopItem(DetectiveItems.HOOK)) return;
-        if (event.getEntity() instanceof Player) {
-            Vector vec = tttPlayer.getApiPlayer().getPlayer().getLocation().toVector().subtract(event.getEntity().getLocation().toVector()).normalize();
+        if (event.getHitEntity() instanceof Player) {
+            Vector vec = tttPlayer.getApiPlayer().getPlayer().getLocation().toVector().subtract(event.getHitEntity().getLocation().toVector()).normalize();
             vec.setY(1.5);
             event.getEntity().setVelocity(vec);
             ((Player) event.getEntity()).damage(1, tttPlayer.getApiPlayer().getPlayer());
