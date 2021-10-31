@@ -152,7 +152,7 @@ public class GermanMessages extends MessageList {
 
         add(TranslationKeys.SCOREBOARD_YOUR_ROLE, "&7Deine Rolle:");
         add(TranslationKeys.SCOREBOARD_FOUND_TRAITORS, "&7Gefundene Traitor:");
-        add(TranslationKeys.SCOREBOARD_COINS, "&7Punkte:");
+        add(TranslationKeys.SCOREBOARD_COINS, "&7Coins:");
 
         // GENERATOR
         add(TranslationKeys.TTT_GAME_ROOM_GENERATOR_DISABLE_BROADCAST, "&7Der Generator wurde &csabotiert&7!!");
