@@ -264,6 +264,11 @@ public class GameLogic extends Game {
      */
     @Override
     public void playerLeaves(Player player) {
+        if (isProtected() || getTTTPlayers().size() == 0) {
+            checkForGameEnd();
+            return;
+        }
+
         TTTPlayer tttPlayer = getTTTPlayer(player.getUniqueId());
         new ArrayList<>(tttPlayer.getShopItems()).forEach(ShopItem::removeItem);
         tttPlayers.remove(tttPlayer);

@@ -103,11 +103,12 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, "§7Erhalte schneller Einsicht in;§7die Akten und erhalte;§7zusätzliche Informationen zu;§7Leichen.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "&eEnterhaken");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, "§7Triffst du einen Block mit;§7dem Enterhaken, kannst du;§7dich zu diesem hinziehen.;§7Triffst du einen Spieler, wird;§7dieser zu dir gezogen und erhält;§71 Herz Schaden.");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_COOLDOWN, "&cDein Enterhaken hat einen Cooldown!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "&eFallenfrei");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, "7Wird dieses Item gekauft, so;§7kann bei der nächsten Person,;§7die den Tester betritt nicht;§7die Falle ausgelöst werden.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "&eBewegungsmelder");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, "§7Kann vor dem Ausgang aus;§7eines Lüftungsschachtes;§7aufgestellt werden und;§7alamiert, wenn ein Traitor;§7aus dem Schacht heraustritt.");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eBewegung gemeldet! &6${name} &7hat den Bewegungsmelder ausgelöst!");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eBewegung gemeldet! &7Jemand hat den Bewegungsmelder ausgelöst!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED, "&7Bewegunsmelder &aplatziert&7!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "&eDetektor");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, "§7Nähert sich ein Traitor bis;§7auf 10 Blöcke, färbt sich;§7der Detektor rot.");

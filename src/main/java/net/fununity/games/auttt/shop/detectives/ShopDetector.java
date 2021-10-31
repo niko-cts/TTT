@@ -37,8 +37,10 @@ public class ShopDetector extends ShopItem {
 
         bukkitTask = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), () -> {
             seconds--;
-            for (int x = -5; x < 5; x++) {
-                location.getWorld().spawnParticle(particle, location.clone().add(x, 0, 0), 1);
+            for (int x = -2; x <= 2; x++) {
+                for (int z = -2; z <= 2; z++) {
+                    location.getWorld().spawnParticle(particle, location.clone().add(x, 0, z), 0);
+                }
             }
             if (seconds == 0)
                 cancelTask();

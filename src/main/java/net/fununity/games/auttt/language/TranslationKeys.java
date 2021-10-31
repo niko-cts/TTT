@@ -94,6 +94,7 @@ public class TranslationKeys {
     public static final String TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION = "ttt.game.shop.item.superident.description";
     public static final String TTT_GAME_SHOP_ITEM_HOOK_NAME = "ttt.game.shop.item.hook.name";
     public static final String TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION = "ttt.game.shop.item.hook.description";
+    public static final String TTT_GAME_SHOP_ITEM_HOOK_COOLDOWN = "ttt.game.shop.item.hook.cooldown";
     public static final String TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME = "ttt.game.shop.item.trapblock.name";
     public static final String TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION = "ttt.game.shop.item.trapblock.description";
     public static final String TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME = "ttt.game.shop.item.movesensor.name";

@@ -146,7 +146,7 @@ public class Vent implements Listener {
         for (UUID uuid : this.currentlyInVent) {
             Player player = Bukkit.getPlayer(uuid);
             if (player != null)
-                player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, Integer.MAX_VALUE, 0, false, false));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, Integer.MAX_VALUE, 1, false, false));
         }
 
         this.gift = true;

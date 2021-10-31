@@ -103,11 +103,12 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "&eGrappling Hook");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, "");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_COOLDOWN, "&cYour grappling hook has a cooldown.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "&eTrap Free");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, "");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "&eMotion Detector");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, "");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eMove sensor! &6${name} &7came out of the vent!");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eMove sensor! &7Someone came out of the vent!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED, "&aYour move sensor was set.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "&eDetector");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, "");
