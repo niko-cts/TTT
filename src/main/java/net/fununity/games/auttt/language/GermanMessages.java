@@ -35,15 +35,15 @@ public class GermanMessages extends MessageList {
 
         add(TranslationKeys.TTT_GAME_PLAYER_DIED, "${name} &7ist gestorben!");
         add(TranslationKeys.TTT_GAME_PLAYER_FOUND, "${name} &7wurde von ${found} &7gefunden.");
-        add(TranslationKeys.TTT_GAME_PLAYER_KILLED, "&7Du hast ${name} &7(${role}&7) getötet! &a+ &e${coins} &7Punkte)");
-        add(TranslationKeys.TTT_GAME_PLAYER_RECEIVED_COINS, "&a+ &e${amount} &7Punkte");
+        add(TranslationKeys.TTT_GAME_PLAYER_KILLED, "&7Du hast ${name} &7(${role}&7) getötet! &a+ &e${coins} &7Coins)");
+        add(TranslationKeys.TTT_GAME_PLAYER_RECEIVED_COINS, "&a+ &e${amount} &7Coins");
         add(TranslationKeys.TTT_GAME_PLAYER_CORPSE_NOTFOUND, "&7Nicht identifiziert...");
 
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_START, "Sieh deine Akten ein, um nähere Informationen zu Leichen zu erhalten. Bis die Ermittlungen fertig sind, kann es bis zu 40 Sekunden dauern.");
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_SUPER, "&0Spieler: ${name}\n&0Rolle: ${role}");
         add(TranslationKeys.TTT_GAME_PLAYER_DETECTIVE_FILES_CASE_NORMAL, "&0Spieler: ${name}");
 
-        add(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN, "&7Dieses Item kann erst §cnach Ende der Schutzzeit eingesammelt werden!");
+        add(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN, "&cDieses Item kann erst nach Ende der Schutzzeit eingesammelt werden!");
 
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_NAME, "&bShop");
         add(TranslationKeys.TTT_GAME_ITEM_SHOP_LORE, "&7Öffne den Shop um;&7nützliche Items zu erhalten!");
@@ -105,7 +105,7 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, "§7Triffst du einen Block mit;§7dem Enterhaken, kannst du;§7dich zu diesem hinziehen.;§7Triffst du einen Spieler, wird;§7dieser zu dir gezogen und erhält;§71 Herz Schaden.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_COOLDOWN, "&cDein Enterhaken hat einen Cooldown!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "&eFallenfrei");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, "7Wird dieses Item gekauft, so;§7kann bei der nächsten Person,;§7die den Tester betritt nicht;§7die Falle ausgelöst werden.");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, "§7Wird dieses Item gekauft, so;§7kann bei der nächsten Person,;§7die den Tester betritt nicht;§7die Falle ausgelöst werden.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "&eBewegungsmelder");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, "§7Kann vor dem Ausgang aus;§7eines Lüftungsschachtes;§7aufgestellt werden und;§7alamiert, wenn ein Traitor;§7aus dem Schacht heraustritt.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eBewegung gemeldet! &7Jemand hat den Bewegungsmelder ausgelöst!");
@@ -146,8 +146,8 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS, "&7Du hast &cnicht &7genug Punkte!"); // ACTIONBAR
         add(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUCURRENTAMOUNT, "&7Du kannst &ckeine &7größere Anzahl dieses Items auf einmal kaufen!"); // ACTIONBAR
         add(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUBUYSAMOUNT, "&7Du hast die &cmaximale &7Anzahl dieses Items gekauft!"); // ACTIONBAR
-        add(TranslationKeys.TTT_GUI_SHOP_COINS_NAME, "&7Du hast &c${amount} Punkte&7!");
-        add(TranslationKeys.TTT_GUI_SHOP_COINS_LORE, "&7Erfahre, wie du Punkt erhalten;&7kannst.");
+        add(TranslationKeys.TTT_GUI_SHOP_COINS_NAME, "&7Du hast &c${amount} Coins&7!");
+        add(TranslationKeys.TTT_GUI_SHOP_COINS_LORE, "&7Erfahre, wie du Coins erhalten;&7kannst.");
         add(TranslationKeys.TTT_GUI_SHOP_BUYED, "&7Du hast &e${name} &7gekauft!");
 
         add(TranslationKeys.SCOREBOARD_YOUR_ROLE, "&7Deine Rolle:");
