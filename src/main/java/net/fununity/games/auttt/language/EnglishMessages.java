@@ -30,7 +30,7 @@ public class EnglishMessages extends MessageList {
 
         add(TranslationKeys.ROLE_CALLOUT_TITLE, "${role}");
         add(TranslationKeys.ROLE_CALLOUT_SUBTITLE, "&7You are ${role}");
-        add(TranslationKeys.ROLE_CALLOUT_TEXT, "&7You are ${role}, &7Good luck!");
+        add(TranslationKeys.ROLE_CALLOUT_TEXT, "&7You are ${role}&7! &7Good luck!");
         add(TranslationKeys.ROLE_WON, "&aThe ${role} &ahave won the game!");
 
         add(TranslationKeys.TTT_GAME_PLAYER_DIED, "${name} &7died!");
@@ -62,34 +62,34 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, "&eRadar");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION, "&7Shows you the closest player to you.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, "&eNom-Nom Device");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "&7Consume every 60 seconds a body to regenerate 10 hearts.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "&7Consume every 60 seconds a body;&7 to regenerate 10 hearts.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, "&eBattle Ax");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "&7These heavy weapons make 5 hearts damage; with 1 punch. ;But because of the weight,; it will make you slow.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "&7These heavy weapons make 5 hearts;&7damage with 1 punch. ;&7But because of the weight,;&7it will make you slow.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_COOLDOWN, "&cYou axe is on cooldown!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "&eIron Sword");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "&7Get an iron sword,;&7even if no enderchest was available.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "&7Get an iron sword, even if;&7no enderchest was available.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "&eAdrenaline");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "&7This potion gives you a speed of 10 seconds; when you drink it.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "&7This potion gives you a speed of 10 seconds;&7when you drink it.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "&eInferno");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "&7This fiery ball leaves an ocean of flames; on his impact point.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "&7This fiery ball leaves an ocean of flames;&7on his impact point.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, "&eReperatur-Kit Typ F");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION, ";;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NOTHAVE, "&cThe trap was already used. You need to buy the Trap-Repair item in the shop.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_USED, "&7You used your trap-repair item.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, "&eBoom Body");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION, "&7If it gets identified from a detective or innocent,; it will make....; right! boom!;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION, "&7If it gets identified from a detective or innocent,;&7it will make....;&7right! boom!;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, "&eExplosive Vest");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION, "&7This special vest will explode after 5 seconds; when you equip it.; But sadly you won't survive it...;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION, "&7This special vest will explode after 5 seconds;&7when you equip it.;&7But sadly you won't survive it...;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, "&eInnocent-Pass");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION, "&7Are you always suspected?; That jammer influences the traitor-tester; that you won't be shown as a traitor; when you enter it.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION, "&7Are you always suspected?;&7That jammer influences the traitor-tester;&7that you won't be shown as a traitor;&7 when you enter it.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, "&eIdentitätsdieb");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION, ";;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, "&eSaboteur");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "&7With this item, you can deactivate the generator.; For every innocent and detective without a night vision device,; it will be dark.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "&7With this item, you can deactivate the generator.;&7For every innocent and detective without a night vision device,;&7it will be dark.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eCamouflage Cap");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "&7Disappear for 30 seconds in the guard; of the invisibility.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "&7Disappear for 30 seconds in the guard;&7of the invisibility.;;&7Cost: ");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, "&eSentryGun");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "&7A powerful gun tower who destroys everything; that gets too close to him.; Unfortunately, his view is limited.;;&7Cost: ");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "&7A powerful gun tower who destroys everything;&7that gets too close to him.;&7Unfortunately, his view is limited.;;&7Cost: ");
 
         // INNOCENT
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "&eBoomBody-Stop");
