@@ -131,11 +131,11 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GUI_CORPSE_ANALYZABLE, "&7Klicke hier um die Analyse;&7dieser Leiche zu starten,;&7um mehr Informationen zu dieser;&7Leiche zu erhalten.");
 
         add(TranslationKeys.TTT_GUI_JOKERSHOP_TITLE, "&e&l♔ &eJoker");
-        add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_NAME, "&cTraitor-Joker");
-        add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_LORE, "&e${cost} Token ;;&7Kaufe dir einen Joker;&7um dein Schicksal fest;&7zulegen.;;&6&lPremium gets 50% off");
+        add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_NAME, "&cTraitor-Joker &8- &e${cost} Tokens");
+        add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_LORE, "&7Kaufe dir einen Joker;&7um dein Schicksal fest;&7zulegen.;;&6&lPremium gets 50% off");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_ALREADY_BOUGHT, "&7Du hast einen Joker bereits eingelöst!");
-        add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_NAME, "&dDetective-Joker");
-        add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, "&e${cost} Token ;;&7Kaufe dir einen Joker;&7um dein Schicksal fest;zulegen.");
+        add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_NAME, "&dDetective-Joker &8- &e${cost} Tokens");
+        add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, "&7Kaufe dir einen Joker;&7um dein Schicksal fest;zulegen.");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_TITLE, "&aKauf bestätigen!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_CONFIRM_INFO, "&7Kaufe dir diesen Joker;&7um in dieser Runde deine Rolle schon vorab festzulegen!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_GAME_STARTED, "&7Das Spiel hat &cbereits &7begonnen!");
