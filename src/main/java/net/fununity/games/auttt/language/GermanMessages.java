@@ -132,7 +132,7 @@ public class GermanMessages extends MessageList {
 
         add(TranslationKeys.TTT_GUI_JOKERSHOP_TITLE, "&e&l♔ &eJoker");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_NAME, "&cTraitor-Joker");
-        add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_LORE, "&e${cost} Token ;;&7Kaufe dir einen Joker;&7um dein Schicksal fest;zulegen.");
+        add(TranslationKeys.TTT_GUI_JOKERSHOP_TRAITOR_LORE, "&e${cost} Token ;;&7Kaufe dir einen Joker;&7um dein Schicksal fest;&7zulegen.;;&6&lPremium gets 50% off");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_ALREADY_BOUGHT, "&7Du hast einen Joker bereits eingelöst!");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_NAME, "&dDetective-Joker");
         add(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, "&e${cost} Token ;;&7Kaufe dir einen Joker;&7um dein Schicksal fest;zulegen.");
