@@ -55,73 +55,73 @@ public class EnglishMessages extends MessageList {
         // SHOP ITEM
         // TRAITOR
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, "&eArrow Supply");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION, "&7Get 10 arrows for your bow.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION, "&7Get 10 arrows for your bow.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_NAME, "&eFallen-Stop");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION, "&7If this item get bought,;&7the traitor trap won't work anymore.;&7If you buy this another time,;&7it can be activated it again.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_DESCRIPTION, "&7If this item get bought,;&7the traitor trap won't work anymore.;&7If you buy this another time,;&7it can be activated it again.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_TICKET_REMOVED, "&eYou removed your trap ticket.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, "&eRadar");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION, "&7Shows you the closest player to you.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION, "&7Shows you the closest player to you.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_NAME, "&eNom-Nom Device");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "&7Consume every 60 seconds a body;&7 to regenerate 10 hearts.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NOM_NOM_DEVICE_DESCRIPTION, "&7Consume every 60 seconds a body;&7 to regenerate 10 hearts.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_NAME, "&eBattle Ax");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "&7These heavy weapons make 5 hearts;&7damage with 1 punch. ;&7But because of the weight,;&7it will make you slow.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "&7These heavy weapons make 5 hearts;&7damage with 1 punch. ;&7But because of the weight,;&7it will make you slow.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_COOLDOWN, "&cYou axe is on cooldown!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "&eIron Sword");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "&7Get an iron sword, even if;&7no enderchest was available.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "&7Get an iron sword, even if;&7no enderchest was available.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "&eAdrenaline");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "&7This potion gives you a speed of 10 seconds;&7when you drink it.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "&7This potion gives you a speed of 10 seconds;&7when you drink it.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "&eInferno");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "&7This fiery ball leaves an ocean of flames;&7on his impact point.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "&7This fiery ball leaves an ocean of flames;&7on his impact point.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, "&eReperatur-Kit Typ F");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NOTHAVE, "&cThe trap was already used. You need to buy the Trap-Repair item in the shop.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_USED, "&7You used your trap-repair item.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_NAME, "&eBoom Body");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION, "&7If it gets identified from a detective or innocent,;&7it will make....;&7right! boom!;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_BOOM_BODY_DESCRIPTION, "&7If it gets identified from a detective or innocent,;&7it will make....;&7right! boom!;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_NAME, "&eExplosive Vest");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION, "&7This special vest will explode after 5 seconds;&7when you equip it.;&7But sadly you won't survive it...;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_JIHAD_DESCRIPTION, "&7This special vest will explode after 5 seconds;&7when you equip it.;&7But sadly you won't survive it...;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_NAME, "&eInnocent-Pass");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION, "&7Are you always suspected?;&7That jammer influences the traitor-tester;&7that you won't be shown as a traitor;&7 when you enter it.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TESTER_FAKER_DESCRIPTION, "&7Are you always suspected?;&7That jammer influences the traitor-tester;&7that you won't be shown as a traitor;&7 when you enter it.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_NAME, "&eIdentitätsdieb");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IDENT_THIEF_DESCRIPTION, ";;&7Costs: &e<tokensanzahl> Tokens");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, "&eSaboteur");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "&7With this item, you can deactivate the generator.;&7For every innocent and detective without a night vision device,;&7it will be dark.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "&7With this item, you can deactivate the generator.;&7For every innocent and detective without a night vision device,;&7it will be dark.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eCamouflage Cap");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "&7Disappear for 30 seconds in the guard;&7of the invisibility.;;&7Costs: &e<tokensanzahl> Tokens");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, "&eSentryGun");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "&7A powerful gun tower who destroys everything;&7that gets too close to him.;&7Unfortunately, his view is limited.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "&7A powerful gun tower who destroys everything;&7that gets too close to him.;&7Unfortunately, his view is limited.;;&7Cost: &e<coinsanzahl> Coins");
 
         // INNOCENT
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "&eBoomBody-Stop");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION, ";;&7Costs: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_WARN, "&cWarning this is a boom body!");
         
         // DETECTIVE
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, "&eNight Vision Device");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION, "&7Even when the generator got sabotaged,; you can see it in the dark with that device.;;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION, "&7Even when the generator got sabotaged,; you can see it in the dark with that device.;;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_NAME, "&eSuper-Identifizierer");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "&eGrappling Hook");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, ";;&7Costs: &e<tokensanzahl> Tokens");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_COOLDOWN, "&cYour grappling hook has a cooldown.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "&eTrap Free");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "&eMotion Detector");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eMove sensor! &7Someone came out of the vent!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED, "&aYour move sensor was set.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "&eDetector");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "&ePoisoning Air");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "&eSamaritan");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "&eOne-Shot-Bow");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_NAME, "Medi-Kit");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_NAME, "&eYouth");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_DESCRIPTION, ";;&7Cost: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_DESCRIPTION, ";;&7Cost: &e<coinsanzahl> Coins");
 
 
         add(TranslationKeys.TTT_GUI_CORPSE_TIME_CLOSE, "&7This corpse has fresh blood");
