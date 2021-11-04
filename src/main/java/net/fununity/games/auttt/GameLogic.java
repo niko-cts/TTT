@@ -189,6 +189,8 @@ public class GameLogic extends Game {
     public List<Player> endMinigame() {
         long innoAlive = tttPlayers.stream().filter(t -> t.getRole() != Role.TRAITOR && isIngame(t.getApiPlayer().getPlayer())).count();
 
+        Minigame.getInstance().setRewardTokens(50);
+
         List<Player> winner = new ArrayList<>();
         for (TTTPlayer tttPlayer : tttPlayers) {
             if (!tttPlayer.getApiPlayer().getPlayer().isOnline())

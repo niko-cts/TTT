@@ -81,6 +81,6 @@ public class CoinsUtil {
      * @since 1.0
      */
     public static void startCoins(TTTPlayer tttPlayer) {
-        tttPlayer.setCoins(tttPlayer.getRole() == Role.INNOCENT ? 10 : 200);
+        tttPlayer.setCoins(tttPlayer.getRole() == Role.INNOCENT ? 0 : 2);
     }
 }
