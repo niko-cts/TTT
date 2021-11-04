@@ -69,9 +69,9 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "&eEisenschwert");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "§7Besorge dir ein Eisenschwert;&7auch wenn du keine Enderchest;&7erwischt hast!;;&7Preis: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "&eAdrenalin");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "§7Dieser Trank verleiht 10 Sekunden;§7den Effekt Schnelligkeit, wenn;§7er getrunken wird");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "§7Dieser Trank verleiht 10 Sekunden;§7den Effekt Schnelligkeit, wenn;§7er getrunken wird.;;&7Preis: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "&eInferno");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "§7Dieser feurige Ball hinterlässt an;§7seiner Einschlagsstelle ein Meer;§7aus Flammen.");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_DESCRIPTION, "§7Dieser feurige Ball hinterlässt an;§7seiner Einschlagsstelle ein Meer;§7aus Flammen.;;&7Preis: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NAME, "&eReperatur-Kit Typ F");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_DESCRIPTION, "§7Erlaubt es, die Falle zu reparieren;§7und ein weiteres Mal auszulösen.;;&7Preis: &e<coinsanzahl> Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_REPAIR_NOTHAVE, "&cDie Falle wurde bereits ausgelöst!;&7Kaufe das Reperatur-Kit im Shop, um sie wieder auszulösen.");
