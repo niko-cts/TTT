@@ -115,13 +115,13 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "&ePoisoning Air");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "&eSamaritan");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, "Each player in a radius;§7of 2 meters will be healed.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "&eOne-Shot-Bow");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION, "§7The player will die immediately;§7if you hit him with that bow.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_NAME, "Medi-Kit");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION, "§7If the med-kit gets used,;§75 hearts will be instant;§7regenerated.;;§7Cost: §e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_NAME, "&eYouth");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_YOUTH_DESCRIPTION, "§7Incrases the capacity of;§7the maximal hearts by 2.;;&7Cost: &e${cost} Coins");
 
 
         add(TranslationKeys.TTT_GUI_CORPSE_TIME_CLOSE, "&7This corpse has fresh blood");
