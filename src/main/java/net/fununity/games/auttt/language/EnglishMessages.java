@@ -100,14 +100,14 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, "&eNight Vision Device");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION, "&7Even when the generator got sabotaged,;&7you can see it in the dark with that device.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_NAME, "&eSuper-Identifizierer");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION, "§7Get a faster view into the files;§7and receive additional information about the corpses.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, "&eGrappling Hook");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, ";;&7Costs: &e<tokensanzahl> Tokens");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION, "§7If you hit a block with the grappling hook;§7you can drag yourself into that direction.;§7If you hit a player with it, you can;§7drawn him to you, and he receives;§7a damage of 1 heart.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_COOLDOWN, "&cYour grappling hook has a cooldown.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, "&eTrap Free");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION, "§7If that item gets bought,;§7the next person can enter the tester;§7without activating the trap.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, "&eMotion Detector");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION, "§7Can be placed in front of a vent;§7and alert when a traitor;§7steps out of the vent.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eMove sensor! &7Someone came out of the vent!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED, "&aYour move sensor was set.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "&eDetector");
