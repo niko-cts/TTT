@@ -111,9 +111,9 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_SIGNAL, "&eMove sensor! &7Someone came out of the vent!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_MARKED, "&aYour move sensor was set.");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, "&eDetector");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION, "§7The color will change;§7if a traitor gets closer than 10 blocks.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "&ePoisoning Air");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, ";;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, "§7Poison the air in the vent for 60 seconds.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "&eSamaritan");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, "Each player in a radius;§7of 2 meters will be healed.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "&eOne-Shot-Bow");
