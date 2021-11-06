@@ -67,7 +67,7 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_DESCRIPTION, "&7These heavy weapons make 5 hearts;&7damage with 1 punch. ;&7But because of the weight,;&7it will make you slow.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_COOLDOWN, "&cYou axe is on cooldown!");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_NAME, "&eIron Sword");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "&7Get an iron sword, even if;&7no enderchest was available.;;&7Cost: &e${cost}${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_IRON_SWORD_DESCRIPTION, "&7Get an iron sword, even if;&7no enderchest was available.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, "&eAdrenaline");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION, "&7This potion gives you a speed of 10 seconds;&7when you drink it.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_FIREBALL_NAME, "&eInferno");
