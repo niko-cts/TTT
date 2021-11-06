@@ -115,7 +115,7 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, "&ePoisoning Air");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION, "§7Poison the air in the vent for 60 seconds.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, "&eSamaritan");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, "Each player in a radius;§7of 2 meters will be healed.;;&7Cost: &e${cost} Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION, "&7Each player in a radius;§7of 2 meters will be healed.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, "&eOne-Shot-Bow");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION, "§7The player will die immediately;§7if you hit him with that bow.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_NAME, "Medi-Kit");
