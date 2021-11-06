@@ -143,7 +143,7 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_GUI_JOKERSHOP_PAYBACK_INFO, "&7You joker card was not used. You have received your money back.");
 
         add(TranslationKeys.TTT_GUI_SHOP_TITLE, "&eItemshop");
-        add(TranslationKeys.TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS, "&7You don't have coins to buy that item."); // ACTIONBAR
+        add(TranslationKeys.TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS, "&7You §cdon't §7have enough coins"); // ACTIONBAR
         add(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUCURRENTAMOUNT, "&cYou can't have more of this shop item"); // ACTIONBAR
         add(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUBUYSAMOUNT, "&cYou've reached the maximum buyable amount"); // ACTIONBAR
         add(TranslationKeys.TTT_GUI_SHOP_COINS_NAME, "&eYou have &6${amount} coins");
