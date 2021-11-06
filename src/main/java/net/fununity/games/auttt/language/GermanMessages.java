@@ -143,7 +143,7 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GUI_JOKERSHOP_PAYBACK_INFO, "&7Dein Joker konnte &cnicht &7eingesetzt werden. Deine Token wurden zurückerstattet.");
 
         add(TranslationKeys.TTT_GUI_SHOP_TITLE, "&eItemshop");
-        add(TranslationKeys.TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS, "&7Du hast &cnicht &7genug Punkte!"); // ACTIONBAR
+        add(TranslationKeys.TTT_GUI_SHOP_ERROR_NOTENOUGHCOINS, "&7Du hast &cnicht &7genug Coins!"); // ACTIONBAR
         add(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUCURRENTAMOUNT, "&7Du kannst &ckeine &7größere Anzahl dieses Items auf einmal kaufen!"); // ACTIONBAR
         add(TranslationKeys.TTT_GUI_SHOP_ERROR_MAXIMUBUYSAMOUNT, "&7Du hast die &cmaximale &7Anzahl dieses Items gekauft!"); // ACTIONBAR
         add(TranslationKeys.TTT_GUI_SHOP_COINS_NAME, "&7Du hast &c${amount} Coins&7!");
