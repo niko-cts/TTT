@@ -87,7 +87,7 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_NAME, "&eSaboteur");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_GENERATOR_DESCRIPTION, "§7Mit diesem Item kannst du den;§7Generator deaktivieren. Für alle;§7Innocents und Detectives ohne;§7Nachtsichtgerät wird alles dunkel.;;&7Preis: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_NAME, "&eTarnkappe");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "§7Verschwinde für 30 Sekunden in;§7den Schutz der Unsichtbarkeit.;;&7Preis: &e<coinsanzahl> Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_INVISIBILITY_DESCRIPTION, "§7Verschwinde für 30 Sekunden in;§7den Schutz der Unsichtbarkeit.;;&7Preis: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_NAME, "&eSentryGun");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_SENTRYGUN_DESCRIPTION, "§7Ein mächtiger Geschützturm, der alles vernichtet, was ihm zu nahe kommt.;§7Sein Sichtfeld ist aber sehr eingeschränkt...;;&7Preis: &e${cost} Coins");
 
