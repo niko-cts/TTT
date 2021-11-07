@@ -14,7 +14,7 @@ public class GermanMessages extends MessageList {
 
         add(TranslationKeys.TTT_COMMAND_COINSINFO_USAGE, "coinsinfo");
         add(TranslationKeys.TTT_COMMAND_COINSINFO_DESCRIPTION, "&7Erfahre mehr zur Verwendung von Punkten!");
-        add(TranslationKeys.TTT_COMMAND_COINSINFO_BOOK, "Wie man Coins bekommt;;Das Töten von einem Traitor bringt 2 Coins;;Das Töten eines Detectivs gibt 3 Coins;;Das Töten von Innocents als Traitor gibt 1 Coin.;; Es gibt keine Coins für das Töten von Detektiven und Kamaraden");
+        add(TranslationKeys.TTT_COMMAND_COINSINFO_BOOK, "§0Wie bekommt man Coins?/n§0Das Töten von einem §4Traitor §0bringt 2 Coins/n/n§0Das Töten eines §9Detectivs §7gibt 3 Coins/n/n§0Das Töten von §aInnocents §0als §4Traitor §0gibt 1 Coin.;§0Es gibt keine Coins für das Töten von §9Detektiven und §aKamaraden§0.");
 
         add(TranslationKeys.TTT_COMMAND_SHOP_USAGE, "shop (<id>)");
         add(TranslationKeys.TTT_COMMAND_SHOP_DESCRIPTION, "&7Öffne deinen Shop.");
