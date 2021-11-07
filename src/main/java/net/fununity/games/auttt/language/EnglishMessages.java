@@ -93,7 +93,7 @@ public class EnglishMessages extends MessageList {
 
         // INNOCENT
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, "&eBoomBody-Stop");
-        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION, "§7Prevent that you identify a BoomBody.;;&7Cost: &e${cost}$ Coins");
+        add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION, "§7Prevent that you identify a BoomBody.;;&7Cost: &e${cost} Coins");
         add(TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_WARN, "&cWarning this is a boom body!");
         
         // DETECTIVE
