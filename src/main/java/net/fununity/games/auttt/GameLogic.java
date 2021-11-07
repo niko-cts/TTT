@@ -189,8 +189,6 @@ public class GameLogic extends Game {
     public List<Player> endMinigame() {
         long innoAlive = tttPlayers.stream().filter(t -> t.getRole() != Role.TRAITOR && isIngame(t.getApiPlayer().getPlayer())).count();
 
-        Minigame.getInstance().setRewardTokens(50);
-
         List<Player> winner = new ArrayList<>();
         for (TTTPlayer tttPlayer : tttPlayers) {
             if (!tttPlayer.getApiPlayer().getPlayer().isOnline())
@@ -210,7 +208,7 @@ public class GameLogic extends Game {
 
         if (Minigame.getInstance().getRewardTokens() != 0)
             for (Player player : winner)
-                BalanceHandler.getInstance().giveMoney(player.getUniqueId(), Minigame.getInstance().getRewardTokens(), false);
+                BalanceHandler.getInstance().giveMoney(player.getUniqueId(), Minigame.getInstance().getRewardTokens(), true);
 
         return winner;
     }
