@@ -17,7 +17,6 @@ import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.npc.NPC;
 import net.fununity.npc.events.PlayerInteractAtNPCEvent;
 import net.minecraft.server.v1_12_R1.EnumItemSlot;
-import net.minecraft.server.v1_12_R1.PacketPlayInUseEntity;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -55,7 +54,7 @@ public class PlayerCorpse {
 
     public void clickedOn(PlayerInteractAtNPCEvent event) {
         APIPlayer apiPlayer = event.getPlayer();
-        if (event.getAction() != PacketPlayInUseEntity.EnumEntityUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
+        if (event.getAction() != PlayerInteractAtNPCEvent.NPCUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
                 GameManager.getInstance().isSpectator(apiPlayer.getPlayer())) return;
 
         // NomNomDevice

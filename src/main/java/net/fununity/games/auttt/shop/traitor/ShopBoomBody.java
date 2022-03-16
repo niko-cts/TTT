@@ -12,7 +12,6 @@ import net.fununity.main.api.hologram.HologramText;
 import net.fununity.main.api.player.APIPlayer;
 import net.fununity.npc.NPC;
 import net.fununity.npc.events.PlayerInteractAtNPCEvent;
-import net.minecraft.server.v1_12_R1.PacketPlayInUseEntity;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -49,7 +48,7 @@ public class ShopBoomBody extends ShopItem {
 
     public void clickedOn(PlayerInteractAtNPCEvent event) {
         APIPlayer apiPlayer = event.getPlayer();
-        if (event.getAction() != PacketPlayInUseEntity.EnumEntityUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
+        if (event.getAction() != PlayerInteractAtNPCEvent.NPCUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
                 GameLogic.getInstance().gameManager.isSpectator(apiPlayer.getPlayer())) return;
         TTTPlayer clicker = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
         if (clicker == null || clicker.getRole() == Role.TRAITOR) return;

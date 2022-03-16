@@ -8,6 +8,7 @@ import net.fununity.games.auttt.rooms.RoomsManager;
 import net.fununity.games.auttt.util.DetectiveFilesUtil;
 import net.fununity.main.api.FunUnityAPI;
 import net.fununity.main.api.actionbar.ActionbarMessage;
+import net.fununity.main.api.actionbar.ActionbarMessageType;
 import net.fununity.main.api.common.util.RandomUtil;
 import net.fununity.main.api.item.ItemBuilder;
 import net.fununity.mgs.gamestates.GameManager;
@@ -151,7 +152,7 @@ public class PlayerInteractListener implements Listener {
             event.setCancelled(true);
             if (GameLogic.getInstance().getTTTPlayers().isEmpty()) {
                 FunUnityAPI.getInstance().getActionbarManager().addActionbar(event.getPlayer().getUniqueId(),
-                        new ActionbarMessage(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN));
+                        new ActionbarMessage(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN).setType(ActionbarMessageType.TIMED));
                 return;
             }
 
