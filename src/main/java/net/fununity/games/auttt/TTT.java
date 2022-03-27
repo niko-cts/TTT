@@ -1,9 +1,6 @@
 package net.fununity.games.auttt;
 
-import net.fununity.games.auttt.commands.CoinsInfoCommand;
-import net.fununity.games.auttt.commands.JokerCommand;
-import net.fununity.games.auttt.commands.ShopCommand;
-import net.fununity.games.auttt.commands.TraitorChatCommand;
+import net.fununity.games.auttt.commands.*;
 import net.fununity.games.auttt.language.EnglishMessages;
 import net.fununity.games.auttt.language.GermanMessages;
 import net.fununity.games.auttt.listener.*;
@@ -48,7 +45,7 @@ public class TTT extends JavaPlugin {
 
         RegisterUtil registerUtil = new RegisterUtil(this);
         registerUtil.addListeners(new PlayerInteractListener(), new PlayerQuitListener(), new LanguageChangeListener(), new PlayerDropListener(), new PlayerDamagesPlayerListener(), new ProjectileHitListener(), new ChatListener(), new GeneralShopListener());
-        registerUtil.addCommands(new TraitorChatCommand(), new CoinsInfoCommand(), new ShopCommand(), new JokerCommand());
+        registerUtil.addCommands(new TraitorChatCommand(), new CoinsInfoCommand(), new ShopCommand(), new JokerCommand(), new AdminShopCommand());
         registerUtil.register();
 
         Minigame ttt = new Minigame(MinigameNames.TTT.getDisplayName(), Minigames.TTT, GameLogic.class);

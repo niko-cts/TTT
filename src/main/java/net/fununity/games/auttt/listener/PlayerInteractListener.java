@@ -151,6 +151,7 @@ public class PlayerInteractListener implements Listener {
         if (block.getType() == Material.ENDER_CHEST) {
             event.setCancelled(true);
             if (GameLogic.getInstance().getTTTPlayers().isEmpty()) {
+                FunUnityAPI.getInstance().getActionbarManager().clearActionbar(event.getPlayer().getUniqueId());
                 FunUnityAPI.getInstance().getActionbarManager().addActionbar(event.getPlayer().getUniqueId(),
                         new ActionbarMessage(TranslationKeys.TTT_GAME_ENDERCHEST_CANTOPEN).setType(ActionbarMessageType.TIMED));
                 return;

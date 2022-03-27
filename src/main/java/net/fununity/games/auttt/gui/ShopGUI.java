@@ -23,9 +23,12 @@ public class ShopGUI {
     }
 
     public static void open(TTTPlayer tttPlayer) {
+        open(tttPlayer, tttPlayer.getRole().getShopItems());
+    }
+
+    public static void open(TTTPlayer tttPlayer, ShopItems[] shopItems) {
         APIPlayer apiPlayer = tttPlayer.getApiPlayer();
         Language lang = apiPlayer.getLanguage();
-        ShopItems[] shopItems = tttPlayer.getRole().getShopItems();
         CustomInventory menu = new CustomInventory(lang.getTranslation(TranslationKeys.TTT_GUI_SHOP_TITLE), Utils.getPerfectInventorySize(shopItems.length) + 9);
 
         for (ShopItems shopItem : shopItems) {

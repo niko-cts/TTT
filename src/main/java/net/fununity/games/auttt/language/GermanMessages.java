@@ -25,6 +25,9 @@ public class GermanMessages extends MessageList {
         add(TranslationKeys.TTT_COMMAND_JOKER_DESCRIPTION, "&7Nutze Joker um dein Schicksal vorherzubestimmen!");
         add(TranslationKeys.TTT_COMMAND_JOKER_NOTAVAILABLE, "&7Dieser Befehl ist nur §cvor Ende&7 der Schutzzeit verfügbar!");
 
+        add(TranslationKeys.TTT_COMMAND_ADMINSHOP_USAGE, "adminshop TRAITOR/DETECTIVE");
+        add(TranslationKeys.TTT_COMMAND_ADMINSHOP_DESCRIPTION, "&7Öffnet den traitor oder detective shop.");
+
         add(TranslationKeys.TTT_GAME_ROOM_TESTER_JOINED, "&e${name} &7hat den Traitor-Tester betreten.");
         add(TranslationKeys.TTT_GAME_ROOM_TESTER_COOLDOWN, "§cWarte 5 Sekunden um den Tester zu betreten!");
 

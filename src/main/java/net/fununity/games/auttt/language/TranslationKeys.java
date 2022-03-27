@@ -24,6 +24,10 @@ public class TranslationKeys {
     public static final String TTT_COMMAND_JOKER_DESCRIPTION = "ttt.command.joker.description";
     public static final String TTT_COMMAND_JOKER_NOTAVAILABLE = "ttt.command.joker.notavailable";
 
+    public static final String TTT_COMMAND_ADMINSHOP_USAGE = "ttt.command.adminshop.usage";
+    public static final String TTT_COMMAND_ADMINSHOP_DESCRIPTION = "ttt.command.adminshop.description";
+
+
     public static final String ROLE_CALLOUT_TITLE = "ttt.role.callout.title";
     public static final String ROLE_CALLOUT_SUBTITLE = "ttt.role.callout.subtitle";
     public static final String ROLE_CALLOUT_TEXT = "ttt.role.callout.text";

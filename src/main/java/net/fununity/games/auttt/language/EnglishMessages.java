@@ -25,6 +25,9 @@ public class EnglishMessages extends MessageList {
         add(TranslationKeys.TTT_COMMAND_JOKER_DESCRIPTION, "&7Opens the joker shop.");
         add(TranslationKeys.TTT_COMMAND_JOKER_NOTAVAILABLE, "&cThis command is currently not available.");
 
+        add(TranslationKeys.TTT_COMMAND_ADMINSHOP_USAGE, "adminshop TRAITOR/DETECTIVE");
+        add(TranslationKeys.TTT_COMMAND_ADMINSHOP_DESCRIPTION, "&7Force-Opens the traitor or detective shop.");
+
         add(TranslationKeys.TTT_GAME_ROOM_TESTER_JOINED, "&e${name} &7has entered the tester.");
         add(TranslationKeys.TTT_GAME_ROOM_TESTER_COOLDOWN, "&cThe tester has a cooldown of 5 seconds.");
 
