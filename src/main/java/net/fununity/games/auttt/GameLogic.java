@@ -241,7 +241,7 @@ public class GameLogic extends Game {
         }
 
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
-            TTTScoreboard.reAddPlayer(tttPlayer.getApiPlayer().getPlayer());
+            TTTScoreboard.reAddPlayer(List.of(tttPlayer.getApiPlayer().getPlayer()));
             getTTTPlayerByRole(Role.TRAITOR).forEach(t -> TTTScoreboard.updateScoreboard(t.getApiPlayer()));
             TTTScoreboard.updateScoreboard(tttPlayer.getApiPlayer());
             TTTScoreboard.updateTablist(tttPlayer.getApiPlayer());

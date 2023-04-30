@@ -55,7 +55,7 @@ public class JokerShopGUI {
         });
 
         int detectiveCost = JOKER_DETECTIVE / (apiPlayer.hasPermission("ttt.joker") ? 2 : 1);
-        ItemStack detectiveItem = new ItemBuilder(Material.INK_SACK, (short) 4)
+        ItemStack detectiveItem = new ItemBuilder(Material.GREEN_DYE)
                 .setName(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_NAME, "${cost}", ""+detectiveCost))
                 .setLore(lang.getTranslation(TranslationKeys.TTT_GUI_JOKERSHOP_DETECTIVE_LORE, Arrays.asList("${off}", "${cost}"), Arrays.asList("50%", ""+detectiveCost)).split(";")).craft();
         menu.setItem(14, detectiveItem, new ClickAction() {

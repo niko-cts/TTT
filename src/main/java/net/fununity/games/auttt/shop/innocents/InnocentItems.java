@@ -19,7 +19,7 @@ import org.bukkit.inventory.ItemStack;
  * @since 1.1
  */
 public enum InnocentItems implements ShopItems {
-    NIGHTVISION(1, 0, 1, 1, ShopNightVision.class, new ItemStack(Material.EYE_OF_ENDER), TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION),
+    NIGHTVISION(1, 0, 1, 1, ShopNightVision.class, new ItemStack(Material.ENDER_EYE), TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION),
     ARROWS(1, 0, 5, 5, ShopArrows.class, new ItemStack(Material.ARROW), TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ARROWS_DESCRIPTION),
     RADAR(2, 0, 1, 1, ShopRadar.class, new ItemStack(Material.COMPASS), TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION),
     ANTI_BOOM_BODY(3, 1, 5, 5, ShopAntiBoomBody.class, new ItemStack(Material.STICK), TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ANTI_BOOM_BODY_DESCRIPTION),

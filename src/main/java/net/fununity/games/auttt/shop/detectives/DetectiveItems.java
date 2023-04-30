@@ -21,15 +21,15 @@ import org.bukkit.inventory.ItemStack;
  * @since 1.1
  */
 public enum DetectiveItems implements ShopItems {
-    NIGHTVISION(2, 0, 1, 1, ShopNightVision.class, new ItemStack(Material.EYE_OF_ENDER), TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION),
+    NIGHTVISION(2, 0, 1, 1, ShopNightVision.class, new ItemStack(Material.ENDER_EYE), TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_NIGHTVISION_DESCRIPTION),
     SUPER_IDENT(2, 0, 1, 1, ShopSuperIdent.class, new ItemStack(Material.BLAZE_ROD), TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_SUPER_IDENT_DESCRIPTION),
     RADAR(2, 0, 1, 1, ShopRadar.class, new ItemStack(Material.COMPASS), TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_RADAR_DESCRIPTION),
     HOOK(3, 5, 5, 1, ShopHook.class, new ItemStack(Material.FISHING_ROD), TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_HOOK_DESCRIPTION),
     ADRENALIN(3, 1, 5, 5, ShopAdrenalin.class, new ItemStack(Material.FEATHER), TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ADRENALIN_DESCRIPTION),
     TRAP_BLOCK(3, 1, 1, 1, ShopTrapBlock.class, new ItemStack(Material.BARRIER), TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_TRAP_BLOCK_DESCRIPTION),
-    MOVE_SENSOR(3, 1, 3, 3, ShopMoveSensor.class, new ItemStack(Material.DIODE), TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION),
+    MOVE_SENSOR(3, 1, 3, 3, ShopMoveSensor.class, new ItemStack(Material.REPEATER), TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_MOVE_SENSOR_DESCRIPTION),
     DETECTOR(4, 1, 5, 5, ShopDetector.class, new ItemStack(Material.BEACON), TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_DETECTOR_DESCRIPTION),
-    VENT_GIFT(4, 1, 5, 5, ShopVentGift.class, new ItemStack(Material.SEEDS), TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION),
+    VENT_GIFT(4, 1, 5, 5, ShopVentGift.class, new ItemStack(Material.WHEAT_SEEDS), TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_VENT_GIFT_DESCRIPTION),
     HEAL_STATION(4, 1, 5, 5, ShopHealStation.class, new ItemStack(Material.END_CRYSTAL), TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_HEAL_STATION_DESCRIPTION),
     ONE_SHOT_BOW(5, 1, 5, 5, ShopOneShotBow.class, new ItemStack(Material.BOW), TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_ONE_SHOT_BOW_DESCRIPTION),
     MED_KIT(5, 1, 5, 5, ShopMedKit.class, new ItemStack(Material.GOLDEN_APPLE), TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_NAME, TranslationKeys.TTT_GAME_SHOP_ITEM_MED_KIT_DESCRIPTION),

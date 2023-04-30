@@ -2,13 +2,12 @@ package net.fununity.games.auttt.shop.detectives;
 
 import net.fununity.games.auttt.TTT;
 import net.fununity.games.auttt.TTTPlayer;
-import net.fununity.games.auttt.language.TranslationKeys;
 import net.fununity.games.auttt.shop.ShopItem;
 import net.fununity.games.auttt.shop.ShopItems;
-import net.fununity.main.api.item.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -34,10 +33,8 @@ public class ShopHealStation extends ShopItem {
         if (!didPlayerUse(event)) return;
         super.use(true);
         Location location = tttPlayer.getApiPlayer().getPlayer().getLocation();
-        Material material = location.getBlock().getType();
-        byte data = location.getBlock().getData();
-        location.getBlock().setType(Material.SKULL);
-        location.getBlock().setData((byte) 3);
+        BlockData blockData = location.getBlock().getBlockData();
+        location.getBlock().setType(Material.PLAYER_HEAD);
         location.getBlock().getState().update();
 
         this.task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), ()->{
@@ -49,8 +46,7 @@ public class ShopHealStation extends ShopItem {
             minutesLeft--;
             if (minutesLeft == 0) {
                 cancelTask();
-                location.getBlock().setType(material);
-                location.getBlock().setData(data);
+                location.getBlock().setBlockData(blockData);
             }
         }, 20, 20);
     }

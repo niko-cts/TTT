@@ -53,7 +53,7 @@ public class DefaultCorpseInventory {
             if (killer instanceof Player) {
                 ItemStack weapon = ((Player) killer).getInventory().getItemInMainHand();
                 switch (weapon.getType()) {
-                    case WOOD_SWORD -> material = Material.STICK;
+                    case WOODEN_SWORD -> material = Material.STICK;
                     case STONE_SWORD -> material = Material.COBBLESTONE;
                     case IRON_SWORD -> material = Material.IRON_INGOT;
                     case DIAMOND_SWORD -> material = Material.DIAMOND;
@@ -66,7 +66,7 @@ public class DefaultCorpseInventory {
 
         if (RandomUtil.getRandom().nextBoolean()) { // hand item
             ItemStack item = event.getEntity().getInventory().getItemInMainHand().clone();
-            if (item != null && item.getType() != Material.AIR)
+            if (item.getType() != Material.AIR)
                 insertItem(CorpseElements.HELDITEM, item, 1);
         }
 

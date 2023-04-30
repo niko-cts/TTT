@@ -47,10 +47,7 @@ public class Tester {
             return;
         }
         for (Location reactionBlock : reactionBlocks)
-            reactionBlock.getBlock().setData((byte) 4);
-
-        for (Location redstoneBlock : redstoneBlocks)
-            redstoneBlock.getBlock().setType(Material.REDSTONE_BLOCK);
+            reactionBlock.getBlock().setType(Material.YELLOW_TERRACOTTA);
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             if (!onlinePlayer.getUniqueId().equals(player.getUniqueId()) && !GameManager.getInstance().isSpectator(onlinePlayer)) {
@@ -76,7 +73,7 @@ public class Tester {
             }
 
             for (Location reactionBlock : reactionBlocks)
-                reactionBlock.getBlock().setData(tttPlayer.getRole() == Role.TRAITOR && !tttPlayer.hasShopItem(TraitorItems.TESTER_FAKER) ? (byte) 14 : (byte) 13);
+                reactionBlock.getBlock().setType(tttPlayer.getRole() == Role.TRAITOR && !tttPlayer.hasShopItem(TraitorItems.TESTER_FAKER) ? Material.RED_TERRACOTTA : Material.GREEN_TERRACOTTA);
 
             Bukkit.getScheduler().runTaskLater(TTT.getInstance(), this::endTester, 20 * 4L);
         }, 20 * 3);
@@ -84,10 +81,7 @@ public class Tester {
 
     private void endTester() {
         for (Location reactionBlock : reactionBlocks)
-            reactionBlock.getBlock().setData((byte) 7);
-
-        for (Location redstoneBlock : redstoneBlocks)
-            redstoneBlock.getBlock().setType(Material.AIR);
+            reactionBlock.getBlock().setType(Material.YELLOW_TERRACOTTA);
 
         this.testerCooldown = System.currentTimeMillis();
     }

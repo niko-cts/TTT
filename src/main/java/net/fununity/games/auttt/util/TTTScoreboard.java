@@ -13,15 +13,20 @@ import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.mgs.gamestates.GameState;
 import net.fununity.mgs.language.Constants;
 import net.fununity.misc.translationhandler.translations.Language;
-import net.minecraft.server.v1_12_R1.PacketPlayOutPlayerInfo;
+import net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket;
+import net.minecraft.server.level.ServerPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_19_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.EnumSet;
 
 /**
  * The scoreboard utility class for tab and side board.
@@ -179,11 +184,12 @@ public class TTTScoreboard {
      * @param player Player - the player who died.
      * @since 0.0.1
      */
-    public static void reAddPlayer(Player player) {
-        PacketPlayOutPlayerInfo packet = new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, ((CraftPlayer) player).getHandle());
-
+    public static void reAddPlayer(Collection<Player> player) {
+        Collection<ServerPlayer> ePlayers = new ArrayList<>();
+        player.forEach(p -> ePlayers.add(((CraftPlayer) p).getHandle()));
+        ClientboundPlayerInfoUpdatePacket packet = new ClientboundPlayerInfoUpdatePacket(EnumSet.of(ClientboundPlayerInfoUpdatePacket.Action.ADD_PLAYER), ePlayers);
         for (APIPlayer onlinePlayer : FunUnityAPI.getInstance().getPlayerHandler().getOnlinePlayers())
-            onlinePlayer.sendPacket(packet);
+            onlinePlayer.sendPackets(packet);
     }
 
 }

@@ -16,7 +16,6 @@ import net.fununity.main.api.player.APIPlayer;
 import net.fununity.mgs.gamestates.GameManager;
 import net.fununity.npc.NPC;
 import net.fununity.npc.events.PlayerInteractAtNPCEvent;
-import net.minecraft.server.v1_12_R1.EnumItemSlot;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -54,8 +53,7 @@ public class PlayerCorpse {
 
     public void clickedOn(PlayerInteractAtNPCEvent event) {
         APIPlayer apiPlayer = event.getPlayer();
-        if (event.getAction() != PlayerInteractAtNPCEvent.NPCUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
-                GameManager.getInstance().isSpectator(apiPlayer.getPlayer())) return;
+        if (event.getAction().isShiftClick() || GameManager.getInstance().isSpectator(apiPlayer.getPlayer())) return;
 
         // NomNomDevice
         TTTPlayer tttPlayer = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
@@ -93,7 +91,7 @@ public class PlayerCorpse {
         CoinsUtil.foundBody(foundBy, this.tttPlayer);
 
         updateHologram(this.tttPlayer.getColoredName(), false);
-        this.npc.equip(EnumItemSlot.HEAD, new ItemBuilder(UsefulItems.PLAYER_HEAD).setSkullOwner(this.tttPlayer.getApiPlayer().getDatabasePlayer().getPlayerTextures()).craft());
+        this.npc.equip(EquipmentSlot.HEAD, new ItemBuilder(UsefulItems.PLAYER_HEAD).setSkullOwner(this.tttPlayer.getApiPlayer().getDatabasePlayer().getPlayerTextures()).craft());
 
         for (TTTPlayer tttPlayer : GameLogic.getInstance().getTTTPlayers()) {
             tttPlayer.getApiPlayer().sendMessage(TranslationKeys.TTT_GAME_PLAYER_FOUND,

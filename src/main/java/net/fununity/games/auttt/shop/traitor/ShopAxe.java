@@ -29,7 +29,7 @@ public class ShopAxe extends ShopItem {
     public void onEntityDamage(EntityDamageByEntityEvent event) {
         if (!event.getDamager().getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId())) return;
         Player damager = (Player) event.getDamager();
-        if (damager.getInventory().getItemInMainHand().getType() != Material.GOLD_AXE) return;
+        if (damager.getInventory().getItemInMainHand().getType() != Material.GOLDEN_AXE) return;
         if (System.currentTimeMillis() - lastHit <= 2000) {
             FunUnityAPI.getInstance().getActionbarManager().addActionbar(damager.getUniqueId(), new ActionbarMessage(TranslationKeys.TTT_GAME_SHOP_ITEM_AXE_COOLDOWN));
             event.setCancelled(true);
@@ -51,11 +51,11 @@ public class ShopAxe extends ShopItem {
         Player player = event.getPlayer();
         if (!player.getUniqueId().equals(tttPlayer.getApiPlayer().getUniqueId())) return;
         ItemStack newItem = player.getInventory().getItem(event.getNewSlot());
-        if (newItem != null && newItem.getType() == Material.GOLD_AXE) {
+        if (newItem != null && newItem.getType() == Material.GOLDEN_AXE) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 1, false));
         } else {
             ItemStack previousItem = player.getInventory().getItem(event.getPreviousSlot());
-            if (previousItem != null && previousItem.getType() == Material.GOLD_AXE) {
+            if (previousItem != null && previousItem.getType() == Material.GOLDEN_AXE) {
                 player.removePotionEffect(PotionEffectType.SLOW);
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20 * 3, 1, false));
             }

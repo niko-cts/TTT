@@ -29,7 +29,7 @@ public class IndividualCorpseInventory {
                 long min = ChronoUnit.MINUTES.between(this.defaultCorpseInventory.playerCorpse.death, OffsetDateTime.now());
                 ItemBuilder item;
                 if (min >= 5)
-                    item = new ItemBuilder(Material.WEB).setName(TranslationKeys.TTT_GUI_CORPSE_TIME_LONG);
+                    item = new ItemBuilder(Material.COBWEB).setName(TranslationKeys.TTT_GUI_CORPSE_TIME_LONG);
                 else if (min >= 2)
                     item = new ItemBuilder(Material.REDSTONE_BLOCK).setName(TranslationKeys.TTT_GUI_CORPSE_TIME_CLOSE);
                 else

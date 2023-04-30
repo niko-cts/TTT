@@ -17,7 +17,6 @@ import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.EquipmentSlot;
 
 public class ShopBoomBody extends ShopItem {
 
@@ -48,8 +47,7 @@ public class ShopBoomBody extends ShopItem {
 
     public void clickedOn(PlayerInteractAtNPCEvent event) {
         APIPlayer apiPlayer = event.getPlayer();
-        if (event.getAction() != PlayerInteractAtNPCEvent.NPCUseAction.INTERACT || event.getHand() != EquipmentSlot.HAND ||
-                GameLogic.getInstance().gameManager.isSpectator(apiPlayer.getPlayer())) return;
+        if (!event.getAction().isRightClick() || GameLogic.getInstance().gameManager.isSpectator(apiPlayer.getPlayer())) return;
         TTTPlayer clicker = GameLogic.getInstance().getTTTPlayer(apiPlayer.getUniqueId());
         if (clicker == null || clicker.getRole() == Role.TRAITOR) return;
         if (clicker.hasShopItem(InnocentItems.ANTI_BOOM_BODY)) {

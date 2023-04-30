@@ -70,9 +70,7 @@ public class VentPlayerData {
             onlinePlayer.hidePlayer(TTT.getInstance(), player);
 
         Bukkit.getScheduler().runTaskLater(TTT.getInstance(), () -> {
-            for (Player onlinePlayer : GameManager.getInstance().getPlayers()) {
-                TTTScoreboard.reAddPlayer(onlinePlayer);
-            }
+            TTTScoreboard.reAddPlayer(GameManager.getInstance().getPlayers());
         }, 1L);
 
         task = Bukkit.getScheduler().runTaskTimer(TTT.getInstance(), () -> {
